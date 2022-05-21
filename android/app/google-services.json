@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "48423935051",
+    "firebase_url": "https://planzapp-2c02d.firebaseio.com",
+    "project_id": "planzapp-2c02d",
+    "storage_bucket": "planzapp-2c02d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48423935051:android:37877e1ab04fbc3a6ac1ce",
+        "android_client_info": {
+          "package_name": "com.planzapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48423935051-kn4ousvvq831qn6o4grfrb81kdqn8dc4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.planzapp",
+            "certificate_hash": "0501143f060970cedf273f199625982da451992a"
+          }
+        },
+        {
+          "client_id": "48423935051-2739vf4m8ee2ntt172qmbb6tanqcnf1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzoK9zgu_sWJ53eNIKjGyjZ8ZOO2beTV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48423935051-2739vf4m8ee2ntt172qmbb6tanqcnf1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
