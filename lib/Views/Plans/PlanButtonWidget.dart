@@ -289,35 +289,35 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
                                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               ),
                             ),
-                            child: OutlineButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(3.0),
-                                  side: BorderSide(color: Colors.black)),
-                              child: Text('View Itinerary'),
-                              onPressed: () {
-                                print("tapped on a plan");
-                                // UniversalMethods.setCurrentPlanData(c.get('user_id'), c.get('title'), c.get('price'), c.get('description'), c.get('internalUsers'), c.get('externalUsers'), c.get('placesWithTime'), c.get('status'), c.get('favorite'), c.get('favoriteTime'), c.id);
-                                // Navigator.pushNamed(context, "ViewItinerary");
-                                Plan plan = Plan(
-                                    planEventPlanners: c.get('planEventPlanners'),
-                                    // planEventPlanners: c.data()['eventPlanners'],
-                                    planTitle: c.get('planTitle'),
-                                    planPrice: c.get('planPrice'),
-                                    planDescription: c.get('planDescription'),
-                                    planInternalUsers: c.get('planInternalUsers'),
-                                    planExternalUsers: c.get('planExternalUsers'),
-                                    planPlacesWithTime: c.get('planPlacesWithTime'),
-                                    planStatus: c.get('planStatus'),
-                                    planFavorite: c.get('planFavorite'),
-                                    planFavoriteTime: c.get('planFavoriteTime'),
-                                    planId: c.get('planId'));
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ViewItinerary(plan: plan),
-                                    ));
-                              },
-                            ),
+                            // child: OutlineButton(
+                            //   shape: RoundedRectangleBorder(
+                            //       borderRadius: BorderRadius.circular(3.0),
+                            //       side: BorderSide(color: Colors.black)),
+                            //   child: Text('View Itinerary'),
+                            //   onPressed: () {
+                            //     print("tapped on a plan");
+                            //     // UniversalMethods.setCurrentPlanData(c.get('user_id'), c.get('title'), c.get('price'), c.get('description'), c.get('internalUsers'), c.get('externalUsers'), c.get('placesWithTime'), c.get('status'), c.get('favorite'), c.get('favoriteTime'), c.id);
+                            //     // Navigator.pushNamed(context, "ViewItinerary");
+                            //     Plan plan = Plan(
+                            //         planEventPlanners: c.get('planEventPlanners'),
+                            //         // planEventPlanners: c.data()['eventPlanners'],
+                            //         planTitle: c.get('planTitle'),
+                            //         planPrice: c.get('planPrice'),
+                            //         planDescription: c.get('planDescription'),
+                            //         planInternalUsers: c.get('planInternalUsers'),
+                            //         planExternalUsers: c.get('planExternalUsers'),
+                            //         planPlacesWithTime: c.get('planPlacesWithTime'),
+                            //         planStatus: c.get('planStatus'),
+                            //         planFavorite: c.get('planFavorite'),
+                            //         planFavoriteTime: c.get('planFavoriteTime'),
+                            //         planId: c.get('planId'));
+                            //     Navigator.push(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //           builder: (context) => ViewItinerary(plan: plan),
+                            //         ));
+                            //   },
+                            // ),
                           ),
                         ),
                       )

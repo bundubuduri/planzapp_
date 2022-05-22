@@ -72,42 +72,45 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: (_page == 0)
                         ? UniversalVariables.lightBlueColor
                         : UniversalVariables.greyColor),
-                title: Text(
-                  "Chats",
-                  style: TextStyle(
-                      fontSize: _labelFontSize,
-                      color: (_page == 0)
-                          ? UniversalVariables.lightBlueColor
-                          : Colors.grey),
-                ),
+                // title: Text(
+                //   "Chats",
+                //   style: TextStyle(
+                //       fontSize: _labelFontSize,
+                //       color: (_page == 0)
+                //           ? UniversalVariables.lightBlueColor
+                //           : Colors.grey),
+                // ),
+                label: "Chats"
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.call,
                     color: (_page == 1)
                         ? UniversalVariables.lightBlueColor
                         : UniversalVariables.greyColor),
-                title: Text(
-                  "Calls",
-                  style: TextStyle(
-                      fontSize: _labelFontSize,
-                      color: (_page == 1)
-                          ? UniversalVariables.lightBlueColor
-                          : Colors.grey),
-                ),
+                // title: Text(
+                //   "Calls",
+                //   style: TextStyle(
+                //       fontSize: _labelFontSize,
+                //       color: (_page == 1)
+                //           ? UniversalVariables.lightBlueColor
+                //           : Colors.grey),
+                // ),
+                label: "Calls",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.contact_phone,
                     color: (_page == 2)
                         ? UniversalVariables.lightBlueColor
                         : UniversalVariables.greyColor),
-                title: Text(
-                  "Contacts",
-                  style: TextStyle(
-                      fontSize: _labelFontSize,
-                      color: (_page == 2)
-                          ? UniversalVariables.lightBlueColor
-                          : Colors.grey),
-                ),
+                // title: Text(
+                //   "Contacts",
+                //   style: TextStyle(
+                //       fontSize: _labelFontSize,
+                //       color: (_page == 2)
+                //           ? UniversalVariables.lightBlueColor
+                //           : Colors.grey),
+                // ),
+                label: "Contacts",
               ),
             ],
             onTap: navigationTapped,
