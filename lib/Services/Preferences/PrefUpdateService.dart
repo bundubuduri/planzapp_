@@ -14,7 +14,7 @@ import 'package:planzapp/Controllers/Utility/GetUserController.dart';
 class PreferenceUpdateService{
 
   void updateRideShare(bool dbRideShare) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user ride share preferences
     DocumentReference reference = FirebaseFirestore.instance
         .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -26,7 +26,7 @@ class PreferenceUpdateService{
   }
 
   void updateBudget(double dbBudget) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Budget preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -38,7 +38,7 @@ class PreferenceUpdateService{
   }
 
   void updateAboveBudgetPercent(double dbAboveBudgetPercent) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AboveBudgetPercent preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -50,7 +50,7 @@ class PreferenceUpdateService{
   }
 
   void updateBelowBudgetPercent(double dbBelowBudgetPercent) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user BelowBudgetPercent preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -62,7 +62,7 @@ class PreferenceUpdateService{
   }
 
   void updateNotifyPriceInc(bool dbNotifyPriceIncrease) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user NotifyPriceInc preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -74,7 +74,7 @@ class PreferenceUpdateService{
   }
 
   void updateNotifyPriceDec(bool dbNotifyPriceDecrease) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user NotifyPriceDec preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -86,7 +86,7 @@ class PreferenceUpdateService{
   }
 
   void updateStickToBudget(bool dbStickToBudget) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user StickToBudget preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -98,7 +98,7 @@ class PreferenceUpdateService{
   }
 
   void updateOutOfBudget(bool dbOutOfBudget) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user OutOfBudget preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -110,7 +110,7 @@ class PreferenceUpdateService{
   }
 
   void updateEnableBelowBudget(bool dbEnableBelowBudget) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user EnableBelowBudget preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -122,7 +122,7 @@ class PreferenceUpdateService{
   }
 
   void updateEnableAboveBudget(bool dbEnableAboveBudget) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user EnableAboveBudget preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -134,7 +134,7 @@ class PreferenceUpdateService{
   }
 
   void updateMultiplePlans(bool dbMultiplePlans) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user MultiplePlans preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -146,7 +146,7 @@ class PreferenceUpdateService{
   }
 
   void updateDrive(bool dbDrive) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Drive preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -158,7 +158,7 @@ class PreferenceUpdateService{
   }
 
   void updateFlight(bool dbFlight) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Flight preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -170,7 +170,7 @@ class PreferenceUpdateService{
   }
 
   void updateTrain(bool dbTrain) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Train preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -182,7 +182,7 @@ class PreferenceUpdateService{
   }
 
   void updatePublicBusMetro(bool dbPublicBusMetro) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user PublicBusMetro preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -194,7 +194,7 @@ class PreferenceUpdateService{
   }
 
   void updateWalk(bool dbWalk) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Walk preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -206,7 +206,7 @@ class PreferenceUpdateService{
   }
 
   void updateAnyCommute(bool dbAnyCommute) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AnyCommute preferences
     DocumentReference reference = FirebaseFirestore.instance
         .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences" );
@@ -218,7 +218,7 @@ class PreferenceUpdateService{
   }
 
   void updateAfricanCuisine(bool dbAfricanCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AfricanCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -230,7 +230,7 @@ class PreferenceUpdateService{
   }
 
   void updateAmericanCuisine(bool dbAmericanCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AmericanCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -242,7 +242,7 @@ class PreferenceUpdateService{
   }
 
   void updateBarbequeCuisine(bool dbBarbequeCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user BarbequeCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -254,7 +254,7 @@ class PreferenceUpdateService{
   }
 
   void updateBrazilianCuisine(bool dbBrazilianCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user BrazilianCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -266,7 +266,7 @@ class PreferenceUpdateService{
   }
 
   void updateCaribbeanCuisine(bool dbCaribbeanCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user CaribbeanCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -278,7 +278,7 @@ class PreferenceUpdateService{
   }
 
   void updateChineseCuisine(bool dbChineseCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user ChineseCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -290,7 +290,7 @@ class PreferenceUpdateService{
   }
 
   void updateFrenchCuisine(bool dbFrenchCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user FrenchCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -302,7 +302,7 @@ class PreferenceUpdateService{
   }
 
   void updateGreekCuisine(bool dbGreekCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user GreekCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -314,7 +314,7 @@ class PreferenceUpdateService{
   }
 
   void updateIndianCuisine(bool dbIndianCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user IndianCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -326,7 +326,7 @@ class PreferenceUpdateService{
   }
 
   void updateItalianCuisine(bool dbItalianCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user ItalianCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -338,7 +338,7 @@ class PreferenceUpdateService{
   }
 
   void updateJapaneseCuisine(bool dbJapaneseCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user JapaneseCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -350,7 +350,7 @@ class PreferenceUpdateService{
   }
 
   void updateMediterraneanCuisine(bool dbMediterraneanCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user MediterraneanCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -362,7 +362,7 @@ class PreferenceUpdateService{
   }
 
   void updateMexicanCuisine(bool dbMexicanCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user MexicanCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -374,7 +374,7 @@ class PreferenceUpdateService{
   }
 
   void updateThaiCuisine(bool dbThaiCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user ThaiCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -386,7 +386,7 @@ class PreferenceUpdateService{
   }
 
   void updateSoulFoodCuisine(bool dbSoulFoodCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user SoulFoodCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -398,7 +398,7 @@ class PreferenceUpdateService{
   }
 
   void updateBrunchCuisine(bool dbBrunchCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user BrunchCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -410,7 +410,7 @@ class PreferenceUpdateService{
   }
 
   void updateBuffetCuisine(bool dbBuffetCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user BuffetCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -422,7 +422,7 @@ class PreferenceUpdateService{
   }
 
   void updateDessertsCuisine(bool dbDessertsCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user DessertsCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -434,7 +434,7 @@ class PreferenceUpdateService{
   }
 
   void updateSandwichesCuisine(bool dbSandwichesCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user SandwichesCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -446,7 +446,7 @@ class PreferenceUpdateService{
   }
 
   void updateNoodlesCuisine(bool dbNoodlesCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user NoodlesCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -458,7 +458,7 @@ class PreferenceUpdateService{
   }
 
   void updateSeafoodCuisine(bool dbSeafoodCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user SeafoodCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -470,7 +470,7 @@ class PreferenceUpdateService{
   }
 
   void updateVietnameseCuisine(bool dbVietnameseCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user VietnameseCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -482,7 +482,7 @@ class PreferenceUpdateService{
   }
 
   void updateTurkishCuisine(bool dbTurkishCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user TurkishCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -494,7 +494,7 @@ class PreferenceUpdateService{
   }
 
   void updateAnyCuisine(bool dbAnyCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AnyCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -506,7 +506,7 @@ class PreferenceUpdateService{
   }
 
   void updateNoContactPay(bool dbNoContactPay) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user NoContactPay preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -518,7 +518,7 @@ class PreferenceUpdateService{
   }
 
   void updateNoContactDelivery(bool dbNoContactDelivery) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user NoContactDelivery preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -530,7 +530,7 @@ class PreferenceUpdateService{
   }
 
   void updateStaffMasks(bool dbStaffMasks) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user StaffMasks preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -542,7 +542,7 @@ class PreferenceUpdateService{
   }
 
   void updateMasksReq(bool dbMasksReq) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user MasksReq preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -554,7 +554,7 @@ class PreferenceUpdateService{
   }
 
   void updateStaffGloves(bool dbStaffGloves) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user StaffGloves preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -566,7 +566,7 @@ class PreferenceUpdateService{
   }
 
   void updateLimitCap(bool dbLimitCap) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user LimitCap preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -578,7 +578,7 @@ class PreferenceUpdateService{
   }
 
   void updateSaniBetwCust(bool dbSaniBetwCust) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user SaniBetwCust preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -590,7 +590,7 @@ class PreferenceUpdateService{
   }
 
   void updateHandSaniGiven(bool dbHandSaniGiven) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user HandSaniGiven preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -602,7 +602,7 @@ class PreferenceUpdateService{
   }
 
   void updateAnyHealthCovid(bool dbAnyHealthCovid) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AnyHealthCovid preferences
     DocumentReference reference = FirebaseFirestore.instance
         .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -614,7 +614,7 @@ class PreferenceUpdateService{
   }
 
   void updateDiabeticDiet(bool dbDiabeticDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user DiabeticDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -626,7 +626,7 @@ class PreferenceUpdateService{
   }
 
   void updateFreshDiet(bool dbFreshDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user FreshDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -638,7 +638,7 @@ class PreferenceUpdateService{
   }
 
   void updateHalalDiet(bool dbHalalDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user HalalDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -650,7 +650,7 @@ class PreferenceUpdateService{
   }
 
   void updateHealthyNotVegetDiet(bool dbHealthyNotVegetDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user HealthyNotVegetDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -662,7 +662,7 @@ class PreferenceUpdateService{
   }
 
   void updateKosherDiet(bool dbKosherDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user KosherDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -674,7 +674,7 @@ class PreferenceUpdateService{
   }
 
   void updatePescatarianDiet(bool dbPescatarianDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user PescatarianDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -686,7 +686,7 @@ class PreferenceUpdateService{
   }
 
   void updateVeganDiet(bool dbVeganDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user VeganDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -698,7 +698,7 @@ class PreferenceUpdateService{
   }
 
   void updateVegetarianDiet(bool dbVegetarianDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user VegetarianDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -710,7 +710,7 @@ class PreferenceUpdateService{
   }
 
   void updateAnyDiet(bool dbAnyDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AnyDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -722,7 +722,7 @@ class PreferenceUpdateService{
   }
 
   void updateMatchDiet(bool dbMatchDiet) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user MatchDiet preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -734,7 +734,7 @@ class PreferenceUpdateService{
   }
 
   void updateMatchDensity(bool dbMatchDensity) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user MatchDensity preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -746,7 +746,7 @@ class PreferenceUpdateService{
   }
 
   void updateMatchCuisine(bool dbMatchCuisine) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user MatchCuisine preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -758,7 +758,7 @@ class PreferenceUpdateService{
   }
 
   void updateGoodForCouples(bool dbGoodForCouples) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user GoodForCouples preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -770,7 +770,7 @@ class PreferenceUpdateService{
   }
 
   void updateMatchPayment(bool dbMatchPayment) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user MatchPayment preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -782,7 +782,7 @@ class PreferenceUpdateService{
   }
 
   void updateReqRSVP(bool dbReqRSVP) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user ReqRSVP preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -794,7 +794,7 @@ class PreferenceUpdateService{
   }
 
   void updateGroups5Plus(bool dbGroups5Plus) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Groups5Plus preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -806,7 +806,7 @@ class PreferenceUpdateService{
   }
 
   void updateMatchBudget(bool dbMatchBudget) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user MatchBudget preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -818,7 +818,7 @@ class PreferenceUpdateService{
   }
 
   void updateWaitTime(double dbWaitTime) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user WaitTime preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -830,7 +830,7 @@ class PreferenceUpdateService{
   }
 
   void updateLocallyOwned(bool dbLocallyOwned) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user LocallyOwned preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -842,7 +842,7 @@ class PreferenceUpdateService{
   }
 
   void updateLocallySourced(bool dbLocallySourced) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user LocallySourced preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -854,7 +854,7 @@ class PreferenceUpdateService{
   }
 
   void updateAnyLocalSpot(bool dbAnyLocalSpot) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AnyLocalSpot preferences
     DocumentReference reference = FirebaseFirestore.instance
         .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -866,7 +866,7 @@ class PreferenceUpdateService{
   }
 
   void updateSpecials(bool dbSpecials) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Specials preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -878,7 +878,7 @@ class PreferenceUpdateService{
   }
 
   void updateOutdoorSeating(bool dbOutdoorSeating) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user OutdoorSeating preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -890,7 +890,7 @@ class PreferenceUpdateService{
   }
 
   void updateRooftop(bool dbRooftop) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Rooftop preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -902,7 +902,7 @@ class PreferenceUpdateService{
   }
 
   void updateCoverCharge(bool dbCoverCharge) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user CoverCharge preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -914,7 +914,7 @@ class PreferenceUpdateService{
   }
 
   void updateNoCoverCharge(bool dbNoCoverCharge) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user NoCoverCharge preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -926,7 +926,7 @@ class PreferenceUpdateService{
   }
 
   void updateParking(bool dbParking) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Parking preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -938,7 +938,7 @@ class PreferenceUpdateService{
   }
 
   void updateLiveMusic(bool dbLiveMusic) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user LiveMusic preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -950,7 +950,7 @@ class PreferenceUpdateService{
   }
 
   void updateGames(bool dbGames) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Games preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -962,7 +962,7 @@ class PreferenceUpdateService{
   }
 
   void updateCasual(bool dbCasual) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Casual preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -974,7 +974,7 @@ class PreferenceUpdateService{
   }
 
   void updateAccessibility(bool dbAccessibility) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Accessibility preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -986,7 +986,7 @@ class PreferenceUpdateService{
   }
 
   void updateCovid19Compliant(bool dbCovid19Compliant) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Covid19Compliant preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -998,7 +998,7 @@ class PreferenceUpdateService{
   }
 
   void updateAnyLocalFeatures(bool dbAnyLocalFeatures) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AnyLocalFeatures preferences
     DocumentReference reference = FirebaseFirestore.instance
         .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1010,7 +1010,7 @@ class PreferenceUpdateService{
   }
 
   void updateCash(bool dbCash) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Cash preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1022,7 +1022,7 @@ class PreferenceUpdateService{
   }
 
   void updateCreditDebit(bool dbCreditDebit) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user CreditDebit preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1034,7 +1034,7 @@ class PreferenceUpdateService{
   }
 
   void updateApplePay(bool dbApplePay) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user ApplePay preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1046,7 +1046,7 @@ class PreferenceUpdateService{
   }
 
   void updateGooglePay(bool dbGooglePay) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user GooglePay preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1058,7 +1058,7 @@ class PreferenceUpdateService{
   }
 
   void updatePayPal(bool dbPayPal) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user PayPal preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1070,7 +1070,7 @@ class PreferenceUpdateService{
   }
 
   void updateCashApp(bool dbCashApp) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user CashApp preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1082,7 +1082,7 @@ class PreferenceUpdateService{
   }
 
   void updateVenmo(bool dbVenmo) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Venmo preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1094,7 +1094,7 @@ class PreferenceUpdateService{
   }
 
   void updateCryptocurrency(bool dbCryptocurrency) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Cryptocurrency preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1106,7 +1106,7 @@ class PreferenceUpdateService{
   }
 
   void updateAnyPayment(bool dbAnyPayment) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AnyPayment preferences
     DocumentReference reference = FirebaseFirestore.instance
         .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1118,7 +1118,7 @@ class PreferenceUpdateService{
   }
 
   void updateSingle(bool dbSingle) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Single preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1130,7 +1130,7 @@ class PreferenceUpdateService{
   }
 
   void updateMarried(bool dbMarried) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Married preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1142,7 +1142,7 @@ class PreferenceUpdateService{
   }
 
   void updateInARelationship(bool dbInARelationship) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user InARelationship preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1154,7 +1154,7 @@ class PreferenceUpdateService{
   }
 
   void updateAnyRelationship(bool dbAnyRelationship) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AnyRelationship preferences
     DocumentReference reference = FirebaseFirestore.instance
         .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1166,7 +1166,7 @@ class PreferenceUpdateService{
   }
 
   void updateRadiusDistance(double dbRadiusDistance) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user RadiusDistance preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1179,7 +1179,7 @@ class PreferenceUpdateService{
 
 
   void updateRadiusLocation(Place place) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     final geolocation = await place.geolocation;
     // save user RadiusLocationLatLong preferences
     DocumentReference reference = FirebaseFirestore.instance
@@ -1194,7 +1194,7 @@ class PreferenceUpdateService{
 
 
   void updateIntimate(bool dbIntimate) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Intimate preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1206,7 +1206,7 @@ class PreferenceUpdateService{
   }
 
   void updateAverageDensity(bool dbAverageDensity) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AverageDensity preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1218,7 +1218,7 @@ class PreferenceUpdateService{
   }
 
   void updateComfy(bool dbComfy) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user Comfy preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1230,7 +1230,7 @@ class PreferenceUpdateService{
   }
 
   void updateAboveAverageDensity(bool dbAboveAverageDensity) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AboveAverageDensity preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1242,7 +1242,7 @@ class PreferenceUpdateService{
   }
 
   void updatePackedCrowds(bool dbPackedCrowds) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user PackedCrowds preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1254,7 +1254,7 @@ class PreferenceUpdateService{
   }
 
   void updateAnyDensity(bool dbAnyDensity) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user AnyDensity preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");
@@ -1266,7 +1266,7 @@ class PreferenceUpdateService{
   }
 
   void updateSocialDistance(bool dbSocialDistance) async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     // save user SocialDistance preferences
     DocumentReference reference = FirebaseFirestore.instance
     .doc("User/" + loggedInUser.uid.toString() + "/Preferences/Preferences");

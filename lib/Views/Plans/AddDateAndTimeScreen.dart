@@ -8,7 +8,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class AddDateAndTimeScreen extends StatefulWidget {
   Plan plan;
-  AddDateAndTimeScreen({@required this.plan});
+  AddDateAndTimeScreen({required this.plan});
 
   @override
   _AddDateAndTimeScreenState createState() => _AddDateAndTimeScreenState();
@@ -28,7 +28,7 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
 
         //format place display
         String placeName = strings[i].split("&")[2].split("|")[0].split(",")[0];
-        String placeInfo = strings[i].split("&")[2];
+        String? placeInfo = strings[i].split("&")[2];
 
         date = strings[i].split("&")[0];
         time = strings[i].split("&")[1];
@@ -59,11 +59,11 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                               side: BorderSide(color: Colors.black26)),
                           child: Text(date),
                           onPressed: () async {
-                            var result = await showDatePicker(
+                            var result = await (showDatePicker(
                                 context: context,
                                 initialDate: DateTime.now(),
                                 firstDate: DateTime(DateTime.now().year),
-                                lastDate: DateTime(3000));
+                                lastDate: DateTime(3000)) as FutureOr<DateTime>);
                             setState(() {
                               date = '$result'.substring(0, 10);
                               weekday = '${result.weekday}';
@@ -87,10 +87,10 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                               side: BorderSide(color: Colors.black26)),
                           child: Text(time),
                           onPressed: () async {
-                            TimeOfDay timePicked = await showTimePicker(
+                            TimeOfDay? timePicked = await showTimePicker(
                                 context: context, initialTime: TimeOfDay.now());
                             setState(() {
-                              time = timePicked.format(context);
+                              time = timePicked!.format(context);
                               widget.plan.planPlacesWithTime[i] =
                                   date + " & " + time + "&" + placeInfo;
                               widget.plan.planPlacesWithTime.sort();
@@ -168,7 +168,7 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 15,
-                      foreground: Paint()..color = Colors.green[700],
+                      foreground: Paint()..color = Colors.green[700]!,
                     ),
                   ),
                   listPlacesToAddTime(widget.plan.planPlacesWithTime),

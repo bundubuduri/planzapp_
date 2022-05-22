@@ -9,7 +9,7 @@ class SearchPeople extends StatefulWidget {
 
 class _SearchPeopleState extends State<SearchPeople> {
   final currentUser = FirebaseAuth.instance;
-  String searchKey;
+  String? searchKey;
 
   // List<String> userList;
   String query = "";
@@ -87,7 +87,7 @@ class _SearchPeopleState extends State<SearchPeople> {
             List<ListTile> allUser = [];
 
             if (snapshot.hasData) {
-              for (var c in snapshot.data.docs) {
+              for (var c in snapshot.data!.docs) {
                 final email = c.get('email');
                 final name = c.get('user_name');
                 final id = c.get('user_id');

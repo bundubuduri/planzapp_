@@ -17,7 +17,7 @@ import 'package:http/http.dart' as http;
 class AddPeopleScreen extends StatefulWidget {
 
   Plan plan;
-  AddPeopleScreen({@required this.plan});
+  AddPeopleScreen({required this.plan});
 
   @override
   _AddPeopleScreenState createState() => _AddPeopleScreenState();
@@ -25,7 +25,7 @@ class AddPeopleScreen extends StatefulWidget {
 
 class _AddPeopleScreenState extends State<AddPeopleScreen> {
 
-  static User loggedInUser;
+  static User? loggedInUser;
 
  // FirebaseFunctions mfunctions;
   //mfunctions = Firebase.getInstance();
@@ -60,7 +60,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
     List<Widget> list = new List<Widget>();
     for(var i = strings.length - 1; i > -1; i--){
       var temp = strings[i];
-      String temp1 = temp.split(":")[0]  +  " : " +temp.split(":")[1];
+      String? temp1 = temp.split(":")[0]  +  " : " +temp.split(":")[1];
     list.add(
     Padding(
           padding:const EdgeInsets.only(left:20.0,right:20,top:5,bottom:5),
@@ -105,7 +105,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
     var users = FirebaseFirestore.instance.collection('User');
     for(var i = strings.length-1;i>0;i--){
       String userID = strings[i];
-      String userNameEmail = "";
+      String? userNameEmail = "";
       //FirebaseFirestore.instance.collection('User').where('user_id', isEqualTo: temp).get().then(
         //(DocumentSnapshot doc) =>
           //temp = doc.data()['user_name'];
@@ -137,7 +137,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                           child:Center(
                             child:ClipRRect(
                               borderRadius:BorderRadius.circular(15),
-                              child:Image.network(url.data,
+                              child:Image.network(url.data!,
                                 fit:BoxFit.cover,
                               ),
                             ),),
@@ -150,7 +150,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                 ),
               ),
 
-              Text(userNameEmail,
+              Text(userNameEmail!,
                 textAlign:TextAlign.start,
               ),
               SizedBox(width:50,),
@@ -249,7 +249,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
   bool validateEmail(String value) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regex = new RegExp(pattern);
+    RegExp regex = new RegExp(pattern as String);
     return (!regex.hasMatch(value)) ? false : true;
   }
 
@@ -305,9 +305,9 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
     for (int i = 0; i < allUsers.length; i ++) {
       DocumentSnapshot<Map<String, dynamic>> variable = await FirebaseFirestore.instance.collection('User').doc(allUsers[i]).get();
 
-      var tempUserName = variable.data()['planzID'];
-      var tempUserId = variable.data()['user_id'];
-      var tempEmail = variable.data()['email'];
+      var tempUserName = variable.data()!['planzID'];
+      var tempUserId = variable.data()!['user_id'];
+      var tempEmail = variable.data()!['email'];
       allUsers[i] = tempUserName + ' : ' + tempEmail + ' : ' + tempUserId;
 
     }

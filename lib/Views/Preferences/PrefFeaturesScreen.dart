@@ -35,7 +35,7 @@ class PrefFeaturesScreen extends StatefulWidget {
 class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -52,7 +52,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
   @override
   Widget build(BuildContext context) {
     var PrefModel = Provider.of<PreferencesModel>(context);
-    int sliderWaitTime = PrefModel.dbWaitTime.toInt();
+    int sliderWaitTime = PrefModel.dbWaitTime!.toInt();
     return Scaffold(
       appBar: AppBar(
         // Back button
@@ -114,7 +114,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
                         PrefModel.dbMatchDiet = newValue;
                       });
                       // save user Match Diet setting preference
-                      MatchDietController().run(PrefModel.dbMatchDiet);
+                      MatchDietController().run(PrefModel.dbMatchDiet!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -140,7 +140,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
                         PrefModel.dbMatchCuisine = newValue;
                       });
                       // save user match cuisine preferences
-                      MatchCuisineController().run(PrefModel.dbMatchCuisine);
+                      MatchCuisineController().run(PrefModel.dbMatchCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -169,7 +169,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
                           });
                           // save user match density preferences
                           MatchDensityController()
-                              .run(PrefModel.dbMatchDensity);
+                              .run(PrefModel.dbMatchDensity!);
                           // Notify user preference saved
                           UpdatingSnackbar.showMessage(context);
                         },
@@ -198,7 +198,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
                           });
                           // save user good for couples preference
                           GoodForCouplesController()
-                              .run(PrefModel.dbGoodForCouples);
+                              .run(PrefModel.dbGoodForCouples!);
                           // Notify user preference saved
                           UpdatingSnackbar.showMessage(context);
                         },
@@ -225,7 +225,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
                         PrefModel.dbGroups5Plus = newValue;
                       });
                       // save user groups of 5 plus preferences
-                      Groups5PlusController().run(PrefModel.dbGroups5Plus);
+                      Groups5PlusController().run(PrefModel.dbGroups5Plus!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -250,7 +250,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
                         PrefModel.dbMatchPayment = newValue;
                       });
                       // save user match payment preferences
-                      MatchPaymentController().run(PrefModel.dbMatchPayment);
+                      MatchPaymentController().run(PrefModel.dbMatchPayment!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -277,7 +277,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
                         PrefModel.dbMatchBudget = newValue;
                       });
                       // save user match budget preferences
-                      MatchBudgetController().run(PrefModel.dbMatchBudget);
+                      MatchBudgetController().run(PrefModel.dbMatchBudget!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -302,7 +302,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
                         PrefModel.dbReqRSVP = newValue;
                       });
                       // save user require rsvp preferences
-                      ReqRSVPController().run(PrefModel.dbReqRSVP);
+                      ReqRSVPController().run(PrefModel.dbReqRSVP!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -325,11 +325,11 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
               Row(children: <Widget>[
                 Expanded(
                   child: Slider(
-                    value: PrefModel.dbWaitTime,
+                    value: PrefModel.dbWaitTime!,
                     min: 0,
                     max: 120,
                     divisions: 24,
-                    label: PrefModel.dbWaitTime.round().toString() +
+                    label: PrefModel.dbWaitTime!.round().toString() +
                         "/Preferences/Preferences",
                     onChanged: (double value) {
                       context.read<PreferencesModel>().changeWaitTime(value);
@@ -341,7 +341,7 @@ class _PrefFeaturesScreen extends State<PrefFeaturesScreen> {
                     },
                     onChangeEnd: (double value) {
                       // save user wait time preferences
-                      WaitTimeController().run(PrefModel.dbWaitTime);
+                      WaitTimeController().run(PrefModel.dbWaitTime!);
                     },
                   ),
                 ),

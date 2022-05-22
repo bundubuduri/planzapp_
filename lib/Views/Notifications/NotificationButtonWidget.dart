@@ -14,7 +14,7 @@ class NotificationsButtonWidget extends StatefulWidget {
 
   NotificationsButtonWidget(this.c);
 
-  DocumentSnapshot c;
+  DocumentSnapshot? c;
 
   @override
   _NotificationsButtonWidget createState() => _NotificationsButtonWidget();
@@ -27,9 +27,9 @@ class _NotificationsButtonWidget extends State<NotificationsButtonWidget>{
   Widget build(BuildContext context) {
 
     // Creates clickable, dismissible notifications button
-    DocumentSnapshot c = widget.c;
+    DocumentSnapshot? c = widget.c;
     return Dismissible(
-      key: Key(widget.c.get('planId')),
+      key: Key(widget.c!.get('planId')),
        // direction: DismissDirection.endToStart,
 
         //onDismissed: ,
@@ -38,10 +38,10 @@ class _NotificationsButtonWidget extends State<NotificationsButtonWidget>{
 
             onTap: () {
               print("tapped on a notification");
-              NotificationUpdateController().run(widget.c.get('notificationId'));
+              NotificationUpdateController().run(widget.c!.get('notificationId'));
 
               Plan plan = Plan(
-                  planEventPlanners: c.get('planEventPlanners'),
+                  planEventPlanners: c!.get('planEventPlanners'),
                   planTitle: c.get('planTitle'),
                   planPrice: c.get('planPrice'),
                   planDescription: c.get('planDescription'),
@@ -93,12 +93,12 @@ class _NotificationsButtonWidget extends State<NotificationsButtonWidget>{
                         margin: EdgeInsets.fromLTRB(10, 0, 10, 5),
                         color: Colors.blue,
                         child: Text((() {
-                         if(widget.c.get("type") == 'invite'){
-                           return "You have been invited to plan: " + widget.c.get("planTitle");
-                        } else if (widget.c.get("type") == 'delete'){
-                           return "Plan: " + widget.c.get("planTitle") +" had been deleted.";
-                         } else if (widget.c.get("type") == 'change'){
-                           return "Plan: " + widget.c.get("planTitle") +" has been changed.";
+                         if(widget.c!.get("type") == 'invite'){
+                           return "You have been invited to plan: " + widget.c!.get("planTitle");
+                        } else if (widget.c!.get("type") == 'delete'){
+                           return "Plan: " + widget.c!.get("planTitle") +" had been deleted.";
+                         } else if (widget.c!.get("type") == 'change'){
+                           return "Plan: " + widget.c!.get("planTitle") +" has been changed.";
                          }
                         })() ),
                       ),
@@ -108,7 +108,7 @@ class _NotificationsButtonWidget extends State<NotificationsButtonWidget>{
                       child: Container(
                         child:
 
-                        IconButton(icon: widget.c.get("userViewed") ? Icon(Icons.brightness_1_rounded, size: 18,) : Icon(Icons.notifications_active_sharp, color: Colors.red,),
+                        IconButton(icon: widget.c!.get("userViewed") ? Icon(Icons.brightness_1_rounded, size: 18,) : Icon(Icons.notifications_active_sharp, color: Colors.red,),
                             ),
 
                       ),

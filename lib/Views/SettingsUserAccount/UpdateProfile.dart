@@ -23,13 +23,13 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
 
   final _auth = FirebaseAuth.instance;
 
-  String phone;
-  String firstName;
-  String lastName;
-  String location;
-  String dob;
+  String? phone;
+  String? firstName;
+  String? lastName;
+  String? location;
+  String? dob;
   //String profilePicture;
-  Image profilePicture;
+  Image? profilePicture;
 
   bool showSpinner = false;
 
@@ -37,14 +37,14 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   // final imagePicker = ImagePicker();
 
 
-  PickedFile _imageFile;
+  PickedFile? _imageFile;
   final ImagePicker _picker = ImagePicker();
 
 
 
 
   Future<void> selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
+    final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime(1900, 8),
@@ -52,7 +52,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     if (picked != null)
       setState(() {
         dob = picked.toString().substring(0, 10);
-        dobTextFieldController.text = dob;
+        dobTextFieldController.text = dob!;
       });
   }
 
@@ -77,9 +77,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 Image(
                   width: 150,
                   height: 150,
-                  image: _imageFile == null
+                  image: (_imageFile == null
                       ? AssetImage("assets/plus.png")
-                      : FileImage(File(_imageFile.path)),
+                      : FileImage(File(_imageFile!.path))) as ImageProvider<Object>,
                 ) ,
               ),
               Positioned(
@@ -362,7 +362,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       print("dob is: " + dob.toString());
                       print("have profilePicture: " + (profilePicture == null).toString());
 
-                      var userEmail = _auth.currentUser.email;
+                      var userEmail = _auth.currentUser!.email;
                           // save user profile
 
                       DocumentReference reference =  FirebaseFirestore.instance
@@ -390,7 +390,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                         UploadTask _uploadTask;
                         String filePath = 'profile_images/$userEmail.png';
                         setState(() {
-                          _uploadTask = _storage.ref().child(filePath).putFile(File(_imageFile.path));
+                          _uploadTask = _storage.ref().child(filePath).putFile(File(_imageFile!.path));
                         });
                       }
 
@@ -442,7 +442,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
 
 class BackButtonWidget extends StatelessWidget {
   const BackButtonWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -35,7 +35,7 @@ class PrefBudgetScreen extends StatefulWidget {
 class _PrefBudgetScreen extends State<PrefBudgetScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
   final abovePercentController = TextEditingController();
   final belowPercentController = TextEditingController();
 
@@ -99,11 +99,11 @@ class _PrefBudgetScreen extends State<PrefBudgetScreen> {
               Row(children: <Widget>[
                 Expanded(
                   child: Slider(
-                    value: PrefModel.dbBudget,
+                    value: PrefModel.dbBudget!,
                     min: 0,
                     max: 100,
                     divisions: 20,
-                    label: PrefModel.dbBudget.round().toString(),
+                    label: PrefModel.dbBudget!.round().toString(),
                     onChanged: (double value) {
                       context.read<PreferencesModel>().changeBudget(value);
                       setState(() {
@@ -114,7 +114,7 @@ class _PrefBudgetScreen extends State<PrefBudgetScreen> {
                     },
                     onChangeEnd: (double value) {
                       // save user budget preference
-                      BudgetController().run(PrefModel.dbBudget);
+                      BudgetController().run(PrefModel.dbBudget!);
                     },
                   ),
                 ),
@@ -132,14 +132,14 @@ class _PrefBudgetScreen extends State<PrefBudgetScreen> {
                 ),
                 Container(
                   child: Switch(
-                    value: PrefModel.dbOutOfBudget,
+                    value: PrefModel.dbOutOfBudget!,
                     onChanged: (value) {
                       context.read<PreferencesModel>().toggleOutOfBudget();
                       setState(() {
                         PrefModel.dbOutOfBudget = value;
                         //print(PrefModel.dbOutOfBudget);
                       });
-                      OutOfBudgetController().run(PrefModel.dbOutOfBudget);
+                      OutOfBudgetController().run(PrefModel.dbOutOfBudget!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -183,12 +183,12 @@ class _PrefBudgetScreen extends State<PrefBudgetScreen> {
                       // save user above percent preferences
                       if (newValue == true) {
                         EnableAboveBudgetController()
-                            .run(PrefModel.dbEnableAboveBudget);
+                            .run(PrefModel.dbEnableAboveBudget!);
                         AboveBudgetPercentController()
                             .run(double.parse(abovePercentController.text));
                       } else {
                         EnableAboveBudgetController()
-                            .run(PrefModel.dbEnableAboveBudget);
+                            .run(PrefModel.dbEnableAboveBudget!);
                       }
                       // Shows user "preference saved"
                       UpdatingSnackbar.showMessage(context);
@@ -227,12 +227,12 @@ class _PrefBudgetScreen extends State<PrefBudgetScreen> {
                       // save user below percent preferences
                       if (newValue == true) {
                         EnableBelowBudgetController()
-                            .run(PrefModel.dbEnableBelowBudget);
+                            .run(PrefModel.dbEnableBelowBudget!);
                         BelowBudgetPercentController()
                             .run(double.parse(belowPercentController.text));
                       } else {
                         EnableBelowBudgetController()
-                            .run(PrefModel.dbEnableBelowBudget);
+                            .run(PrefModel.dbEnableBelowBudget!);
                       }
 
                       // Shows user "preference saved"
@@ -254,7 +254,7 @@ class _PrefBudgetScreen extends State<PrefBudgetScreen> {
                         PrefModel.dbStickToBudget = newValue;
                       });
                       // save user public transportation preferences
-                      StickToBudgetController().run(PrefModel.dbStickToBudget);
+                      StickToBudgetController().run(PrefModel.dbStickToBudget!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -276,7 +276,7 @@ class _PrefBudgetScreen extends State<PrefBudgetScreen> {
                       });
                       // save user public transportation preferences
                       NotifyPriceIncController()
-                          .run(PrefModel.dbNotifyPriceInc);
+                          .run(PrefModel.dbNotifyPriceInc!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -298,7 +298,7 @@ class _PrefBudgetScreen extends State<PrefBudgetScreen> {
                       });
                       // save user public transportation preferences
                       NotifyPriceDecController()
-                          .run(PrefModel.dbNotifyPriceDec);
+                          .run(PrefModel.dbNotifyPriceDec!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },

@@ -34,7 +34,7 @@ class PrefHealthCovidScreen extends StatefulWidget {
 class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -120,16 +120,16 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbAnyHealthCovid = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       } else {
                         setState(() {
                           PrefModel.dbResetHealthCovidValue = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       }
                       // save user No Contact Payment preferences
-                      NoContactPayController().run(PrefModel.dbNoContactPay);
+                      NoContactPayController().run(PrefModel.dbNoContactPay!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -154,17 +154,17 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbAnyHealthCovid = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       } else {
                         setState(() {
                           PrefModel.dbResetHealthCovidValue = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       }
                       // save user Contactless Delivery preferences
                       NoContactDeliveryController()
-                          .run(PrefModel.dbNoContactDelivery);
+                          .run(PrefModel.dbNoContactDelivery!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -188,16 +188,16 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbAnyHealthCovid = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       } else {
                         setState(() {
                           PrefModel.dbResetHealthCovidValue = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       }
                       // save user Staff wear masks preference
-                      StaffMasksController().run(PrefModel.dbStaffMasks);
+                      StaffMasksController().run(PrefModel.dbStaffMasks!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -220,16 +220,16 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbAnyHealthCovid = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       } else {
                         setState(() {
                           PrefModel.dbResetHealthCovidValue = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       }
                       // save user Masks Required preferences
-                      MasksReqController().run(PrefModel.dbMasksReq);
+                      MasksReqController().run(PrefModel.dbMasksReq!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -253,16 +253,16 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbAnyHealthCovid = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       } else {
                         setState(() {
                           PrefModel.dbResetHealthCovidValue = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       }
                       // save user Staff wear gloves preference
-                      StaffGlovesController().run(PrefModel.dbStaffGloves);
+                      StaffGlovesController().run(PrefModel.dbStaffGloves!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -285,16 +285,16 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbAnyHealthCovid = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       } else {
                         setState(() {
                           PrefModel.dbResetHealthCovidValue = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       }
                       // save user Limited Capacity preferences
-                      LimitCapController().run(PrefModel.dbLimitCap);
+                      LimitCapController().run(PrefModel.dbLimitCap!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -318,16 +318,16 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbAnyHealthCovid = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       } else {
                         setState(() {
                           PrefModel.dbResetHealthCovidValue = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       }
                       // save user Sanitizing Between Customers preference
-                      SaniBetwCustController().run(PrefModel.dbSaniBetwCust);
+                      SaniBetwCustController().run(PrefModel.dbSaniBetwCust!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -350,16 +350,16 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbAnyHealthCovid = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       } else {
                         setState(() {
                           PrefModel.dbResetHealthCovidValue = false;
                         });
                         AnyHealthCovidController()
-                            .run(PrefModel.dbAnyHealthCovid);
+                            .run(PrefModel.dbAnyHealthCovid!);
                       }
                       // save user Hand Sanitizer Provided preferences
-                      HandSaniGivenController().run(PrefModel.dbHandSaniGiven);
+                      HandSaniGivenController().run(PrefModel.dbHandSaniGiven!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -390,16 +390,16 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbHandSaniGiven = newValue;
                           PrefModel.dbResetHealthCovidValue = false;
                         });
-                        NoContactPayController().run(PrefModel.dbNoContactPay);
+                        NoContactPayController().run(PrefModel.dbNoContactPay!);
                         NoContactDeliveryController()
-                            .run(PrefModel.dbNoContactDelivery);
-                        StaffMasksController().run(PrefModel.dbStaffMasks);
-                        MasksReqController().run(PrefModel.dbMasksReq);
-                        StaffGlovesController().run(PrefModel.dbStaffGloves);
-                        LimitCapController().run(PrefModel.dbLimitCap);
-                        SaniBetwCustController().run(PrefModel.dbSaniBetwCust);
+                            .run(PrefModel.dbNoContactDelivery!);
+                        StaffMasksController().run(PrefModel.dbStaffMasks!);
+                        MasksReqController().run(PrefModel.dbMasksReq!);
+                        StaffGlovesController().run(PrefModel.dbStaffGloves!);
+                        LimitCapController().run(PrefModel.dbLimitCap!);
+                        SaniBetwCustController().run(PrefModel.dbSaniBetwCust!);
                         HandSaniGivenController()
-                            .run(PrefModel.dbHandSaniGiven);
+                            .run(PrefModel.dbHandSaniGiven!);
                       } else {
                         setState(() {
                           PrefModel.dbNoContactPay = false;
@@ -411,20 +411,20 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                           PrefModel.dbSaniBetwCust = false;
                           PrefModel.dbHandSaniGiven = false;
                         });
-                        NoContactPayController().run(PrefModel.dbNoContactPay);
+                        NoContactPayController().run(PrefModel.dbNoContactPay!);
                         NoContactDeliveryController()
-                            .run(PrefModel.dbNoContactDelivery);
-                        StaffMasksController().run(PrefModel.dbStaffMasks);
-                        MasksReqController().run(PrefModel.dbMasksReq);
-                        StaffGlovesController().run(PrefModel.dbStaffGloves);
-                        LimitCapController().run(PrefModel.dbLimitCap);
-                        SaniBetwCustController().run(PrefModel.dbSaniBetwCust);
+                            .run(PrefModel.dbNoContactDelivery!);
+                        StaffMasksController().run(PrefModel.dbStaffMasks!);
+                        MasksReqController().run(PrefModel.dbMasksReq!);
+                        StaffGlovesController().run(PrefModel.dbStaffGloves!);
+                        LimitCapController().run(PrefModel.dbLimitCap!);
+                        SaniBetwCustController().run(PrefModel.dbSaniBetwCust!);
                         HandSaniGivenController()
-                            .run(PrefModel.dbHandSaniGiven);
+                            .run(PrefModel.dbHandSaniGiven!);
                       }
                       // save user Any Health Covid preferences
                       AnyHealthCovidController()
-                          .run(PrefModel.dbAnyHealthCovid);
+                          .run(PrefModel.dbAnyHealthCovid!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -449,19 +449,19 @@ class _PrefHealthCovidScreen extends State<PrefHealthCovidScreen> {
                         PrefModel.dbHandSaniGiven = false;
                         PrefModel.dbAnyHealthCovid = false;
                       });
-                      NoContactPayController().run(PrefModel.dbNoContactPay);
+                      NoContactPayController().run(PrefModel.dbNoContactPay!);
                       NoContactDeliveryController()
-                          .run(PrefModel.dbNoContactDelivery);
-                      StaffMasksController().run(PrefModel.dbStaffMasks);
-                      MasksReqController().run(PrefModel.dbMasksReq);
-                      StaffGlovesController().run(PrefModel.dbStaffGloves);
-                      LimitCapController().run(PrefModel.dbLimitCap);
-                      SaniBetwCustController().run(PrefModel.dbSaniBetwCust);
-                      HandSaniGivenController().run(PrefModel.dbHandSaniGiven);
+                          .run(PrefModel.dbNoContactDelivery!);
+                      StaffMasksController().run(PrefModel.dbStaffMasks!);
+                      MasksReqController().run(PrefModel.dbMasksReq!);
+                      StaffGlovesController().run(PrefModel.dbStaffGloves!);
+                      LimitCapController().run(PrefModel.dbLimitCap!);
+                      SaniBetwCustController().run(PrefModel.dbSaniBetwCust!);
+                      HandSaniGivenController().run(PrefModel.dbHandSaniGiven!);
 
                       // save user Any Health Covid preferences
                       AnyHealthCovidController()
-                          .run(PrefModel.dbAnyHealthCovid);
+                          .run(PrefModel.dbAnyHealthCovid!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },

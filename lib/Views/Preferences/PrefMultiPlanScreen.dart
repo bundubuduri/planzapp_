@@ -25,7 +25,7 @@ class PrefMultiPlanScreen extends StatefulWidget {
 class _PrefMultiPlanScreen extends State<PrefMultiPlanScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -89,14 +89,14 @@ class _PrefMultiPlanScreen extends State<PrefMultiPlanScreen> {
                 // Button to allow multpile plans
                 Center(
                   child: Switch(
-                    value: PrefModel.dbMultiplePlans,
+                    value: PrefModel.dbMultiplePlans!,
                     onChanged: (value) {
                       context.read<PreferencesModel>().toggleMultiplePlans();
                       setState(() {
                         PrefModel.dbMultiplePlans = value;
                       });
                       // save user multiple plan preferences
-                      MultiplePlansController().run(PrefModel.dbMultiplePlans);
+                      MultiplePlansController().run(PrefModel.dbMultiplePlans!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },

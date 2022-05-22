@@ -67,7 +67,7 @@ class UniversalMethods {
       } );
     FirebaseFirestore.instance
         .collection("Users/")
-        .doc(_auth.currentUser.uid.toString())
+        .doc(_auth.currentUser!.uid.toString())
         .update({
       'plans' : FieldValue.arrayUnion([planId])
         });
@@ -150,28 +150,28 @@ class LabeledCheckbox extends StatelessWidget {
   });
 
   // final bool tristate;
-  final String label;
-  final EdgeInsets padding;
-  final bool value;
-  final Function onChanged;
+  final String? label;
+  final EdgeInsets? padding;
+  final bool? value;
+  final Function? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        onChanged(!value);
+        onChanged!(!value!);
       },
       child: Padding(
-        padding: padding,
+        padding: padding!,
         child: Row(
           children: <Widget>[
             Checkbox(
               value: value,
-              onChanged: (bool newValue) {
-                onChanged(newValue);
+              onChanged: (bool? newValue) {
+                onChanged!(newValue);
               },
             ),
-            Expanded(child: Text(label)),
+            Expanded(child: Text(label!)),
           ],
         ),
       ),

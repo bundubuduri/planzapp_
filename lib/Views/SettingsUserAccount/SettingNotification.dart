@@ -15,8 +15,8 @@ class SettingNotification extends StatefulWidget {
 class _SettingNotificationState extends State<SettingNotification> {
 
 
-  bool inAppNotification;
-  bool emailNotification;
+  bool? inAppNotification;
+  bool? emailNotification;
 
   // load from local prefs, its the same as what's on database
   getVisibility() async {
@@ -63,13 +63,13 @@ class _SettingNotificationState extends State<SettingNotification> {
                     style: TextStyle(
                       fontSize: 20,
                       foreground: Paint()
-                        ..color = Colors.blue[700],
+                        ..color = Colors.blue[700]!,
                     ),
                   )
               ),
               SizedBox( height: 20,),
               Switch(
-                value: inAppNotification,
+                value: inAppNotification!,
                 onChanged: (value){
                   setState(() {
                     inAppNotification=value;
@@ -95,13 +95,13 @@ class _SettingNotificationState extends State<SettingNotification> {
                     style: TextStyle(
                       fontSize: 20,
                       foreground: Paint()
-                        ..color = Colors.blue[700],
+                        ..color = Colors.blue[700]!,
                     ),
                   )
               ),
               SizedBox( height: 20,),
               Switch(
-                value: emailNotification,
+                value: emailNotification!,
                 onChanged: (value){
                   setState(() {
                     emailNotification=value;
@@ -134,7 +134,7 @@ class _SettingNotificationState extends State<SettingNotification> {
                 child: RaisedButton(
                   onPressed: () async {
                     final _auth = FirebaseAuth.instance;
-                    var userEmail = _auth.currentUser.email;
+                    var userEmail = _auth.currentUser!.email;
 
                     DocumentReference reference =  FirebaseFirestore.instance
                         .doc("User/" + userEmail.toString());
@@ -143,8 +143,8 @@ class _SettingNotificationState extends State<SettingNotification> {
                       'emailNotification' : emailNotification,
                     });
                     final prefs = await SharedPreferences.getInstance();
-                    prefs.setBool('inAppNotification', inAppNotification);
-                    prefs.setBool('emailNotification', emailNotification);
+                    prefs.setBool('inAppNotification', inAppNotification!);
+                    prefs.setBool('emailNotification', emailNotification!);
 
                     Fluttertoast.showToast(
                       msg: "Notification Setting Saved",
@@ -185,7 +185,7 @@ class _SettingNotificationState extends State<SettingNotification> {
 
 class BackButtonWidget extends StatelessWidget {
   const BackButtonWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -37,7 +37,7 @@ class PrefLocationFeaturesScreen extends StatefulWidget {
 class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -123,16 +123,16 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAnyLocalFeatures = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
                       // save user Specials preference
-                      SpecialsController().run(PrefModel.dbSpecials);
+                      SpecialsController().run(PrefModel.dbSpecials!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -155,17 +155,17 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAnyLocalFeatures = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
                       // save user Outdoor Seating preferences
                       OutdoorSeatingController()
-                          .run(PrefModel.dbOutdoorSeating);
+                          .run(PrefModel.dbOutdoorSeating!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -189,16 +189,16 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAnyLocalFeatures = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
                       // save user Rooftop preference
-                      RooftopController().run(PrefModel.dbRooftop);
+                      RooftopController().run(PrefModel.dbRooftop!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -221,16 +221,16 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAnyLocalFeatures = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
                       // save user Cover Charge preference
-                      CoverChargeController().run(PrefModel.dbCoverCharge);
+                      CoverChargeController().run(PrefModel.dbCoverCharge!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -286,16 +286,16 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAnyLocalFeatures = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
                       // save user Parking preferences
-                      ParkingController().run(PrefModel.dbParking);
+                      ParkingController().run(PrefModel.dbParking!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -319,16 +319,16 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAnyLocalFeatures = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
                       // save user Live Music preference
-                      LiveMusicController().run(PrefModel.dbLiveMusic);
+                      LiveMusicController().run(PrefModel.dbLiveMusic!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -351,16 +351,16 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAnyLocalFeatures = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
                       // save user Games preference
-                      GamesController().run(PrefModel.dbGames);
+                      GamesController().run(PrefModel.dbGames!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -384,16 +384,16 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAnyLocalFeatures = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
                       // save user Casual preference
-                      CasualController().run(PrefModel.dbCasual);
+                      CasualController().run(PrefModel.dbCasual!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -416,16 +416,16 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAnyLocalFeatures = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
                       // save user Accessibility preferences
-                      AccessibilityController().run(PrefModel.dbAccessibility);
+                      AccessibilityController().run(PrefModel.dbAccessibility!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -449,18 +449,18 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbCovid19Compliant = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
                         AnyLocalFeaturesController()
-                            .run(PrefModel.dbAnyLocalFeatures);
+                            .run(PrefModel.dbAnyLocalFeatures!);
                       }
 
                       // save user Covid19 Compliant preference
                       Covid19CompliantController()
-                          .run(PrefModel.dbCovid19Compliant);
+                          .run(PrefModel.dbCovid19Compliant!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -493,21 +493,21 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbCovid19Compliant = newValue;
                           PrefModel.dbResetLocationFeaturesValue = false;
                         });
-                        SpecialsController().run(PrefModel.dbSpecials);
+                        SpecialsController().run(PrefModel.dbSpecials!);
                         OutdoorSeatingController()
-                            .run(PrefModel.dbOutdoorSeating);
-                        RooftopController().run(PrefModel.dbRooftop);
-                        CoverChargeController().run(PrefModel.dbCoverCharge);
+                            .run(PrefModel.dbOutdoorSeating!);
+                        RooftopController().run(PrefModel.dbRooftop!);
+                        CoverChargeController().run(PrefModel.dbCoverCharge!);
                         NoCoverChargeController()
-                            .run(PrefModel.dbNoCoverCharge);
-                        ParkingController().run(PrefModel.dbParking);
-                        LiveMusicController().run(PrefModel.dbLiveMusic);
-                        GamesController().run(PrefModel.dbGames);
-                        CasualController().run(PrefModel.dbCasual);
+                            .run(PrefModel.dbNoCoverCharge!);
+                        ParkingController().run(PrefModel.dbParking!);
+                        LiveMusicController().run(PrefModel.dbLiveMusic!);
+                        GamesController().run(PrefModel.dbGames!);
+                        CasualController().run(PrefModel.dbCasual!);
                         AccessibilityController()
-                            .run(PrefModel.dbAccessibility);
+                            .run(PrefModel.dbAccessibility!);
                         Covid19CompliantController()
-                            .run(PrefModel.dbCovid19Compliant);
+                            .run(PrefModel.dbCovid19Compliant!);
                       } else {
                         setState(() {
                           PrefModel.dbSpecials = false;
@@ -522,25 +522,25 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                           PrefModel.dbAccessibility = false;
                           PrefModel.dbCovid19Compliant = false;
                         });
-                        SpecialsController().run(PrefModel.dbSpecials);
+                        SpecialsController().run(PrefModel.dbSpecials!);
                         OutdoorSeatingController()
-                            .run(PrefModel.dbOutdoorSeating);
-                        RooftopController().run(PrefModel.dbRooftop);
-                        CoverChargeController().run(PrefModel.dbCoverCharge);
+                            .run(PrefModel.dbOutdoorSeating!);
+                        RooftopController().run(PrefModel.dbRooftop!);
+                        CoverChargeController().run(PrefModel.dbCoverCharge!);
                         NoCoverChargeController()
-                            .run(PrefModel.dbNoCoverCharge);
-                        ParkingController().run(PrefModel.dbParking);
-                        LiveMusicController().run(PrefModel.dbLiveMusic);
-                        GamesController().run(PrefModel.dbGames);
-                        CasualController().run(PrefModel.dbCasual);
+                            .run(PrefModel.dbNoCoverCharge!);
+                        ParkingController().run(PrefModel.dbParking!);
+                        LiveMusicController().run(PrefModel.dbLiveMusic!);
+                        GamesController().run(PrefModel.dbGames!);
+                        CasualController().run(PrefModel.dbCasual!);
                         AccessibilityController()
-                            .run(PrefModel.dbAccessibility);
+                            .run(PrefModel.dbAccessibility!);
                         Covid19CompliantController()
-                            .run(PrefModel.dbCovid19Compliant);
+                            .run(PrefModel.dbCovid19Compliant!);
                       }
                       // save user Covid19 Compliant preference
                       AnyLocalFeaturesController()
-                          .run(PrefModel.dbAnyLocalFeatures);
+                          .run(PrefModel.dbAnyLocalFeatures!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -568,23 +568,23 @@ class _PrefLocationFeaturesScreen extends State<PrefLocationFeaturesScreen> {
                         PrefModel.dbCovid19Compliant = false;
                         PrefModel.dbAnyLocalFeatures = false;
                       });
-                      SpecialsController().run(PrefModel.dbSpecials);
+                      SpecialsController().run(PrefModel.dbSpecials!);
                       OutdoorSeatingController()
-                          .run(PrefModel.dbOutdoorSeating);
-                      RooftopController().run(PrefModel.dbRooftop);
-                      CoverChargeController().run(PrefModel.dbCoverCharge);
-                      NoCoverChargeController().run(PrefModel.dbNoCoverCharge);
-                      ParkingController().run(PrefModel.dbParking);
-                      LiveMusicController().run(PrefModel.dbLiveMusic);
-                      GamesController().run(PrefModel.dbGames);
-                      CasualController().run(PrefModel.dbCasual);
-                      AccessibilityController().run(PrefModel.dbAccessibility);
+                          .run(PrefModel.dbOutdoorSeating!);
+                      RooftopController().run(PrefModel.dbRooftop!);
+                      CoverChargeController().run(PrefModel.dbCoverCharge!);
+                      NoCoverChargeController().run(PrefModel.dbNoCoverCharge!);
+                      ParkingController().run(PrefModel.dbParking!);
+                      LiveMusicController().run(PrefModel.dbLiveMusic!);
+                      GamesController().run(PrefModel.dbGames!);
+                      CasualController().run(PrefModel.dbCasual!);
+                      AccessibilityController().run(PrefModel.dbAccessibility!);
                       Covid19CompliantController()
-                          .run(PrefModel.dbCovid19Compliant);
+                          .run(PrefModel.dbCovid19Compliant!);
 
                       // save user Covid19 Compliant preference
                       AnyLocalFeaturesController()
-                          .run(PrefModel.dbAnyLocalFeatures);
+                          .run(PrefModel.dbAnyLocalFeatures!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },

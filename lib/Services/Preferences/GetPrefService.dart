@@ -13,153 +13,153 @@ class GetPreferencesService{
 
   //Future<User> loggedInUser = GetUserController().run();
   Future<void> getPreferences() async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     final _firestore = FirebaseFirestore.instance;
     final _auth = FirebaseAuth.instance;
     // db is short for database
     // budget values
-    double dbBudget = 0.0;
-    double dbAboveBudgetPercent = 0.0;
-    double dbBelowBudgetPercent = 0.0;
-    bool dbNotifyPriceInc = false;
-    bool dbNotifyPriceDec = false;
-    bool dbStickToBudget = false;
-    bool dbOutOfBudget = false;
-    bool dbEnableBelowBudget = false;
-    bool dbEnableAboveBudget = false;
+    double? dbBudget = 0.0;
+    double? dbAboveBudgetPercent = 0.0;
+    double? dbBelowBudgetPercent = 0.0;
+    bool? dbNotifyPriceInc = false;
+    bool? dbNotifyPriceDec = false;
+    bool? dbStickToBudget = false;
+    bool? dbOutOfBudget = false;
+    bool? dbEnableBelowBudget = false;
+    bool? dbEnableAboveBudget = false;
     String budgetPreferences = '';
 
     // multiple itineraries values
-    bool dbMultiplePlans = false;
+    bool? dbMultiplePlans = false;
     String MultiplePlansPreferences = '';
 
     // commute values
-    bool dbRideShare = false;
-    bool dbDrive = false;
-    bool dbFlight = false;
-    bool dbTrain = false;
-    bool dbPublicBusMetro = false;
-    bool dbWalk = false;
-    bool dbAnyCommute = false;
+    bool? dbRideShare = false;
+    bool? dbDrive = false;
+    bool? dbFlight = false;
+    bool? dbTrain = false;
+    bool? dbPublicBusMetro = false;
+    bool? dbWalk = false;
+    bool? dbAnyCommute = false;
     String commutePreferences = '';
 
     // cuisine values
-    bool dbAfricanCuisine = false;
-    bool dbAmericanCuisine = false;
-    bool dbBarbequeCuisine = false;
-    bool dbBrazilianCuisine = false;
-    bool dbCaribbeanCuisine = false;
-    bool dbChineseCuisine = false;
-    bool dbFrenchCuisine = false;
-    bool dbGreekCuisine = false;
-    bool dbIndianCuisine = false;
-    bool dbItalianCuisine = false;
-    bool dbJapaneseCuisine = false;
-    bool dbMediterraneanCuisine = false;
-    bool dbMexicanCuisine = false;
-    bool dbThaiCuisine = false;
-    bool dbSoulFoodCuisine = false;
-    bool dbBrunchCuisine = false;
-    bool dbBuffetCuisine = false;
-    bool dbDessertsCuisine = false;
-    bool dbSandwichesCuisine = false;
-    bool dbNoodlesCuisine = false;
-    bool dbSeafoodCuisine = false;
-    bool dbVietnameseCuisine = false;
-    bool dbTurkishCuisine = false;
-    bool dbAnyCuisine = false;
+    bool? dbAfricanCuisine = false;
+    bool? dbAmericanCuisine = false;
+    bool? dbBarbequeCuisine = false;
+    bool? dbBrazilianCuisine = false;
+    bool? dbCaribbeanCuisine = false;
+    bool? dbChineseCuisine = false;
+    bool? dbFrenchCuisine = false;
+    bool? dbGreekCuisine = false;
+    bool? dbIndianCuisine = false;
+    bool? dbItalianCuisine = false;
+    bool? dbJapaneseCuisine = false;
+    bool? dbMediterraneanCuisine = false;
+    bool? dbMexicanCuisine = false;
+    bool? dbThaiCuisine = false;
+    bool? dbSoulFoodCuisine = false;
+    bool? dbBrunchCuisine = false;
+    bool? dbBuffetCuisine = false;
+    bool? dbDessertsCuisine = false;
+    bool? dbSandwichesCuisine = false;
+    bool? dbNoodlesCuisine = false;
+    bool? dbSeafoodCuisine = false;
+    bool? dbVietnameseCuisine = false;
+    bool? dbTurkishCuisine = false;
+    bool? dbAnyCuisine = false;
     String cuisinePreferences = '';
 
     // health and covid values
-    bool dbNoContactPay = false;
-    bool dbNoContactDelivery = false;
-    bool dbStaffMasks = false;
-    bool dbMasksReq = false;
-    bool dbStaffGloves = false;
-    bool dbLimitCap = false;
-    bool dbSaniBetwCust = false;
-    bool dbHandSaniGiven = false;
-    bool dbAnyHealthCovid = false;
+    bool? dbNoContactPay = false;
+    bool? dbNoContactDelivery = false;
+    bool? dbStaffMasks = false;
+    bool? dbMasksReq = false;
+    bool? dbStaffGloves = false;
+    bool? dbLimitCap = false;
+    bool? dbSaniBetwCust = false;
+    bool? dbHandSaniGiven = false;
+    bool? dbAnyHealthCovid = false;
     String healthCovidPreferences = '';
 
     // diet values
-    bool dbDiabeticDiet = false;
-    bool dbFreshDiet = false;
-    bool dbHalalDiet = false;
-    bool dbHealthyNotVegetDiet = false;
-    bool dbKosherDiet = false;
-    bool dbPescatarianDiet = false;
-    bool dbVeganDiet = false;
-    bool dbVegetarianDiet = false;
-    bool dbAnyDiet = false;
+    bool? dbDiabeticDiet = false;
+    bool? dbFreshDiet = false;
+    bool? dbHalalDiet = false;
+    bool? dbHealthyNotVegetDiet = false;
+    bool? dbKosherDiet = false;
+    bool? dbPescatarianDiet = false;
+    bool? dbVeganDiet = false;
+    bool? dbVegetarianDiet = false;
+    bool? dbAnyDiet = false;
     String dietPreferences = '';
 
     // general values
-    bool dbMatchDiet = false;
-    bool dbMatchDensity = false;
-    bool dbMatchCuisine = false;
-    bool dbGoodForCouples = false;
-    bool dbMatchPayment = false;
-    bool dbReqRSVP = false;
-    bool dbGroups5Plus = false;
-    bool dbMatchBudget = false;
-    double dbWaitTime = 0.0;
+    bool? dbMatchDiet = false;
+    bool? dbMatchDensity = false;
+    bool? dbMatchCuisine = false;
+    bool? dbGoodForCouples = false;
+    bool? dbMatchPayment = false;
+    bool? dbReqRSVP = false;
+    bool? dbGroups5Plus = false;
+    bool? dbMatchBudget = false;
+    double? dbWaitTime = 0.0;
     String generalFeaturesPreferences = '';
 
     // local spot values
-    bool dbLocallyOwned = false;
-    bool dbLocallySourced = false;
-    bool dbAnyLocalSpot = false;
+    bool? dbLocallyOwned = false;
+    bool? dbLocallySourced = false;
+    bool? dbAnyLocalSpot = false;
     String localSpotPreferences = '';
 
     // location features values
-    bool dbSpecials = false;
-    bool dbOutdoorSeating = false;
-    bool dbRooftop = false;
-    bool dbCoverCharge = false;
-    bool dbNoCoverCharge = false;
-    bool dbParking = false;
-    bool dbLiveMusic = false;
-    bool dbGames = false;
-    bool dbCasual = false;
-    bool dbAccessibility = false;
-    bool dbCovid19Compliant = false;
-    bool dbAnyLocalFeatures = false;
+    bool? dbSpecials = false;
+    bool? dbOutdoorSeating = false;
+    bool? dbRooftop = false;
+    bool? dbCoverCharge = false;
+    bool? dbNoCoverCharge = false;
+    bool? dbParking = false;
+    bool? dbLiveMusic = false;
+    bool? dbGames = false;
+    bool? dbCasual = false;
+    bool? dbAccessibility = false;
+    bool? dbCovid19Compliant = false;
+    bool? dbAnyLocalFeatures = false;
     String locationFeaturesPreferences = '';
 
     // payment values
-    bool dbCash = false;
-    bool dbCreditDebit = false;
-    bool dbApplePay = false;
-    bool dbGooglePay = false;
-    bool dbPayPal = false;
-    bool dbCashApp = false;
-    bool dbVenmo = false;
-    bool dbAnyPayment = false;
+    bool? dbCash = false;
+    bool? dbCreditDebit = false;
+    bool? dbApplePay = false;
+    bool? dbGooglePay = false;
+    bool? dbPayPal = false;
+    bool? dbCashApp = false;
+    bool? dbVenmo = false;
+    bool? dbAnyPayment = false;
     String paymentPreferences = '';
 
     // relationship values
-    bool dbCryptocurrency = false;
-    bool dbSingle = false;
-    bool dbMarried = false;
-    bool dbInARelationship = false;
-    bool dbAnyRelationship = false;
+    bool? dbCryptocurrency = false;
+    bool? dbSingle = false;
+    bool? dbMarried = false;
+    bool? dbInARelationship = false;
+    bool? dbAnyRelationship = false;
     String relationshipPreferences = '';
 
     // radius values
-    double dbRadiusDistance = 0.0;
-    Place dbRadiusLocationDescription;
+    double? dbRadiusDistance = 0.0;
+    Place? dbRadiusLocationDescription;
     String radiusPreferences = '';
 
 
     // ambience and density values
-    bool dbIntimate = false;
-    bool dbAverageDensity = false;
-    bool dbComfy = false;
-    bool dbAboveAverageDensity = false;
-    bool dbPackedCrowds = false;
-    bool dbAnyDensity = false;
-    bool dbSocialDistance = false;
+    bool? dbIntimate = false;
+    bool? dbAverageDensity = false;
+    bool? dbComfy = false;
+    bool? dbAboveAverageDensity = false;
+    bool? dbPackedCrowds = false;
+    bool? dbAnyDensity = false;
+    bool? dbSocialDistance = false;
     bool dbAnyAmbianceDensity = false;
     String ambianceDensityPreferences = '';
 
@@ -626,7 +626,7 @@ class GetPreferencesService{
       reference
           .collection("Preferences")
           .doc("Preferences")
-          .set({'user_id': _auth.currentUser.uid});
+          .set({'user_id': _auth.currentUser!.uid});
       print(e);
     }
 

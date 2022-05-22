@@ -72,7 +72,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final SharedPreferences prefs;
+  final SharedPreferences? prefs;
   MyApp({this.prefs});
 
   // Widget _defaultHome;
@@ -141,7 +141,7 @@ class MyApp extends StatelessWidget {
         'SettingVisibility' : (context) => SettingVisibility(),
         'UpdateProfile' : (context) => UpdateProfileScreen(),
         'ResetPassword' : (context) => ResetPasswordScreen(),
-        'ViewItinerary' : (context) => ViewItinerary(),
+        'ViewItinerary' : (context) => ViewItinerary(plan: context,),
         'AddLocation' : (context) => AddLocationScreen(),
         'AddDateAndTime' : (context) => AddDateAndTimeScreen(),
         'AddPeople': (context) => AddPeopleScreen(),

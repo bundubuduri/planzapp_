@@ -16,7 +16,7 @@ import 'package:maps_launcher/maps_launcher.dart';
 class ViewItinerary extends StatefulWidget {
 
   Plan plan;
-  ViewItinerary({@required this.plan});
+  ViewItinerary({required this.plan});
 
   @override
   _ViewItineraryState createState() => _ViewItineraryState();
@@ -42,7 +42,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
 
     for(var i = strings.length - 1; i > -1; i--){
       String userID = strings[i];
-      String userNameEmail = "";
+      String? userNameEmail = "";
       for(var i = allUsers.length - 1; i > -1; i--){
         if (allUsers[i].toString().contains(userID)) {
           userNameEmail = allUsers[i].split(" : ")[0];// + " : " + allUsers[i].split(" : ")[1];
@@ -54,7 +54,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(userNameEmail),
+              Text(userNameEmail!),
             ],
           ),
         ),
@@ -201,9 +201,9 @@ class _ViewItineraryState extends State<ViewItinerary> {
     for (int i = 0; i < allUsers.length; i ++) {
       DocumentSnapshot<Map<String, dynamic>> variable = await FirebaseFirestore.instance.collection('User').doc(allUsers[i]).get();
 
-      var tempUserName = variable.data()['planzID'];
-      var tempUserId = variable.data()['user_id'];
-      var tempEmail = variable.data()['email'];
+      var tempUserName = variable.data()!['planzID'];
+      var tempUserId = variable.data()!['user_id'];
+      var tempEmail = variable.data()!['email'];
       allUsers[i] = tempUserName + ' : ' + tempEmail + ' : ' + tempUserId;
 
     }
@@ -239,7 +239,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                 style: TextStyle(
                   fontSize: 20,
                   foreground: Paint()
-                    ..color = Colors.teal[600],
+                    ..color = Colors.teal[600]!,
                 ),
               )
           ),
@@ -267,7 +267,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                     style: TextStyle(
                       fontSize: 20,
                       foreground: Paint()
-                        ..color = Colors.teal[600],
+                        ..color = Colors.teal[600]!,
                     ),
                   ),
                 ],
@@ -285,7 +285,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                 style: TextStyle(
                   fontSize: 15,
                   foreground: Paint()
-                    ..color = Colors.teal[600],
+                    ..color = Colors.teal[600]!,
                 ),
               )
           ),
@@ -304,7 +304,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       descriptionEditing ? IconButton(icon: Icon(Icons.check),
@@ -368,7 +368,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       priceEditing ? IconButton(icon: Icon(Icons.check),
@@ -429,7 +429,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       // if user want to edit people data, redirect them to people page
@@ -466,7 +466,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       // if user want to edit people data, redirect them to people page
@@ -503,7 +503,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       // if user want to edit location data, redirect them to location page
@@ -542,7 +542,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                     ],
@@ -569,7 +569,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                       height: 2,
                       color: Colors.deepPurpleAccent,
                     ),
-                    onChanged: (String newValue) {
+                    onChanged: (String? newValue) {
                       setState(() {
                         // dropdownValue = newValue;
                         widget.plan.planStatus = newValue;
@@ -649,7 +649,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
 
 class BackButtonWidget extends StatelessWidget {
   const BackButtonWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

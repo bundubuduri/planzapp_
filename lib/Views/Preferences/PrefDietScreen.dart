@@ -38,7 +38,7 @@ class _PrefDietScreen extends State<PrefDietScreen> {
 
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -127,16 +127,16 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                       setState(() {
                         PrefModel.dbAnyDiet = false;
                       });
-                      AnyDietController().run(PrefModel.dbAnyDiet);
+                      AnyDietController().run(PrefModel.dbAnyDiet!);
                     }
                     else{
                       setState(() {
                         PrefModel.dbResetDietValue = false;
                       });
-                      AnyDietController().run(PrefModel.dbAnyDiet);
+                      AnyDietController().run(PrefModel.dbAnyDiet!);
                     }
                     // save user Diabetic diet preference
-                    DiabeticDietController().run(PrefModel.dbDiabeticDiet);
+                    DiabeticDietController().run(PrefModel.dbDiabeticDiet!);
                     // Notify user preference saved
                     UpdatingSnackbar.showMessage(context);
                   },
@@ -158,16 +158,16 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                           setState(() {
                             PrefModel.dbAnyDiet = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetDietValue = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         // save user Fresh diet preferences
-                        FreshDietController().run(PrefModel.dbFreshDiet);
+                        FreshDietController().run(PrefModel.dbFreshDiet!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -194,16 +194,16 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                           setState(() {
                             PrefModel.dbAnyDiet = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetDietValue = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         // save user Halal diet preference
-                        HalalDietController().run(PrefModel.dbHalalDiet);
+                        HalalDietController().run(PrefModel.dbHalalDiet!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -225,16 +225,16 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                           setState(() {
                             PrefModel.dbAnyDiet = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetDietValue = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         // save user HealthyNotVeget diet preferences
-                        HealthyNotVegetDietController().run(PrefModel.dbHealthyNotVegetDiet);
+                        HealthyNotVegetDietController().run(PrefModel.dbHealthyNotVegetDiet!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -261,16 +261,16 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                           setState(() {
                             PrefModel.dbAnyDiet = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetDietValue = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         // save user Kosher diet preference
-                        KosherDietController().run(PrefModel.dbKosherDiet);
+                        KosherDietController().run(PrefModel.dbKosherDiet!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -292,16 +292,16 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                           setState(() {
                             PrefModel.dbAnyDiet = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetDietValue = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         // save user Pescatarian diet preferences
-                        PescatarianDietController().run(PrefModel.dbPescatarianDiet);
+                        PescatarianDietController().run(PrefModel.dbPescatarianDiet!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -328,16 +328,16 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                           setState(() {
                             PrefModel.dbAnyDiet = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetDietValue = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         // save user Vegan diet preference
-                        VeganDietController().run(PrefModel.dbVeganDiet);
+                        VeganDietController().run(PrefModel.dbVeganDiet!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -359,16 +359,16 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                           setState(() {
                             PrefModel.dbAnyDiet = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetDietValue = false;
                           });
-                          AnyDietController().run(PrefModel.dbAnyDiet);
+                          AnyDietController().run(PrefModel.dbAnyDiet!);
                         }
                         // save user Vegetarian diet preferences
-                        VegetarianDietController().run(PrefModel.dbVegetarianDiet);
+                        VegetarianDietController().run(PrefModel.dbVegetarianDiet!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -405,14 +405,14 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                             PrefModel.dbResetDietValue = false;
 
                             });
-                            DiabeticDietController().run(PrefModel.dbDiabeticDiet);
-                            FreshDietController().run(PrefModel.dbFreshDiet);
-                            HalalDietController().run(PrefModel.dbHalalDiet);
-                            HealthyNotVegetDietController().run(PrefModel.dbHealthyNotVegetDiet);
-                            KosherDietController().run(PrefModel.dbKosherDiet);
-                            PescatarianDietController().run(PrefModel.dbPescatarianDiet);
-                            VeganDietController().run(PrefModel.dbVeganDiet);
-                            VegetarianDietController().run(PrefModel.dbVegetarianDiet);
+                            DiabeticDietController().run(PrefModel.dbDiabeticDiet!);
+                            FreshDietController().run(PrefModel.dbFreshDiet!);
+                            HalalDietController().run(PrefModel.dbHalalDiet!);
+                            HealthyNotVegetDietController().run(PrefModel.dbHealthyNotVegetDiet!);
+                            KosherDietController().run(PrefModel.dbKosherDiet!);
+                            PescatarianDietController().run(PrefModel.dbPescatarianDiet!);
+                            VeganDietController().run(PrefModel.dbVeganDiet!);
+                            VegetarianDietController().run(PrefModel.dbVegetarianDiet!);
                         }
                         else{
                           setState(() {
@@ -425,17 +425,17 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                             PrefModel.dbVeganDiet = false;
                             PrefModel.dbVegetarianDiet = false;
                           });
-                          DiabeticDietController().run(PrefModel.dbDiabeticDiet);
-                          FreshDietController().run(PrefModel.dbFreshDiet);
-                          HalalDietController().run(PrefModel.dbHalalDiet);
-                          HealthyNotVegetDietController().run(PrefModel.dbHealthyNotVegetDiet);
-                          KosherDietController().run(PrefModel.dbKosherDiet);
-                          PescatarianDietController().run(PrefModel.dbPescatarianDiet);
-                          VeganDietController().run(PrefModel.dbVeganDiet);
-                          VegetarianDietController().run(PrefModel.dbVegetarianDiet);
+                          DiabeticDietController().run(PrefModel.dbDiabeticDiet!);
+                          FreshDietController().run(PrefModel.dbFreshDiet!);
+                          HalalDietController().run(PrefModel.dbHalalDiet!);
+                          HealthyNotVegetDietController().run(PrefModel.dbHealthyNotVegetDiet!);
+                          KosherDietController().run(PrefModel.dbKosherDiet!);
+                          PescatarianDietController().run(PrefModel.dbPescatarianDiet!);
+                          VeganDietController().run(PrefModel.dbVeganDiet!);
+                          VegetarianDietController().run(PrefModel.dbVegetarianDiet!);
                         }
                         // save user Any diet preference
-                        AnyDietController().run(PrefModel.dbAnyDiet);
+                        AnyDietController().run(PrefModel.dbAnyDiet!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -459,18 +459,18 @@ class _PrefDietScreen extends State<PrefDietScreen> {
                             PrefModel.dbAnyDiet = false;
 
                           });
-                          DiabeticDietController().run(PrefModel.dbDiabeticDiet);
-                          FreshDietController().run(PrefModel.dbFreshDiet);
-                          HalalDietController().run(PrefModel.dbHalalDiet);
-                          HealthyNotVegetDietController().run(PrefModel.dbHealthyNotVegetDiet);
-                          KosherDietController().run(PrefModel.dbKosherDiet);
-                          PescatarianDietController().run(PrefModel.dbPescatarianDiet);
-                          VeganDietController().run(PrefModel.dbVeganDiet);
-                          VegetarianDietController().run(PrefModel.dbVegetarianDiet);
+                          DiabeticDietController().run(PrefModel.dbDiabeticDiet!);
+                          FreshDietController().run(PrefModel.dbFreshDiet!);
+                          HalalDietController().run(PrefModel.dbHalalDiet!);
+                          HealthyNotVegetDietController().run(PrefModel.dbHealthyNotVegetDiet!);
+                          KosherDietController().run(PrefModel.dbKosherDiet!);
+                          PescatarianDietController().run(PrefModel.dbPescatarianDiet!);
+                          VeganDietController().run(PrefModel.dbVeganDiet!);
+                          VegetarianDietController().run(PrefModel.dbVegetarianDiet!);
 
 
                         // save user Any diet preference
-                        AnyDietController().run(PrefModel.dbAnyDiet);
+                        AnyDietController().run(PrefModel.dbAnyDiet!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },

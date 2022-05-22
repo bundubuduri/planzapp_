@@ -11,7 +11,7 @@ class Friends extends StatefulWidget {
 
 class _FriendsState extends State<Friends> {
 
-  String id;
+  String? id;
   @override
   void initState() {
     super.initState();
@@ -36,15 +36,15 @@ class _FriendsState extends State<Friends> {
                 var names = [];
 
                 if (snapshot.hasData) {
-                  for (var c in snapshot.data.docs) {
-                    if (currentUser.currentUser.uid == c.get('user_id')) {
+                  for (var c in snapshot.data!.docs) {
+                    if (currentUser.currentUser!.uid == c.get('user_id')) {
                       f.add(c.get('friends'));
                     }
                   }
 
                   for (var c in f) {
                     for (var f in c){
-                      for (var d in snapshot.data.docs) {
+                      for (var d in snapshot.data!.docs) {
                         if (f == d.get('user_id')) {
                           friends.add(new ListTile(
                             title: Text(d.get('planzID')),

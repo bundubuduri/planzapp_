@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:planzapp/Views/Messages/widgets/CustomTile.dart';
 
 class ChatTile extends StatelessWidget {
-  String userName;
-  String message;
-  String id;
+  String? userName;
+  String? message;
+  String? id;
 
   ChatTile(this.userName, this.message, this.id);
 
@@ -17,7 +17,7 @@ class ChatTile extends StatelessWidget {
     final currentUser = FirebaseAuth.instance;
 
     return Dismissible(
-      key: Key(userName),
+      key: Key(userName!),
       direction: DismissDirection.endToStart,
 
       //when dismissed deleted the whole discussion from DB
@@ -28,8 +28,8 @@ class ChatTile extends StatelessWidget {
             // List<Widget> chats = [];
             // List<String> ids = [];
             if (snapshot.hasData) {
-              final content = snapshot.data.docs;
-              final user = currentUser.currentUser.uid;
+              final content = snapshot.data!.docs;
+              final user = currentUser.currentUser!.uid;
 
               for (var c in content) {
                 final senderID = c.get('sender_id');
@@ -52,12 +52,12 @@ class ChatTile extends StatelessWidget {
           );
         },
         title: Text(
-          userName,
+          userName!,
           style:
               TextStyle(color: Colors.white, fontFamily: "Arial", fontSize: 19),
         ),
         subtitle: Text(
-          message,
+          message!,
           style: TextStyle(
             color: Colors.black,
             fontSize: 14,

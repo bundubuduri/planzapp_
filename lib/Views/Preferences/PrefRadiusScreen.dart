@@ -37,7 +37,7 @@ final _auth = FirebaseAuth.instance;
 class _PrefRadiusScreen extends State<PrefRadiusScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -54,7 +54,7 @@ class _PrefRadiusScreen extends State<PrefRadiusScreen> {
   @override
   Widget build(BuildContext context) {
     var PrefModel =  Provider.of<PreferencesModel>(context);
-    int sliderRadiusDistance = PrefModel.dbRadiusDistance.toInt();
+    int sliderRadiusDistance = PrefModel.dbRadiusDistance!.toInt();
     return Scaffold(
       appBar: AppBar(
         // Back button
@@ -129,18 +129,18 @@ class _PrefRadiusScreen extends State<PrefRadiusScreen> {
               Row(children: <Widget>[
                 Expanded(
                   child: Slider(
-                    value: PrefModel.dbRadiusDistance,
+                    value: PrefModel.dbRadiusDistance!,
                     min: 0,
                     max: 100,
                     divisions: 20,
-                    label: PrefModel.dbRadiusDistance.round().toString(),
+                    label: PrefModel.dbRadiusDistance!.round().toString(),
                     onChanged: (double value) {
                       context.read<PreferencesModel>().changeRadiusDistance(value);
                       setState(() {
                         PrefModel.dbRadiusDistance = value;
                       });
                       // save user radius preferences
-                      RadiusDistanceController().run(PrefModel.dbRadiusDistance);
+                      RadiusDistanceController().run(PrefModel.dbRadiusDistance!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },

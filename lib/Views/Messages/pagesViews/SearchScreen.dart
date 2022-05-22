@@ -9,7 +9,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final currentUser = FirebaseAuth.instance;
-  String searchKey;
+  String? searchKey;
 
   // List<String> userList;
   String query = "";
@@ -83,7 +83,7 @@ class _SearchScreenState extends State<SearchScreen> {
           builder: (context, snapshot) {
             List<ListTile> allUser = [];
             if (snapshot.hasData) {
-              for (var c in snapshot.data.docs) {
+              for (var c in snapshot.data!.docs) {
                 final email = c.get('email');
                 final name = c.get('user_name');
                 final id = c.get('user_id');

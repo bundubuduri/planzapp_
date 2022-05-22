@@ -14,7 +14,7 @@ class HelpAndFeedback extends StatefulWidget {
 }
 
 class _HelpAndFeedbackState extends State<HelpAndFeedback> {
-  var dropdownValue = "Help";
+  String? dropdownValue = "Help";
   var helpTopic = "";
   var help = "";
   var feedback = "";
@@ -47,7 +47,7 @@ class _HelpAndFeedbackState extends State<HelpAndFeedback> {
                     height: 2,
                     color: Colors.deepPurpleAccent,
                   ),
-                  onChanged: (String newValue) {
+                  onChanged: (String? newValue) {
                     setState(() {
                       dropdownValue = newValue;
                     });
@@ -134,7 +134,7 @@ class _HelpAndFeedbackState extends State<HelpAndFeedback> {
                     if (dropdownValue == "Help") {
                       FirebaseFirestore.instance
                           .doc("Help_Feedback/Help")
-                          .collection(_auth.currentUser.email.toString())
+                          .collection(_auth.currentUser!.email.toString())
                           .add({
                         'topic': helpTopic,
                         'help': help,
@@ -147,13 +147,13 @@ class _HelpAndFeedbackState extends State<HelpAndFeedback> {
                             'bundu@planzapp.app', 'planzApp Help Request')
                         ..recipients.add('admin@planzapp.app')
                         ..subject =
-                            'Help Request from ${_auth.currentUser.email} on Your planzApp'
+                            'Help Request from ${_auth.currentUser!.email} on Your planzApp'
                         ..html =
                             "<p>Time: ${DateTime.now()}</p>\n<p>Topic: $helpTopic</p>\n<p>Content: $help</p>\n<p>A copy of this help request is saved in your Firebase.</p>";
                     } else if (dropdownValue == "Feedback") {
                       FirebaseFirestore.instance
                           .doc("Help_Feedback/Feedback")
-                          .collection(_auth.currentUser.email.toString())
+                          .collection(_auth.currentUser!.email.toString())
                           .add({
                         'feedback': feedback,
                       }).then((value) {
@@ -166,7 +166,7 @@ class _HelpAndFeedbackState extends State<HelpAndFeedback> {
                             'no-reply@planzapp.app', 'planzApp Feedback')
                         ..recipients.add('admin@planzapp.app')
                         ..subject =
-                            'planzApp got a Feedback from ${_auth.currentUser.email}'
+                            'planzApp got a Feedback from ${_auth.currentUser!.email}'
                         ..html =
                             "<p>Time: ${DateTime.now()}</p>\n<p>Content: $feedback</p>\n<p>A copy of this feedback is saved in your Firebase.</p>";
                       //print(feedback);
@@ -184,7 +184,7 @@ class _HelpAndFeedbackState extends State<HelpAndFeedback> {
                     }
 
                     Fluttertoast.showToast(
-                      msg: dropdownValue + " has been sent.",
+                      msg: dropdownValue! + " has been sent.",
                       toastLength: Toast.LENGTH_LONG,
                       gravity: ToastGravity.BOTTOM,
                       timeInSecForIosWeb: 1,
@@ -210,7 +210,7 @@ class _HelpAndFeedbackState extends State<HelpAndFeedback> {
 
 class BackButtonWidget extends StatelessWidget {
   const BackButtonWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

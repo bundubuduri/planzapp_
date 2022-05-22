@@ -9,161 +9,161 @@ import 'package:planzapp/Views/Plans/MapSuggestionsScreen.dart';
 
 class PreferencesModel extends ChangeNotifier {
 
-  static double _dbBudget;
-  static double _dbAboveBudgetPercent;
-  static double _dbBelowBudgetPercent;
-  static bool _dbNotifyPriceInc;
-  static bool _dbNotifyPriceDec;
-  static bool _dbStickToBudget;
-  static bool _dbOutOfBudget;
-  static bool _dbEnableBelowBudget;
-  static bool _dbEnableAboveBudget;
-  static String _budgetPreferences;
+  static double? _dbBudget;
+  static double? _dbAboveBudgetPercent;
+  static double? _dbBelowBudgetPercent;
+  static bool? _dbNotifyPriceInc;
+  static bool? _dbNotifyPriceDec;
+  static bool? _dbStickToBudget;
+  static bool? _dbOutOfBudget;
+  static bool? _dbEnableBelowBudget;
+  static bool? _dbEnableAboveBudget;
+  static String? _budgetPreferences;
 
   // multiple itineraries values
-  static bool _dbMultiplePlans;
-  static String _multiplePlansPreferences;
+  static bool? _dbMultiplePlans;
+  static String? _multiplePlansPreferences;
 
   // commute values
-  static bool _dbRideShare;
-  static bool _dbDrive;
-  static bool _dbFlight;
-  static bool _dbTrain;
-  static bool _dbPublicBusMetro;
-  static bool _dbWalk;
-  static bool _dbAnyCommute;
-  static String _commutePreferences;
+  static bool? _dbRideShare;
+  static bool? _dbDrive;
+  static bool? _dbFlight;
+  static bool? _dbTrain;
+  static bool? _dbPublicBusMetro;
+  static bool? _dbWalk;
+  static bool? _dbAnyCommute;
+  static String? _commutePreferences;
 
   // cuisine values
-  static bool _dbAfricanCuisine;
-  static bool _dbAmericanCuisine;
-  static bool _dbBarbequeCuisine;
-  static bool _dbBrazilianCuisine;
-  static bool _dbCaribbeanCuisine;
-  static bool _dbChineseCuisine;
-  static bool _dbFrenchCuisine;
-  static bool _dbGreekCuisine;
-  static bool _dbIndianCuisine;
-  static bool _dbItalianCuisine;
-  static bool _dbJapaneseCuisine;
-  static bool _dbMediterraneanCuisine;
-  static bool _dbMexicanCuisine;
-  static bool _dbThaiCuisine;
-  static bool _dbSoulFoodCuisine;
-  static bool _dbBrunchCuisine;
-  static bool _dbBuffetCuisine;
-  static bool _dbDessertsCuisine;
-  static bool _dbSandwichesCuisine;
-  static bool _dbNoodlesCuisine;
-  static bool _dbSeafoodCuisine;
-  static bool _dbVietnameseCuisine;
-  static bool _dbTurkishCuisine;
-  static bool _dbAnyCuisine;
-  static String _cuisinePreferences;
+  static bool? _dbAfricanCuisine;
+  static bool? _dbAmericanCuisine;
+  static bool? _dbBarbequeCuisine;
+  static bool? _dbBrazilianCuisine;
+  static bool? _dbCaribbeanCuisine;
+  static bool? _dbChineseCuisine;
+  static bool? _dbFrenchCuisine;
+  static bool? _dbGreekCuisine;
+  static bool? _dbIndianCuisine;
+  static bool? _dbItalianCuisine;
+  static bool? _dbJapaneseCuisine;
+  static bool? _dbMediterraneanCuisine;
+  static bool? _dbMexicanCuisine;
+  static bool? _dbThaiCuisine;
+  static bool? _dbSoulFoodCuisine;
+  static bool? _dbBrunchCuisine;
+  static bool? _dbBuffetCuisine;
+  static bool? _dbDessertsCuisine;
+  static bool? _dbSandwichesCuisine;
+  static bool? _dbNoodlesCuisine;
+  static bool? _dbSeafoodCuisine;
+  static bool? _dbVietnameseCuisine;
+  static bool? _dbTurkishCuisine;
+  static bool? _dbAnyCuisine;
+  static String? _cuisinePreferences;
 
   // health and covid values
-  static bool _dbNoContactPay;
-  static bool _dbNoContactDelivery;
-  static bool _dbStaffMasks;
-  static bool _dbMasksReq;
-  static bool _dbStaffGloves;
-  static bool _dbLimitCap;
-  static bool _dbSaniBetwCust;
-  static bool _dbHandSaniGiven;
-  static bool _dbAnyHealthCovid;
-  static String _healthCovidPreferences;
+  static bool? _dbNoContactPay;
+  static bool? _dbNoContactDelivery;
+  static bool? _dbStaffMasks;
+  static bool? _dbMasksReq;
+  static bool? _dbStaffGloves;
+  static bool? _dbLimitCap;
+  static bool? _dbSaniBetwCust;
+  static bool? _dbHandSaniGiven;
+  static bool? _dbAnyHealthCovid;
+  static String? _healthCovidPreferences;
 
   // diet values
-  static bool _dbDiabeticDiet;
-  static bool _dbFreshDiet;
-  static bool _dbHalalDiet;
-  static bool _dbHealthyNotVegetDiet;
-  static bool _dbKosherDiet;
-  static bool _dbPescatarianDiet;
-  static bool _dbVeganDiet;
-  static bool _dbVegetarianDiet;
-  static bool _dbAnyDiet;
-  static String _dietPreferences;
+  static bool? _dbDiabeticDiet;
+  static bool? _dbFreshDiet;
+  static bool? _dbHalalDiet;
+  static bool? _dbHealthyNotVegetDiet;
+  static bool? _dbKosherDiet;
+  static bool? _dbPescatarianDiet;
+  static bool? _dbVeganDiet;
+  static bool? _dbVegetarianDiet;
+  static bool? _dbAnyDiet;
+  static String? _dietPreferences;
 
   // general values
-  static bool _dbMatchDiet;
-  static bool _dbMatchDensity;
-  static bool _dbMatchCuisine;
-  static bool _dbGoodForCouples;
-  static bool _dbMatchPayment;
-  static bool _dbReqRSVP;
-  static bool _dbGroups5Plus;
-  static bool _dbMatchBudget;
-  static double _dbWaitTime;
-  static String _generalFeaturesPreferences;
+  static bool? _dbMatchDiet;
+  static bool? _dbMatchDensity;
+  static bool? _dbMatchCuisine;
+  static bool? _dbGoodForCouples;
+  static bool? _dbMatchPayment;
+  static bool? _dbReqRSVP;
+  static bool? _dbGroups5Plus;
+  static bool? _dbMatchBudget;
+  static double? _dbWaitTime;
+  static String? _generalFeaturesPreferences;
 
   // local spot values
-  static bool _dbLocallyOwned;
-  static bool _dbLocallySourced;
-  static bool _dbAllLocalSpot;
-  static String _localSpotPreferences;
+  static bool? _dbLocallyOwned;
+  static bool? _dbLocallySourced;
+  static bool? _dbAllLocalSpot;
+  static String? _localSpotPreferences;
 
   // location features values
-  static bool _dbSpecials;
-  static bool _dbOutdoorSeating;
-  static bool _dbRooftop;
-  static bool _dbCoverCharge;
-  static bool _dbNoCoverCharge;
-  static bool _dbParking;
-  static bool _dbLiveMusic;
-  static bool _dbGames;
-  static bool _dbCasual;
-  static bool _dbAccessibility;
-  static bool _dbCovid19Compliant;
-  static bool _dbAnyLocalFeatures;
-  static String _locationFeaturesPreferences;
+  static bool? _dbSpecials;
+  static bool? _dbOutdoorSeating;
+  static bool? _dbRooftop;
+  static bool? _dbCoverCharge;
+  static bool? _dbNoCoverCharge;
+  static bool? _dbParking;
+  static bool? _dbLiveMusic;
+  static bool? _dbGames;
+  static bool? _dbCasual;
+  static bool? _dbAccessibility;
+  static bool? _dbCovid19Compliant;
+  static bool? _dbAnyLocalFeatures;
+  static String? _locationFeaturesPreferences;
 
   // payment values
-  static bool _dbCash;
-  static bool _dbCreditDebit;
-  static bool _dbApplePay;
-  static bool _dbGooglePay;
-  static bool _dbPayPal;
-  static bool _dbCashApp;
-  static bool _dbVenmo;
-  static bool _dbCryptocurrency;
-  static bool _dbAnyPayment;
-  static String _paymentPreferences;
+  static bool? _dbCash;
+  static bool? _dbCreditDebit;
+  static bool? _dbApplePay;
+  static bool? _dbGooglePay;
+  static bool? _dbPayPal;
+  static bool? _dbCashApp;
+  static bool? _dbVenmo;
+  static bool? _dbCryptocurrency;
+  static bool? _dbAnyPayment;
+  static String? _paymentPreferences;
 
   // relationship values
-  static bool _dbSingle;
-  static bool _dbMarried;
-  static bool _dbInARelationship;
-  static bool _dbAnyRelationship;
-  static String _relationshipPreferences;
+  static bool? _dbSingle;
+  static bool? _dbMarried;
+  static bool? _dbInARelationship;
+  static bool? _dbAnyRelationship;
+  static String? _relationshipPreferences;
 
   // radius values
-  static double _dbRadiusDistance;
-  static Place _dbRadiusLocationDescription;
-  static Place _dbRadiusLatLong;
-  static String _radiusPreferences;
+  static double? _dbRadiusDistance;
+  static Place? _dbRadiusLocationDescription;
+  static Place? _dbRadiusLatLong;
+  static String? _radiusPreferences;
 
 
   // ambience and density values
-  static bool _dbIntimate;
-  static bool _dbAverageDensity;
-  static bool _dbComfy;
-  static bool _dbAboveAverageDensity;
-  static bool _dbPackedCrowds;
-  static bool _dbSocialDistance;
-  static bool _dbAnyDensity;
-  static String _ambianceDensityPreferences;
+  static bool? _dbIntimate;
+  static bool? _dbAverageDensity;
+  static bool? _dbComfy;
+  static bool? _dbAboveAverageDensity;
+  static bool? _dbPackedCrowds;
+  static bool? _dbSocialDistance;
+  static bool? _dbAnyDensity;
+  static String? _ambianceDensityPreferences;
 
   //reset values for each preference page
-  static bool _dbResetAmbiDensityValue;
-  static bool _dbResetCommuteValue;
-  static bool _dbResetCuisineValue;
-  static bool _dbResetDietValue;
-  static bool _dbResetHealthCovidValue;
-  static bool _dbResetLocalSpotValue;
-  static bool _dbResetLocationFeaturesValue;
-  static bool _dbResetPaymentsValue;
-  static bool _dbResetRelatValue;
+  static bool? _dbResetAmbiDensityValue;
+  static bool? _dbResetCommuteValue;
+  static bool? _dbResetCuisineValue;
+  static bool? _dbResetDietValue;
+  static bool? _dbResetHealthCovidValue;
+  static bool? _dbResetLocalSpotValue;
+  static bool? _dbResetLocationFeaturesValue;
+  static bool? _dbResetPaymentsValue;
+  static bool? _dbResetRelatValue;
 
 
 
@@ -314,7 +314,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
 
   // radius values
   _dbRadiusDistance = prefs.getDouble('RadiusDistance') ?? 0.0;
-  Place _dbRadiusLocationDescription;
+  Place? _dbRadiusLocationDescription;
   Place _dbRadiusLatLong;
   _radiusPreferences = prefs.getString('radiusPreferences') ?? '';
 
@@ -353,7 +353,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbNotifyPriceDec == true) {
       _budgetPreferences += 'Notify me of price decreases in plans ';
     }
-    prefs.setString('budgetPreferences', _budgetPreferences);
+    prefs.setString('budgetPreferences', _budgetPreferences!);
 
     _commutePreferences = '';
     if (_dbRideShare == true) {
@@ -377,7 +377,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyCommute == true) {
       _commutePreferences = 'All';
     }
-    prefs.setString('commutePreferences', _commutePreferences);
+    prefs.setString('commutePreferences', _commutePreferences!);
 
     _cuisinePreferences = '';
     if (_dbAfricanCuisine == true) {
@@ -452,7 +452,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyCuisine == true) {
       _cuisinePreferences = 'All';
     }
-    prefs.setString('cuisinePreferences', _cuisinePreferences);
+    prefs.setString('cuisinePreferences', _cuisinePreferences!);
 
     _healthCovidPreferences = '';
     if (_dbNoContactPay == true) {
@@ -482,7 +482,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyHealthCovid == true) {
       _healthCovidPreferences = 'All';
     }
-    prefs.setString('healthCovidPreferences', _healthCovidPreferences);
+    prefs.setString('healthCovidPreferences', _healthCovidPreferences!);
 
     _dietPreferences = '';
     if (_dbDiabeticDiet == true) {
@@ -512,7 +512,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyDiet == true) {
       _dietPreferences = 'All';
     }
-    prefs.setString('dietPreferences', _dietPreferences);
+    prefs.setString('dietPreferences', _dietPreferences!);
 
 
     _generalFeaturesPreferences = '';
@@ -546,7 +546,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbWaitTime != null) {
       _generalFeaturesPreferences += 'Wait time: $_dbWaitTime minutes ';
     }
-    prefs.setString('generalFeaturesPreferences', _generalFeaturesPreferences);
+    prefs.setString('generalFeaturesPreferences', _generalFeaturesPreferences!);
 
     _localSpotPreferences = '';
     if (_dbLocallySourced == true) {
@@ -558,7 +558,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAllLocalSpot == true) {
       _localSpotPreferences = 'All';
     }
-    prefs.setString('localSpotPreferences', _localSpotPreferences);
+    prefs.setString('localSpotPreferences', _localSpotPreferences!);
     
     _locationFeaturesPreferences = '';
     if (_dbSpecials == true) {
@@ -600,7 +600,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbResetLocationFeaturesValue == true){
       _dbResetLocationFeaturesValue == 'All';
     }
-    prefs.setString('locationFeaturesPreferences', _locationFeaturesPreferences);
+    prefs.setString('locationFeaturesPreferences', _locationFeaturesPreferences!);
     
     _paymentPreferences = '';
     if (_dbCash == true) {
@@ -630,7 +630,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyPayment == true) {
       _paymentPreferences = 'All';
     }
-    prefs.setString('paymentPreferences', _paymentPreferences);
+    prefs.setString('paymentPreferences', _paymentPreferences!);
 
     _relationshipPreferences = '';
     if (_dbSingle == true) {
@@ -646,7 +646,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
       _relationshipPreferences = 'All';
     }
 
-    prefs.setString('relationshipPreferences', _relationshipPreferences);
+    prefs.setString('relationshipPreferences', _relationshipPreferences!);
 
     _radiusPreferences = '';
     if (_dbRadiusDistance != null) {
@@ -655,7 +655,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbRadiusLocationDescription != null) {
       _radiusPreferences += '$_dbRadiusLocationDescription ';
     }
-    prefs.setString('radiusPreferences', _radiusPreferences);
+    prefs.setString('radiusPreferences', _radiusPreferences!);
 
     _ambianceDensityPreferences = '';
     if (_dbIntimate == true) {
@@ -679,7 +679,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyDensity == true) {
       _ambianceDensityPreferences = 'All';
     }
-    prefs.setString('ambianceDensityPreferences', _ambianceDensityPreferences);
+    prefs.setString('ambianceDensityPreferences', _ambianceDensityPreferences!);
 
     multiplePlansPreferences = '';
     if (_dbMultiplePlans == true) {
@@ -692,99 +692,99 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
 
 
 
-  String get budgetPreferences => _budgetPreferences;
-  set budgetPreferences (String budgetPreferences) {
+  String? get budgetPreferences => _budgetPreferences;
+  set budgetPreferences (String? budgetPreferences) {
     _budgetPreferences = budgetPreferences;
     notifyListeners();
   }
 
   
-  String get multiplePlansPreferences => _multiplePlansPreferences;
-  set multiplePlansPreferences (String multiplePlansPreferences) {
+  String? get multiplePlansPreferences => _multiplePlansPreferences;
+  set multiplePlansPreferences (String? multiplePlansPreferences) {
     _multiplePlansPreferences = multiplePlansPreferences;
     notifyListeners();
   }
 
   
-  String get commutePreferences => _commutePreferences;
-  set commutePreferences (String commutePreferences) {
+  String? get commutePreferences => _commutePreferences;
+  set commutePreferences (String? commutePreferences) {
     _commutePreferences = commutePreferences;
     notifyListeners();
   }
 
   
-  String get cuisinePreferences => _cuisinePreferences;
-  set cuisinePreferences (String cuisinePreferences) {
+  String? get cuisinePreferences => _cuisinePreferences;
+  set cuisinePreferences (String? cuisinePreferences) {
     _cuisinePreferences = cuisinePreferences;
     notifyListeners();
   }
 
   
-  String get healthCovidPreferences => _healthCovidPreferences;
-  set healthCovidPreferences (String healthCovidPreferences) {
+  String? get healthCovidPreferences => _healthCovidPreferences;
+  set healthCovidPreferences (String? healthCovidPreferences) {
     _healthCovidPreferences = healthCovidPreferences;
     notifyListeners();
   }
 
   
-  String get dietPreferences => _dietPreferences;
-  set dietPreferences(String dietPreferences) {
+  String? get dietPreferences => _dietPreferences;
+  set dietPreferences(String? dietPreferences) {
     _dietPreferences = dietPreferences;
     notifyListeners();
   }
 
   
-  String get generalFeaturesPreferences => _generalFeaturesPreferences;
-  set generalFeaturesPreferences (String generalFeaturesPreferences) {
+  String? get generalFeaturesPreferences => _generalFeaturesPreferences;
+  set generalFeaturesPreferences (String? generalFeaturesPreferences) {
     _generalFeaturesPreferences = generalFeaturesPreferences;
     notifyListeners();
   }
 
   
-  String get localSpotPreferences => _localSpotPreferences;
-  set localSpotPreferences (String localSpotPreferences) {
+  String? get localSpotPreferences => _localSpotPreferences;
+  set localSpotPreferences (String? localSpotPreferences) {
     _localSpotPreferences = localSpotPreferences;
     notifyListeners();
   }
 
   
-  String get locationFeaturesPreferences => _locationFeaturesPreferences;
-  set locationFeaturesPreferences (String locationFeaturesPreferences) {
+  String? get locationFeaturesPreferences => _locationFeaturesPreferences;
+  set locationFeaturesPreferences (String? locationFeaturesPreferences) {
     _locationFeaturesPreferences = locationFeaturesPreferences;
     notifyListeners();
   }
 
   
-  String get paymentPreferences => _paymentPreferences;
-  set paymentPreferences (String paymentPreferences) {
+  String? get paymentPreferences => _paymentPreferences;
+  set paymentPreferences (String? paymentPreferences) {
     _paymentPreferences = paymentPreferences;
     notifyListeners();
   }
 
   
-  String get relationshipPreferences => _relationshipPreferences;
-  set relationshipPreferences (String relationshipPreferences) {
+  String? get relationshipPreferences => _relationshipPreferences;
+  set relationshipPreferences (String? relationshipPreferences) {
     _relationshipPreferences = relationshipPreferences;
     notifyListeners();
   }
 
   
-  String get radiusPreferences => _radiusPreferences;
-  set radiusPreferences (String radiusPreferences) {
+  String? get radiusPreferences => _radiusPreferences;
+  set radiusPreferences (String? radiusPreferences) {
     _radiusPreferences = radiusPreferences;
     notifyListeners();
   }
 
   
-  String get ambianceDensityPreferences => _ambianceDensityPreferences;
-  set ambianceDensityPreferences (String ambianceDensityPreferences) {
+  String? get ambianceDensityPreferences => _ambianceDensityPreferences;
+  set ambianceDensityPreferences (String? ambianceDensityPreferences) {
     _ambianceDensityPreferences = ambianceDensityPreferences;
     notifyListeners();
   }
 
   // Budget Data
-  double get dbBudget => _dbBudget;
-  set dbBudget (double dbBudget) {
+  double? get dbBudget => _dbBudget;
+  set dbBudget (double? dbBudget) {
     _dbBudget = dbBudget;
     notifyListeners();
   }
@@ -796,8 +796,8 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
 
 
   // AboveBudgetPercent Data
-  double get dbAboveBudgetPercent => _dbAboveBudgetPercent;
-  set dbAboveBudgetPercent (double dbAboveBudgetPercent) {
+  double? get dbAboveBudgetPercent => _dbAboveBudgetPercent;
+  set dbAboveBudgetPercent (double? dbAboveBudgetPercent) {
     _dbAboveBudgetPercent = dbAboveBudgetPercent;
     notifyListeners();
   }
@@ -808,8 +808,8 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
   }
 
   // BelowBudgetPercent Data
-  double get dbBelowBudgetPercent => _dbBelowBudgetPercent;
-  set dbBelowBudgetPercent (double dbBelowBudgetPercent) {
+  double? get dbBelowBudgetPercent => _dbBelowBudgetPercent;
+  set dbBelowBudgetPercent (double? dbBelowBudgetPercent) {
     _dbBelowBudgetPercent = dbBelowBudgetPercent;
     notifyListeners();
   }
@@ -820,776 +820,776 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
   }
 
   // NotifyPriceInc Data
-  bool get dbNotifyPriceInc => _dbNotifyPriceInc;
-  set dbNotifyPriceInc (bool dbNotifyPriceInc) {
+  bool? get dbNotifyPriceInc => _dbNotifyPriceInc;
+  set dbNotifyPriceInc (bool? dbNotifyPriceInc) {
     _dbNotifyPriceInc = dbNotifyPriceInc;
     notifyListeners();
   }
 
   toggleNotifyPriceInc() {
-    _dbNotifyPriceInc = !_dbNotifyPriceInc;
+    _dbNotifyPriceInc = !_dbNotifyPriceInc!;
     notifyListeners();
   }
 
   // NotifyPriceDec Data
-  bool get dbNotifyPriceDec => _dbNotifyPriceDec;
-  set dbNotifyPriceDec (bool dbNotifyPriceDec) {
+  bool? get dbNotifyPriceDec => _dbNotifyPriceDec;
+  set dbNotifyPriceDec (bool? dbNotifyPriceDec) {
     _dbNotifyPriceDec = dbNotifyPriceDec;
     notifyListeners();
   }
 
   toggleNotifyPriceDec() {
-    _dbNotifyPriceDec = !_dbNotifyPriceDec;
+    _dbNotifyPriceDec = !_dbNotifyPriceDec!;
     notifyListeners();
   }
 
   // StickToBudget Data
-  bool get dbStickToBudget => _dbStickToBudget;
-  set dbStickToBudget (bool dbStickToBudget) {
+  bool? get dbStickToBudget => _dbStickToBudget;
+  set dbStickToBudget (bool? dbStickToBudget) {
     _dbStickToBudget = dbStickToBudget;
     notifyListeners();
   }
 
   toggleStickToBudget() {
-    _dbStickToBudget = !_dbStickToBudget;
+    _dbStickToBudget = !_dbStickToBudget!;
     notifyListeners();
   }
 
   // OutOfBudget Data
-  bool get dbOutOfBudget => _dbOutOfBudget;
-  set dbOutOfBudget (bool dbOutOfBudget) {
+  bool? get dbOutOfBudget => _dbOutOfBudget;
+  set dbOutOfBudget (bool? dbOutOfBudget) {
     _dbOutOfBudget = dbOutOfBudget;
     notifyListeners();
   }
 
   toggleOutOfBudget() {
-    _dbOutOfBudget = !_dbOutOfBudget;
+    _dbOutOfBudget = !_dbOutOfBudget!;
     notifyListeners();
   }
 
   // EnableBelowBudget Data
-  bool get dbEnableBelowBudget => _dbEnableBelowBudget;
-  set dbEnableBelowBudget (bool dbEnableBelowBudget) {
+  bool? get dbEnableBelowBudget => _dbEnableBelowBudget;
+  set dbEnableBelowBudget (bool? dbEnableBelowBudget) {
     _dbEnableBelowBudget = dbEnableBelowBudget;
     notifyListeners();
   }
 
   toggleEnableBelowBudget() {
-    _dbEnableBelowBudget = !_dbEnableBelowBudget;
+    _dbEnableBelowBudget = !_dbEnableBelowBudget!;
     notifyListeners();
   }
 
   // EnableAboveBudget Data
-  bool get dbEnableAboveBudget => _dbEnableAboveBudget;
-  set dbEnableAboveBudget (bool dbEnableAboveBudget) {
+  bool? get dbEnableAboveBudget => _dbEnableAboveBudget;
+  set dbEnableAboveBudget (bool? dbEnableAboveBudget) {
     _dbEnableAboveBudget = dbEnableAboveBudget;
     notifyListeners();
   }
 
   toggleEnableAboveBudget() {
-    _dbEnableAboveBudget = !_dbEnableAboveBudget;
+    _dbEnableAboveBudget = !_dbEnableAboveBudget!;
     notifyListeners();
   }
 
   // MultiplePlans Data
-  bool get dbMultiplePlans => _dbMultiplePlans;
-  set dbMultiplePlans (bool dbMultiplePlans) {
+  bool? get dbMultiplePlans => _dbMultiplePlans;
+  set dbMultiplePlans (bool? dbMultiplePlans) {
     _dbMultiplePlans = dbMultiplePlans;
     notifyListeners();
   }
 
   toggleMultiplePlans() {
-    _dbMultiplePlans = !_dbMultiplePlans;
+    _dbMultiplePlans = !_dbMultiplePlans!;
     notifyListeners();
   }
 
   // RideShare Data
-  bool get dbRideShare => _dbRideShare;
-  set dbRideShare (bool dbRideShare) {
+  bool? get dbRideShare => _dbRideShare;
+  set dbRideShare (bool? dbRideShare) {
     _dbRideShare = dbRideShare;
     notifyListeners();
   }
 
   toggleRideShare() {
-    _dbRideShare = !_dbRideShare;
+    _dbRideShare = !_dbRideShare!;
     notifyListeners();
   }
 
   // Drive Data
-  bool get dbDrive => _dbDrive;
-  set dbDrive (bool dbDrive) {
+  bool? get dbDrive => _dbDrive;
+  set dbDrive (bool? dbDrive) {
     _dbDrive = dbDrive;
     notifyListeners();
   }
 
   toggleDrive() {
-    _dbDrive = !_dbDrive;
+    _dbDrive = !_dbDrive!;
     notifyListeners();
   }
 
   // Flight Data
-  bool get dbFlight => _dbFlight;
-  set dbFlight (bool dbFlight) {
+  bool? get dbFlight => _dbFlight;
+  set dbFlight (bool? dbFlight) {
     _dbFlight = dbFlight;
     notifyListeners();
   }
 
   toggleFlight() {
-    _dbFlight = !_dbFlight;
+    _dbFlight = !_dbFlight!;
     notifyListeners();
   }
 
   // Train Data
-  bool get dbTrain => _dbTrain;
-  set dbTrain (bool dbTrain) {
+  bool? get dbTrain => _dbTrain;
+  set dbTrain (bool? dbTrain) {
     _dbTrain = dbTrain;
     notifyListeners();
   }
 
   toggleTrain() {
-    _dbTrain = !_dbTrain;
+    _dbTrain = !_dbTrain!;
     notifyListeners();
   }
 
   // PublicBusMetro Data
-  bool get dbPublicBusMetro => _dbPublicBusMetro;
-  set dbPublicBusMetro (bool dbPublicBusMetro) {
+  bool? get dbPublicBusMetro => _dbPublicBusMetro;
+  set dbPublicBusMetro (bool? dbPublicBusMetro) {
     _dbPublicBusMetro = dbPublicBusMetro;
     notifyListeners();
   }
 
   togglePublicBusMetro() {
-    _dbPublicBusMetro = !_dbPublicBusMetro;
+    _dbPublicBusMetro = !_dbPublicBusMetro!;
     notifyListeners();
   }
 
   // Walk Data
-  bool get dbWalk => _dbWalk;
-  set dbWalk (bool dbWalk) {
+  bool? get dbWalk => _dbWalk;
+  set dbWalk (bool? dbWalk) {
     _dbWalk = dbWalk;
     notifyListeners();
   }
 
   toggleWalk() {
-    _dbWalk = !_dbWalk;
+    _dbWalk = !_dbWalk!;
     notifyListeners();
   }
 
   // AnyCommute Data
-  bool get dbAnyCommute => _dbAnyCommute;
-  set dbAnyCommute (bool dbAnyCommute) {
+  bool? get dbAnyCommute => _dbAnyCommute;
+  set dbAnyCommute (bool? dbAnyCommute) {
     _dbAnyCommute = dbAnyCommute;
     notifyListeners();
   }
 
   toggleAnyCommute() {
-    _dbAnyCommute = !_dbAnyCommute;
+    _dbAnyCommute = !_dbAnyCommute!;
     notifyListeners();
   }
 
   // AfricanCuisine Data
-  bool get dbAfricanCuisine => _dbAfricanCuisine;
-  set dbAfricanCuisine (bool dbAfricanCuisine) {
+  bool? get dbAfricanCuisine => _dbAfricanCuisine;
+  set dbAfricanCuisine (bool? dbAfricanCuisine) {
     _dbAfricanCuisine = dbAfricanCuisine;
     notifyListeners();
   }
 
   toggleAfricanCuisine() {
-    _dbAfricanCuisine = !_dbAfricanCuisine;
+    _dbAfricanCuisine = !_dbAfricanCuisine!;
     notifyListeners();
   }
 
   // AmericanCuisine Data
-  bool get dbAmericanCuisine => _dbAmericanCuisine;
-  set dbAmericanCuisine (bool dbAmericanCuisine) {
+  bool? get dbAmericanCuisine => _dbAmericanCuisine;
+  set dbAmericanCuisine (bool? dbAmericanCuisine) {
     _dbAmericanCuisine = dbAmericanCuisine;
     notifyListeners();
   }
 
   toggleAmericanCuisine() {
-    _dbAmericanCuisine = !_dbAmericanCuisine;
+    _dbAmericanCuisine = !_dbAmericanCuisine!;
     notifyListeners();
   }
 
   // BarbequeCuisine Data
-  bool get dbBarbequeCuisine => _dbBarbequeCuisine;
-  set dbBarbequeCuisine (bool dbBarbequeCuisine) {
+  bool? get dbBarbequeCuisine => _dbBarbequeCuisine;
+  set dbBarbequeCuisine (bool? dbBarbequeCuisine) {
     _dbBarbequeCuisine = dbBarbequeCuisine;
     notifyListeners();
   }
 
   toggleBarbequeCuisine() {
-    _dbBarbequeCuisine = !_dbBarbequeCuisine;
+    _dbBarbequeCuisine = !_dbBarbequeCuisine!;
     notifyListeners();
   }
 
   // BrazilianCuisine Data
-  bool get dbBrazilianCuisine => _dbBrazilianCuisine;
-  set dbBrazilianCuisine (bool dbBrazilianCuisine) {
+  bool? get dbBrazilianCuisine => _dbBrazilianCuisine;
+  set dbBrazilianCuisine (bool? dbBrazilianCuisine) {
     _dbBrazilianCuisine = dbBrazilianCuisine;
     notifyListeners();
   }
 
   toggleBrazilianCuisine() {
-    _dbBrazilianCuisine = !_dbBrazilianCuisine;
+    _dbBrazilianCuisine = !_dbBrazilianCuisine!;
     notifyListeners();
   }
 
   // CaribbeanCuisine Data
-  bool get dbCaribbeanCuisine => _dbCaribbeanCuisine;
-  set dbCaribbeanCuisine (bool dbCaribbeanCuisine) {
+  bool? get dbCaribbeanCuisine => _dbCaribbeanCuisine;
+  set dbCaribbeanCuisine (bool? dbCaribbeanCuisine) {
     _dbCaribbeanCuisine = dbCaribbeanCuisine;
     notifyListeners();
   }
 
   toggleCaribbeanCuisine() {
-    _dbCaribbeanCuisine = !_dbCaribbeanCuisine;
+    _dbCaribbeanCuisine = !_dbCaribbeanCuisine!;
     notifyListeners();
   }
 
   // ChineseCuisine Data
-  bool get dbChineseCuisine => _dbChineseCuisine;
-  set dbChineseCuisine (bool dbChineseCuisine) {
+  bool? get dbChineseCuisine => _dbChineseCuisine;
+  set dbChineseCuisine (bool? dbChineseCuisine) {
     _dbChineseCuisine = dbChineseCuisine;
     notifyListeners();
   }
 
   toggleChineseCuisine() {
-    _dbChineseCuisine = !_dbChineseCuisine;
+    _dbChineseCuisine = !_dbChineseCuisine!;
     notifyListeners();
   }
 
   // FrenchCuisine Data
-  bool get dbFrenchCuisine => _dbFrenchCuisine;
-  set dbFrenchCuisine (bool dbFrenchCuisine) {
+  bool? get dbFrenchCuisine => _dbFrenchCuisine;
+  set dbFrenchCuisine (bool? dbFrenchCuisine) {
     _dbFrenchCuisine = dbFrenchCuisine;
     notifyListeners();
   }
 
   toggleFrenchCuisine() {
-    _dbFrenchCuisine = !_dbFrenchCuisine;
+    _dbFrenchCuisine = !_dbFrenchCuisine!;
     notifyListeners();
   }
 
   // GreekCuisine Data
-  bool get dbGreekCuisine => _dbGreekCuisine;
-  set dbGreekCuisine (bool dbGreekCuisine) {
+  bool? get dbGreekCuisine => _dbGreekCuisine;
+  set dbGreekCuisine (bool? dbGreekCuisine) {
     _dbGreekCuisine = dbGreekCuisine;
     notifyListeners();
   }
 
   toggleGreekCuisine() {
-    _dbGreekCuisine = !_dbGreekCuisine;
+    _dbGreekCuisine = !_dbGreekCuisine!;
     notifyListeners();
   }
 
   // IndianCuisine Data
-  bool get dbIndianCuisine => _dbIndianCuisine;
-  set dbIndianCuisine (bool dbIndianCuisine) {
+  bool? get dbIndianCuisine => _dbIndianCuisine;
+  set dbIndianCuisine (bool? dbIndianCuisine) {
     _dbIndianCuisine = dbIndianCuisine;
     notifyListeners();
   }
 
   toggleIndianCuisine() {
-    _dbIndianCuisine = !_dbIndianCuisine;
+    _dbIndianCuisine = !_dbIndianCuisine!;
     notifyListeners();
   }
 
   // ItalianCuisine Data
-  bool get dbItalianCuisine => _dbItalianCuisine;
-  set dbItalianCuisine (bool dbItalianCuisine) {
+  bool? get dbItalianCuisine => _dbItalianCuisine;
+  set dbItalianCuisine (bool? dbItalianCuisine) {
     _dbItalianCuisine = dbItalianCuisine;
     notifyListeners();
   }
 
   toggleItalianCuisine() {
-    _dbItalianCuisine = !_dbItalianCuisine;
+    _dbItalianCuisine = !_dbItalianCuisine!;
     notifyListeners();
   }
 
   // JapaneseCuisine Data
-  bool get dbJapaneseCuisine => _dbJapaneseCuisine;
-  set dbJapaneseCuisine (bool dbJapaneseCuisine) {
+  bool? get dbJapaneseCuisine => _dbJapaneseCuisine;
+  set dbJapaneseCuisine (bool? dbJapaneseCuisine) {
     _dbJapaneseCuisine = dbJapaneseCuisine;
     notifyListeners();
   }
 
   toggleJapaneseCuisine() {
-    _dbJapaneseCuisine = !_dbJapaneseCuisine;
+    _dbJapaneseCuisine = !_dbJapaneseCuisine!;
     notifyListeners();
   }
 
   // MediterraneanCuisine Data
-  bool get dbMediterraneanCuisine => _dbMediterraneanCuisine;
-  set dbMediterraneanCuisine (bool dbMediterraneanCuisine) {
+  bool? get dbMediterraneanCuisine => _dbMediterraneanCuisine;
+  set dbMediterraneanCuisine (bool? dbMediterraneanCuisine) {
     _dbMediterraneanCuisine = dbMediterraneanCuisine;
     notifyListeners();
   }
 
   toggleMediterraneanCuisine() {
-    _dbMediterraneanCuisine = !_dbMediterraneanCuisine;
+    _dbMediterraneanCuisine = !_dbMediterraneanCuisine!;
     notifyListeners();
   }
 
   // MexicanCuisine Data
-  bool get dbMexicanCuisine => _dbMexicanCuisine;
-  set dbMexicanCuisine (bool dbMexicanCuisine) {
+  bool? get dbMexicanCuisine => _dbMexicanCuisine;
+  set dbMexicanCuisine (bool? dbMexicanCuisine) {
     _dbMexicanCuisine = dbMexicanCuisine;
     notifyListeners();
   }
 
   toggleMexicanCuisine() {
-    _dbMexicanCuisine = !_dbMexicanCuisine;
+    _dbMexicanCuisine = !_dbMexicanCuisine!;
     notifyListeners();
   }
 
   // ThaiCuisine Data
-  bool get dbThaiCuisine => _dbThaiCuisine;
-  set dbThaiCuisine (bool dbThaiCuisine) {
+  bool? get dbThaiCuisine => _dbThaiCuisine;
+  set dbThaiCuisine (bool? dbThaiCuisine) {
     _dbThaiCuisine = dbThaiCuisine;
     notifyListeners();
   }
 
   toggleThaiCuisine() {
-    _dbThaiCuisine = !_dbThaiCuisine;
+    _dbThaiCuisine = !_dbThaiCuisine!;
     notifyListeners();
   }
 
   // SoulFoodCuisine Data
-  bool get dbSoulFoodCuisine => _dbSoulFoodCuisine;
-  set dbSoulFoodCuisine (bool dbSoulFoodCuisine) {
+  bool? get dbSoulFoodCuisine => _dbSoulFoodCuisine;
+  set dbSoulFoodCuisine (bool? dbSoulFoodCuisine) {
     _dbSoulFoodCuisine = dbSoulFoodCuisine;
     notifyListeners();
   }
 
   toggleSoulFoodCuisine() {
-    _dbSoulFoodCuisine = !_dbSoulFoodCuisine;
+    _dbSoulFoodCuisine = !_dbSoulFoodCuisine!;
     notifyListeners();
   }
 
   // BrunchCuisine Data
-  bool get dbBrunchCuisine => _dbBrunchCuisine;
-  set dbBrunchCuisine (bool dbBrunchCuisine) {
+  bool? get dbBrunchCuisine => _dbBrunchCuisine;
+  set dbBrunchCuisine (bool? dbBrunchCuisine) {
     _dbBrunchCuisine = dbBrunchCuisine;
     notifyListeners();
   }
 
   toggleBrunchCuisine() {
-    _dbBrunchCuisine = !_dbBrunchCuisine;
+    _dbBrunchCuisine = !_dbBrunchCuisine!;
     notifyListeners();
   }
 
   // BuffetCuisine Data
-  bool get dbBuffetCuisine => _dbBuffetCuisine;
-  set dbBuffetCuisine (bool dbBuffetCuisine) {
+  bool? get dbBuffetCuisine => _dbBuffetCuisine;
+  set dbBuffetCuisine (bool? dbBuffetCuisine) {
     _dbBuffetCuisine = dbBuffetCuisine;
     notifyListeners();
   }
 
   toggleBuffetCuisine() {
-    _dbBuffetCuisine = !_dbBuffetCuisine;
+    _dbBuffetCuisine = !_dbBuffetCuisine!;
     notifyListeners();
   }
 
   // DessertsCuisine Data
-  bool get dbDessertsCuisine => _dbDessertsCuisine;
-  set dbDessertsCuisine (bool dbDessertsCuisine) {
+  bool? get dbDessertsCuisine => _dbDessertsCuisine;
+  set dbDessertsCuisine (bool? dbDessertsCuisine) {
     _dbDessertsCuisine = dbDessertsCuisine;
     notifyListeners();
   }
 
   toggleDessertsCuisine() {
-    _dbDessertsCuisine = !_dbDessertsCuisine;
+    _dbDessertsCuisine = !_dbDessertsCuisine!;
     notifyListeners();
   }
 
   // SandwichesCuisine Data
-  bool get dbSandwichesCuisine => _dbSandwichesCuisine;
-  set dbSandwichesCuisine (bool dbSandwichesCuisine) {
+  bool? get dbSandwichesCuisine => _dbSandwichesCuisine;
+  set dbSandwichesCuisine (bool? dbSandwichesCuisine) {
     _dbSandwichesCuisine = dbSandwichesCuisine;
     notifyListeners();
   }
 
   toggleSandwichesCuisine() {
-    _dbSandwichesCuisine = !_dbSandwichesCuisine;
+    _dbSandwichesCuisine = !_dbSandwichesCuisine!;
     notifyListeners();
   }
 
   // NoodlesCuisine Data
-  bool get dbNoodlesCuisine => _dbNoodlesCuisine;
-  set dbNoodlesCuisine (bool dbNoodlesCuisine) {
+  bool? get dbNoodlesCuisine => _dbNoodlesCuisine;
+  set dbNoodlesCuisine (bool? dbNoodlesCuisine) {
     _dbNoodlesCuisine = dbNoodlesCuisine;
     notifyListeners();
   }
 
   toggleNoodlesCuisine() {
-    _dbNoodlesCuisine = !_dbNoodlesCuisine;
+    _dbNoodlesCuisine = !_dbNoodlesCuisine!;
     notifyListeners();
   }
 
   // SeafoodCuisine Data
-  bool get dbSeafoodCuisine => _dbSeafoodCuisine;
-  set dbSeafoodCuisine (bool dbSeafoodCuisine) {
+  bool? get dbSeafoodCuisine => _dbSeafoodCuisine;
+  set dbSeafoodCuisine (bool? dbSeafoodCuisine) {
     _dbSeafoodCuisine = dbSeafoodCuisine;
     notifyListeners();
   }
 
   toggleSeafoodCuisine() {
-    _dbSeafoodCuisine = !_dbSeafoodCuisine;
+    _dbSeafoodCuisine = !_dbSeafoodCuisine!;
     notifyListeners();
   }
 
   // VietnameseCuisine Data
-  bool get dbVietnameseCuisine => _dbVietnameseCuisine;
-  set dbVietnameseCuisine (bool dbVietnameseCuisine) {
+  bool? get dbVietnameseCuisine => _dbVietnameseCuisine;
+  set dbVietnameseCuisine (bool? dbVietnameseCuisine) {
     _dbVietnameseCuisine = dbVietnameseCuisine;
     notifyListeners();
   }
 
   toggleVietnameseCuisine() {
-    _dbVietnameseCuisine = !_dbVietnameseCuisine;
+    _dbVietnameseCuisine = !_dbVietnameseCuisine!;
     notifyListeners();
   }
 
   // TurkishCuisine Data
-  bool get dbTurkishCuisine => _dbTurkishCuisine;
-  set dbTurkishCuisine (bool dbTurkishCuisine) {
+  bool? get dbTurkishCuisine => _dbTurkishCuisine;
+  set dbTurkishCuisine (bool? dbTurkishCuisine) {
     _dbTurkishCuisine = dbTurkishCuisine;
     notifyListeners();
   }
 
   toggleTurkishCuisine() {
-    _dbTurkishCuisine = !_dbTurkishCuisine;
+    _dbTurkishCuisine = !_dbTurkishCuisine!;
     notifyListeners();
   }
 
   // AnyCuisine Data
-  bool get dbAnyCuisine => _dbAnyCuisine;
-  set dbAnyCuisine (bool dbAnyCuisine) {
+  bool? get dbAnyCuisine => _dbAnyCuisine;
+  set dbAnyCuisine (bool? dbAnyCuisine) {
     _dbAnyCuisine = dbAnyCuisine;
     notifyListeners();
   }
 
   toggleAnyCuisine() {
-    _dbAnyCuisine = !_dbAnyCuisine;
+    _dbAnyCuisine = !_dbAnyCuisine!;
     notifyListeners();
   }
 
   // NoContactPay Data
-  bool get dbNoContactPay => _dbNoContactPay;
-  set dbNoContactPay (bool dbNoContactPay) {
+  bool? get dbNoContactPay => _dbNoContactPay;
+  set dbNoContactPay (bool? dbNoContactPay) {
     _dbNoContactPay = dbNoContactPay;
     notifyListeners();
   }
 
   toggleNoContactPay() {
-    _dbNoContactPay = !_dbNoContactPay;
+    _dbNoContactPay = !_dbNoContactPay!;
     notifyListeners();
   }
 
   // NoContactDelivery Data
-  bool get dbNoContactDelivery => _dbNoContactDelivery;
-  set dbNoContactDelivery (bool dbNoContactDelivery) {
+  bool? get dbNoContactDelivery => _dbNoContactDelivery;
+  set dbNoContactDelivery (bool? dbNoContactDelivery) {
     _dbNoContactDelivery = dbNoContactDelivery;
     notifyListeners();
   }
 
   toggleNoContactDelivery() {
-    _dbNoContactDelivery = !_dbNoContactDelivery;
+    _dbNoContactDelivery = !_dbNoContactDelivery!;
     notifyListeners();
   }
 
   // StaffMasks Data
-  bool get dbStaffMasks => _dbStaffMasks;
-  set dbStaffMasks (bool dbStaffMasks) {
+  bool? get dbStaffMasks => _dbStaffMasks;
+  set dbStaffMasks (bool? dbStaffMasks) {
     _dbStaffMasks = dbStaffMasks;
     notifyListeners();
   }
 
   toggleStaffMasks() {
-    _dbStaffMasks = !_dbStaffMasks;
+    _dbStaffMasks = !_dbStaffMasks!;
     notifyListeners();
   }
 
   // MasksReq Data
-  bool get dbMasksReq => _dbMasksReq;
-  set dbMasksReq (bool dbMasksReq) {
+  bool? get dbMasksReq => _dbMasksReq;
+  set dbMasksReq (bool? dbMasksReq) {
     _dbMasksReq = dbMasksReq;
     notifyListeners();
   }
 
   toggleMasksReq() {
-    _dbMasksReq = !_dbMasksReq;
+    _dbMasksReq = !_dbMasksReq!;
     notifyListeners();
   }
 
   // StaffGloves Data
-  bool get dbStaffGloves => _dbStaffGloves;
-  set dbStaffGloves (bool dbStaffGloves) {
+  bool? get dbStaffGloves => _dbStaffGloves;
+  set dbStaffGloves (bool? dbStaffGloves) {
     _dbStaffGloves = dbStaffGloves;
     notifyListeners();
   }
 
   toggleStaffGloves() {
-    _dbStaffGloves = !_dbStaffGloves;
+    _dbStaffGloves = !_dbStaffGloves!;
     notifyListeners();
   }
 
   // LimitCap Data
-  bool get dbLimitCap => _dbLimitCap;
-  set dbLimitCap (bool dbLimitCap) {
+  bool? get dbLimitCap => _dbLimitCap;
+  set dbLimitCap (bool? dbLimitCap) {
     _dbLimitCap = dbLimitCap;
     notifyListeners();
   }
 
   toggleLimitCap() {
-    _dbLimitCap = !_dbLimitCap;
+    _dbLimitCap = !_dbLimitCap!;
     notifyListeners();
   }
 
   // SaniBetwCust Data
-  bool get dbSaniBetwCust => _dbSaniBetwCust;
-  set dbSaniBetwCust (bool dbSaniBetwCust) {
+  bool? get dbSaniBetwCust => _dbSaniBetwCust;
+  set dbSaniBetwCust (bool? dbSaniBetwCust) {
     _dbSaniBetwCust = dbSaniBetwCust;
     notifyListeners();
   }
 
   toggleSaniBetwCust() {
-    _dbSaniBetwCust = !_dbSaniBetwCust;
+    _dbSaniBetwCust = !_dbSaniBetwCust!;
     notifyListeners();
   }
 
   // HandSaniGiven Data
-  bool get dbHandSaniGiven => _dbHandSaniGiven;
-  set dbHandSaniGiven (bool dbHandSaniGiven) {
+  bool? get dbHandSaniGiven => _dbHandSaniGiven;
+  set dbHandSaniGiven (bool? dbHandSaniGiven) {
     _dbHandSaniGiven = dbHandSaniGiven;
     notifyListeners();
   }
 
   toggleHandSaniGiven() {
-    _dbHandSaniGiven = !_dbHandSaniGiven;
+    _dbHandSaniGiven = !_dbHandSaniGiven!;
     notifyListeners();
   }
 
   // AnyHealthCovid Data
-  bool get dbAnyHealthCovid => _dbAnyHealthCovid;
-  set dbAnyHealthCovid (bool dbAnyHealthCovid) {
+  bool? get dbAnyHealthCovid => _dbAnyHealthCovid;
+  set dbAnyHealthCovid (bool? dbAnyHealthCovid) {
     _dbAnyHealthCovid = dbAnyHealthCovid;
     notifyListeners();
   }
 
   toggleAnyHealthCovid() {
-    _dbAnyHealthCovid = !_dbAnyHealthCovid;
+    _dbAnyHealthCovid = !_dbAnyHealthCovid!;
     notifyListeners();
   }
 
   // DiabeticDiet Data
-  bool get dbDiabeticDiet => _dbDiabeticDiet;
-  set dbDiabeticDiet (bool dbDiabeticDiet) {
+  bool? get dbDiabeticDiet => _dbDiabeticDiet;
+  set dbDiabeticDiet (bool? dbDiabeticDiet) {
     _dbDiabeticDiet = dbDiabeticDiet;
     notifyListeners();
   }
 
   toggleDiabeticDiet() {
-    _dbDiabeticDiet = !_dbDiabeticDiet;
+    _dbDiabeticDiet = !_dbDiabeticDiet!;
     notifyListeners();
   }
 
   // FreshDiet Data
-  bool get dbFreshDiet => _dbFreshDiet;
-  set dbFreshDiet (bool dbFreshDiet) {
+  bool? get dbFreshDiet => _dbFreshDiet;
+  set dbFreshDiet (bool? dbFreshDiet) {
     _dbFreshDiet = dbFreshDiet;
     notifyListeners();
   }
 
   toggleFreshDiet() {
-    _dbFreshDiet = !_dbFreshDiet;
+    _dbFreshDiet = !_dbFreshDiet!;
     notifyListeners();
   }
 
   // HalalDiet Data
-  bool get dbHalalDiet => _dbHalalDiet;
-  set dbHalalDiet (bool dbHalalDiet) {
+  bool? get dbHalalDiet => _dbHalalDiet;
+  set dbHalalDiet (bool? dbHalalDiet) {
     _dbHalalDiet = dbHalalDiet;
     notifyListeners();
   }
 
   toggleHalalDiet() {
-    _dbHalalDiet = !_dbHalalDiet;
+    _dbHalalDiet = !_dbHalalDiet!;
     notifyListeners();
   }
 
   // HealthyNotVegetDiet Data
-  bool get dbHealthyNotVegetDiet => _dbHealthyNotVegetDiet;
-  set dbHealthyNotVegetDiet (bool dbHealthyNotVegetDiet) {
+  bool? get dbHealthyNotVegetDiet => _dbHealthyNotVegetDiet;
+  set dbHealthyNotVegetDiet (bool? dbHealthyNotVegetDiet) {
     _dbHealthyNotVegetDiet = dbHealthyNotVegetDiet;
     notifyListeners();
   }
 
   toggleHealthyNotVegetDiet() {
-    _dbHealthyNotVegetDiet = !_dbHealthyNotVegetDiet;
+    _dbHealthyNotVegetDiet = !_dbHealthyNotVegetDiet!;
     notifyListeners();
   }
 
   // KosherDiet Data
-  bool get dbKosherDiet => _dbKosherDiet;
-  set dbKosherDiet (bool dbKosherDiet) {
+  bool? get dbKosherDiet => _dbKosherDiet;
+  set dbKosherDiet (bool? dbKosherDiet) {
     _dbKosherDiet = dbKosherDiet;
     notifyListeners();
   }
 
   toggleKosherDiet() {
-    _dbKosherDiet = !_dbKosherDiet;
+    _dbKosherDiet = !_dbKosherDiet!;
     notifyListeners();
   }
 
   // PescatarianDiet Data
-  bool get dbPescatarianDiet => _dbPescatarianDiet;
-  set dbPescatarianDiet (bool dbPescatarianDiet) {
+  bool? get dbPescatarianDiet => _dbPescatarianDiet;
+  set dbPescatarianDiet (bool? dbPescatarianDiet) {
     _dbPescatarianDiet = dbPescatarianDiet;
     notifyListeners();
   }
 
   togglePescatarianDiet() {
-    _dbPescatarianDiet = !_dbPescatarianDiet;
+    _dbPescatarianDiet = !_dbPescatarianDiet!;
     notifyListeners();
   }
 
   // VeganDiet Data
-  bool get dbVeganDiet => _dbVeganDiet;
-  set dbVeganDiet (bool dbVeganDiet) {
+  bool? get dbVeganDiet => _dbVeganDiet;
+  set dbVeganDiet (bool? dbVeganDiet) {
     _dbVeganDiet = dbVeganDiet;
     notifyListeners();
   }
 
   toggleVeganDiet() {
-    _dbVeganDiet = !_dbVeganDiet;
+    _dbVeganDiet = !_dbVeganDiet!;
     notifyListeners();
   }
 
   // VegetarianDiet Data
-  bool get dbVegetarianDiet => _dbVegetarianDiet;
-  set dbVegetarianDiet (bool dbVegetarianDiet) {
+  bool? get dbVegetarianDiet => _dbVegetarianDiet;
+  set dbVegetarianDiet (bool? dbVegetarianDiet) {
     _dbVegetarianDiet = dbVegetarianDiet;
     notifyListeners();
   }
 
   toggleVegetarianDiet() {
-    _dbVegetarianDiet = !_dbVegetarianDiet;
+    _dbVegetarianDiet = !_dbVegetarianDiet!;
     notifyListeners();
   }
 
   // AnyDiet Data
-  bool get dbAnyDiet => _dbAnyDiet;
-  set dbAnyDiet (bool dbAnyDiet) {
+  bool? get dbAnyDiet => _dbAnyDiet;
+  set dbAnyDiet (bool? dbAnyDiet) {
     _dbAnyDiet = dbAnyDiet;
     notifyListeners();
   }
 
   toggleAnyDiet() {
-    _dbAnyDiet = !_dbAnyDiet;
+    _dbAnyDiet = !_dbAnyDiet!;
     notifyListeners();
   }
 
   // MatchDiet Data
-  bool get dbMatchDiet => _dbMatchDiet;
-  set dbMatchDiet (bool dbMatchDiet) {
+  bool? get dbMatchDiet => _dbMatchDiet;
+  set dbMatchDiet (bool? dbMatchDiet) {
     _dbMatchDiet = dbMatchDiet;
     notifyListeners();
   }
 
   toggleMatchDiet() {
-    _dbMatchDiet = !_dbMatchDiet;
+    _dbMatchDiet = !_dbMatchDiet!;
     notifyListeners();
   }
 
   // MatchDensity Data
-  bool get dbMatchDensity => _dbMatchDensity;
-  set dbMatchDensity (bool dbMatchDensity) {
+  bool? get dbMatchDensity => _dbMatchDensity;
+  set dbMatchDensity (bool? dbMatchDensity) {
     _dbMatchDensity = dbMatchDensity;
     notifyListeners();
   }
 
   toggleMatchDensity() {
-    _dbMatchDensity = !_dbMatchDensity;
+    _dbMatchDensity = !_dbMatchDensity!;
     notifyListeners();
   }
 
   // MatchCuisine Data
-  bool get dbMatchCuisine => _dbMatchCuisine;
-  set dbMatchCuisine (bool dbMatchCuisine) {
+  bool? get dbMatchCuisine => _dbMatchCuisine;
+  set dbMatchCuisine (bool? dbMatchCuisine) {
     _dbMatchCuisine = dbMatchCuisine;
     notifyListeners();
   }
 
   toggleMatchCuisine() {
-    _dbMatchCuisine = !_dbMatchCuisine;
+    _dbMatchCuisine = !_dbMatchCuisine!;
     notifyListeners();
   }
 
   // GoodForCouples Data
-  bool get dbGoodForCouples => _dbGoodForCouples;
-  set dbGoodForCouples (bool dbGoodForCouples) {
+  bool? get dbGoodForCouples => _dbGoodForCouples;
+  set dbGoodForCouples (bool? dbGoodForCouples) {
     _dbGoodForCouples = dbGoodForCouples;
     notifyListeners();
   }
 
   toggleGoodForCouples() {
-    _dbGoodForCouples = !_dbGoodForCouples;
+    _dbGoodForCouples = !_dbGoodForCouples!;
     notifyListeners();
   }
 
   // MatchPayment Data
-  bool get dbMatchPayment => _dbMatchPayment;
-  set dbMatchPayment (bool dbMatchPayment) {
+  bool? get dbMatchPayment => _dbMatchPayment;
+  set dbMatchPayment (bool? dbMatchPayment) {
     _dbMatchPayment = dbMatchPayment;
     notifyListeners();
   }
 
   toggleMatchPayment() {
-    _dbMatchPayment = !_dbMatchPayment;
+    _dbMatchPayment = !_dbMatchPayment!;
     notifyListeners();
   }
 
   // ReqRSVP Data
-  bool get dbReqRSVP => _dbReqRSVP;
-  set dbReqRSVP (bool dbReqRSVP) {
+  bool? get dbReqRSVP => _dbReqRSVP;
+  set dbReqRSVP (bool? dbReqRSVP) {
     _dbReqRSVP = dbReqRSVP;
     notifyListeners();
   }
 
   toggleReqRSVP() {
-    _dbReqRSVP = !_dbReqRSVP;
+    _dbReqRSVP = !_dbReqRSVP!;
     notifyListeners();
   }
 
   // Groups5Plus Data
-  bool get dbGroups5Plus => _dbGroups5Plus;
-  set dbGroups5Plus (bool dbGroups5Plus) {
+  bool? get dbGroups5Plus => _dbGroups5Plus;
+  set dbGroups5Plus (bool? dbGroups5Plus) {
     _dbGroups5Plus = dbGroups5Plus;
     notifyListeners();
   }
 
   toggleGroups5Plus() {
-    _dbGroups5Plus = !_dbGroups5Plus;
+    _dbGroups5Plus = !_dbGroups5Plus!;
     notifyListeners();
   }
 
   // MatchBudget Data
-  bool get dbMatchBudget => _dbMatchBudget;
-  set dbMatchBudget (bool dbMatchBudget) {
+  bool? get dbMatchBudget => _dbMatchBudget;
+  set dbMatchBudget (bool? dbMatchBudget) {
     _dbMatchBudget = dbMatchBudget;
     notifyListeners();
   }
 
   toggleMatchBudget() {
-    _dbMatchBudget = !_dbMatchBudget;
+    _dbMatchBudget = !_dbMatchBudget!;
     notifyListeners();
   }
 
   // WaitTime Data
-  double get dbWaitTime => _dbWaitTime;
-  set dbWaitTime (double dbWaitTime) {
+  double? get dbWaitTime => _dbWaitTime;
+  set dbWaitTime (double? dbWaitTime) {
     _dbWaitTime = dbWaitTime;
     notifyListeners();
   }
@@ -1600,344 +1600,344 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
   }
 
   // LocallyOwned Data
-  bool get dbLocallyOwned => _dbLocallyOwned;
-  set dbLocallyOwned (bool dbLocallyOwned) {
+  bool? get dbLocallyOwned => _dbLocallyOwned;
+  set dbLocallyOwned (bool? dbLocallyOwned) {
     _dbLocallyOwned = dbLocallyOwned;
     notifyListeners();
   }
 
   toggleLocallyOwned() {
-    _dbLocallyOwned = !_dbLocallyOwned;
+    _dbLocallyOwned = !_dbLocallyOwned!;
     notifyListeners();
   }
 
   // LocallySourced Data
-  bool get dbLocallySourced => _dbLocallySourced;
-  set dbLocallySourced (bool dbLocallySourced) {
+  bool? get dbLocallySourced => _dbLocallySourced;
+  set dbLocallySourced (bool? dbLocallySourced) {
     _dbLocallySourced = dbLocallySourced;
     notifyListeners();
   }
 
   toggleLocallySourced() {
-    _dbLocallySourced = !_dbLocallySourced;
+    _dbLocallySourced = !_dbLocallySourced!;
     notifyListeners();
   }
 
   // AnyLocalSpot Data
-  bool get dbAllLocalSpot => _dbAllLocalSpot;
-  set dbAllLocalSpot (bool dbAllLocalSpot) {
+  bool? get dbAllLocalSpot => _dbAllLocalSpot;
+  set dbAllLocalSpot (bool? dbAllLocalSpot) {
     _dbAllLocalSpot = dbAllLocalSpot;
     notifyListeners();
   }
 
   toggleAnyLocalSpot() {
-    _dbAllLocalSpot = !_dbAllLocalSpot;
+    _dbAllLocalSpot = !_dbAllLocalSpot!;
     notifyListeners();
   }
 
   // Specials Data
-  bool get dbSpecials => _dbSpecials;
-  set dbSpecials (bool dbSpecials) {
+  bool? get dbSpecials => _dbSpecials;
+  set dbSpecials (bool? dbSpecials) {
     _dbSpecials = dbSpecials;
     notifyListeners();
   }
 
   toggleSpecials() {
-    _dbSpecials = !_dbSpecials;
+    _dbSpecials = !_dbSpecials!;
     notifyListeners();
   }
 
   // OutdoorSeating Data
-  bool get dbOutdoorSeating => _dbOutdoorSeating;
-  set dbOutdoorSeating (bool dbOutdoorSeating) {
+  bool? get dbOutdoorSeating => _dbOutdoorSeating;
+  set dbOutdoorSeating (bool? dbOutdoorSeating) {
     _dbOutdoorSeating = dbOutdoorSeating;
     notifyListeners();
   }
 
   toggleOutdoorSeating() {
-    _dbOutdoorSeating = !_dbOutdoorSeating;
+    _dbOutdoorSeating = !_dbOutdoorSeating!;
     notifyListeners();
   }
 
   // Rooftop Data
-  bool get dbRooftop => _dbRooftop;
-  set dbRooftop (bool dbRooftop) {
+  bool? get dbRooftop => _dbRooftop;
+  set dbRooftop (bool? dbRooftop) {
     _dbRooftop = dbRooftop;
     notifyListeners();
   }
 
   toggleRooftop() {
-    _dbRooftop = !_dbRooftop;
+    _dbRooftop = !_dbRooftop!;
     notifyListeners();
   }
 
   // CoverCharge Data
-  bool get dbCoverCharge => _dbCoverCharge;
-  set dbCoverCharge (bool dbCoverCharge) {
+  bool? get dbCoverCharge => _dbCoverCharge;
+  set dbCoverCharge (bool? dbCoverCharge) {
     _dbCoverCharge = dbCoverCharge;
     notifyListeners();
   }
 
   toggleCoverCharge() {
-    _dbCoverCharge = !_dbCoverCharge;
+    _dbCoverCharge = !_dbCoverCharge!;
     notifyListeners();
   }
 
   // NoCoverCharge Data
-  bool get dbNoCoverCharge => _dbNoCoverCharge;
-  set dbNoCoverCharge (bool dbNoCoverCharge) {
+  bool? get dbNoCoverCharge => _dbNoCoverCharge;
+  set dbNoCoverCharge (bool? dbNoCoverCharge) {
     _dbNoCoverCharge = dbNoCoverCharge;
     notifyListeners();
   }
 
   toggleNoCoverCharge() {
-    _dbNoCoverCharge = !_dbNoCoverCharge;
+    _dbNoCoverCharge = !_dbNoCoverCharge!;
     notifyListeners();
   }
 
   // Parking Data
-  bool get dbParking => _dbParking;
-  set dbParking (bool dbParking) {
+  bool? get dbParking => _dbParking;
+  set dbParking (bool? dbParking) {
     _dbParking = dbParking;
     notifyListeners();
   }
 
   toggleParking() {
-    _dbParking = !_dbParking;
+    _dbParking = !_dbParking!;
     notifyListeners();
   }
 
   // LiveMusic Data
-  bool get dbLiveMusic => _dbLiveMusic;
-  set dbLiveMusic (bool dbLiveMusic) {
+  bool? get dbLiveMusic => _dbLiveMusic;
+  set dbLiveMusic (bool? dbLiveMusic) {
     _dbLiveMusic = dbLiveMusic;
     notifyListeners();
   }
 
   toggleLiveMusic() {
-    _dbLiveMusic = !_dbLiveMusic;
+    _dbLiveMusic = !_dbLiveMusic!;
     notifyListeners();
   }
 
   // Games Data
-  bool get dbGames => _dbGames;
-  set dbGames (bool dbGames) {
+  bool? get dbGames => _dbGames;
+  set dbGames (bool? dbGames) {
     _dbGames = dbGames;
     notifyListeners();
   }
 
   toggleGames() {
-    _dbGames = !_dbGames;
+    _dbGames = !_dbGames!;
     notifyListeners();
   }
 
   // Casual Data
-  bool get dbCasual => _dbCasual;
-  set dbCasual (bool dbCasual) {
+  bool? get dbCasual => _dbCasual;
+  set dbCasual (bool? dbCasual) {
     _dbCasual = dbCasual;
     notifyListeners();
   }
 
   toggleCasual() {
-    _dbCasual = !_dbCasual;
+    _dbCasual = !_dbCasual!;
     notifyListeners();
   }
 
   // Accessibility Data
-  bool get dbAccessibility => _dbAccessibility;
-  set dbAccessibility (bool dbAccessibility) {
+  bool? get dbAccessibility => _dbAccessibility;
+  set dbAccessibility (bool? dbAccessibility) {
     _dbAccessibility = dbAccessibility;
     notifyListeners();
   }
 
   toggleAccessibility() {
-    _dbAccessibility = !_dbAccessibility;
+    _dbAccessibility = !_dbAccessibility!;
     notifyListeners();
   }
 
   // Covid19Compliant Data
-  bool get dbCovid19Compliant => _dbCovid19Compliant;
-  set dbCovid19Compliant (bool dbCovid19Compliant) {
+  bool? get dbCovid19Compliant => _dbCovid19Compliant;
+  set dbCovid19Compliant (bool? dbCovid19Compliant) {
     _dbCovid19Compliant = dbCovid19Compliant;
     notifyListeners();
   }
 
   toggleCovid19Compliant() {
-    _dbCovid19Compliant = !_dbCovid19Compliant;
+    _dbCovid19Compliant = !_dbCovid19Compliant!;
     notifyListeners();
   }
 
   // AnyLocalFeatures Data
-  bool get dbAnyLocalFeatures => _dbAnyLocalFeatures;
-  set dbAnyLocalFeatures (bool dbAnyLocalFeatures) {
+  bool? get dbAnyLocalFeatures => _dbAnyLocalFeatures;
+  set dbAnyLocalFeatures (bool? dbAnyLocalFeatures) {
     _dbAnyLocalFeatures = dbAnyLocalFeatures;
     notifyListeners();
   }
 
   toggleAnyLocalFeatures() {
-    _dbAnyLocalFeatures = !_dbAnyLocalFeatures;
+    _dbAnyLocalFeatures = !_dbAnyLocalFeatures!;
     notifyListeners();
   }
 
   // Cash Data
-  bool get dbCash => _dbCash;
-  set dbCash (bool dbCash) {
+  bool? get dbCash => _dbCash;
+  set dbCash (bool? dbCash) {
     _dbCash = dbCash;
     notifyListeners();
   }
 
   toggleCash() {
-    _dbCash = !_dbCash;
+    _dbCash = !_dbCash!;
     notifyListeners();
   }
 
   // CreditDebit Data
-  bool get dbCreditDebit => _dbCreditDebit;
-  set dbCreditDebit (bool dbCreditDebit) {
+  bool? get dbCreditDebit => _dbCreditDebit;
+  set dbCreditDebit (bool? dbCreditDebit) {
     _dbCreditDebit = dbCreditDebit;
     notifyListeners();
   }
 
   toggleCreditDebit() {
-    _dbCreditDebit = !_dbCreditDebit;
+    _dbCreditDebit = !_dbCreditDebit!;
     notifyListeners();
   }
 
   // ApplePay Data
-  bool get dbApplePay => _dbApplePay;
-  set dbApplePay (bool dbApplePay) {
+  bool? get dbApplePay => _dbApplePay;
+  set dbApplePay (bool? dbApplePay) {
     _dbApplePay = dbApplePay;
     notifyListeners();
   }
 
   toggleApplePay() {
-    _dbApplePay = !_dbApplePay;
+    _dbApplePay = !_dbApplePay!;
     notifyListeners();
   }
 
   // GooglePay Data
-  bool get dbGooglePay => _dbGooglePay;
-  set dbGooglePay (bool dbGooglePay) {
+  bool? get dbGooglePay => _dbGooglePay;
+  set dbGooglePay (bool? dbGooglePay) {
     _dbGooglePay = dbGooglePay;
     notifyListeners();
   }
 
   toggleGooglePay() {
-    _dbGooglePay = !_dbGooglePay;
+    _dbGooglePay = !_dbGooglePay!;
     notifyListeners();
   }
 
   // PayPal Data
-  bool get dbPayPal => _dbPayPal;
-  set dbPayPal (bool dbPayPal) {
+  bool? get dbPayPal => _dbPayPal;
+  set dbPayPal (bool? dbPayPal) {
     _dbPayPal = dbPayPal;
     notifyListeners();
   }
 
   togglePayPal() {
-    _dbPayPal = !_dbPayPal;
+    _dbPayPal = !_dbPayPal!;
     notifyListeners();
   }
 
   // CashApp Data
-  bool get dbCashApp => _dbCashApp;
-  set dbCashApp (bool dbCashApp) {
+  bool? get dbCashApp => _dbCashApp;
+  set dbCashApp (bool? dbCashApp) {
     _dbCashApp = dbCashApp;
     notifyListeners();
   }
 
   toggleCashApp() {
-    _dbCashApp = !_dbCashApp;
+    _dbCashApp = !_dbCashApp!;
     notifyListeners();
   }
 
   // Venmo Data
-  bool get dbVenmo => _dbVenmo;
-  set dbVenmo (bool dbVenmo) {
+  bool? get dbVenmo => _dbVenmo;
+  set dbVenmo (bool? dbVenmo) {
     _dbVenmo = dbVenmo;
     notifyListeners();
   }
 
   toggleVenmo() {
-    _dbVenmo = !_dbVenmo;
+    _dbVenmo = !_dbVenmo!;
     notifyListeners();
   }
 
   // Cryptocurrency Data
-  bool get dbCryptocurrency => _dbCryptocurrency;
-  set dbCryptocurrency (bool dbCryptocurrency) {
+  bool? get dbCryptocurrency => _dbCryptocurrency;
+  set dbCryptocurrency (bool? dbCryptocurrency) {
     _dbCryptocurrency = dbCryptocurrency;
     notifyListeners();
   }
 
   toggleCryptocurrency() {
-    _dbCryptocurrency = !_dbCryptocurrency;
+    _dbCryptocurrency = !_dbCryptocurrency!;
     notifyListeners();
   }
 
   // AnyPayment Data
-  bool get dbAnyPayment => _dbAnyPayment;
-  set dbAnyPayment (bool dbAnyPayment) {
+  bool? get dbAnyPayment => _dbAnyPayment;
+  set dbAnyPayment (bool? dbAnyPayment) {
     _dbAnyPayment = dbAnyPayment;
     notifyListeners();
   }
 
   toggleAnyPayment() {
-    _dbAnyPayment = !_dbAnyPayment;
+    _dbAnyPayment = !_dbAnyPayment!;
     notifyListeners();
   }
 
   // Single Data
-  bool get dbSingle => _dbSingle;
-  set dbSingle (bool dbSingle) {
+  bool? get dbSingle => _dbSingle;
+  set dbSingle (bool? dbSingle) {
     _dbSingle = dbSingle;
     notifyListeners();
   }
 
   toggleSingle() {
-    _dbSingle = !_dbSingle;
+    _dbSingle = !_dbSingle!;
     notifyListeners();
   }
 
   // Married Data
-  bool get dbMarried => _dbMarried;
-  set dbMarried (bool dbMarried) {
+  bool? get dbMarried => _dbMarried;
+  set dbMarried (bool? dbMarried) {
     _dbMarried = dbMarried;
     notifyListeners();
   }
 
   toggleMarried() {
-    _dbMarried = !_dbMarried;
+    _dbMarried = !_dbMarried!;
     notifyListeners();
   }
 
   // InARelationship Data
-  bool get dbInARelationship => _dbInARelationship;
-  set dbInARelationship (bool dbInARelationship) {
+  bool? get dbInARelationship => _dbInARelationship;
+  set dbInARelationship (bool? dbInARelationship) {
     _dbInARelationship = dbInARelationship;
     notifyListeners();
   }
 
   toggleInARelationship() {
-    _dbInARelationship = !_dbInARelationship;
+    _dbInARelationship = !_dbInARelationship!;
     notifyListeners();
   }
 
   // AnyRelationship Data
-  bool get dbAnyRelationship => _dbAnyRelationship;
-  set dbAnyRelationship (bool dbAnyRelationship) {
+  bool? get dbAnyRelationship => _dbAnyRelationship;
+  set dbAnyRelationship (bool? dbAnyRelationship) {
     _dbAnyRelationship = dbAnyRelationship;
     notifyListeners();
   }
 
   toggleAnyRelationship() {
-    _dbAnyRelationship = !_dbAnyRelationship;
+    _dbAnyRelationship = !_dbAnyRelationship!;
     notifyListeners();
   }
 
   // RadiusDistance Data
-  double get dbRadiusDistance => _dbRadiusDistance;
-  set dbRadiusDistance (double dbRadiusDistance) {
+  double? get dbRadiusDistance => _dbRadiusDistance;
+  set dbRadiusDistance (double? dbRadiusDistance) {
     _dbRadiusDistance = dbRadiusDistance;
     notifyListeners();
   }
@@ -1948,212 +1948,212 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
   }
 
    // RadiusLocationDescription Data
-   Place get dbRadiusLocationDescription =>_dbRadiusLocationDescription;
-   set dbRadiusLocationDescription (Place dbRadiusLocationDescription) {
+   Place? get dbRadiusLocationDescription =>_dbRadiusLocationDescription;
+   set dbRadiusLocationDescription (Place? dbRadiusLocationDescription) {
      _dbRadiusLocationDescription = dbRadiusLocationDescription;
      notifyListeners();
    }
 
    // RadiusLatLong Data
-   Place get dbRadiusLatLong =>_dbRadiusLatLong;
-   set dbRadiusLatLong (Place dbRadiusLatLong) {
+   Place? get dbRadiusLatLong =>_dbRadiusLatLong;
+   set dbRadiusLatLong (Place? dbRadiusLatLong) {
      _dbRadiusLatLong = dbRadiusLatLong;
      notifyListeners();
    }
 
   // Intimate Data
-  bool get dbIntimate => _dbIntimate;
-  set dbIntimate (bool dbIntimate) {
+  bool? get dbIntimate => _dbIntimate;
+  set dbIntimate (bool? dbIntimate) {
     _dbIntimate = dbIntimate;
     notifyListeners();
   }
 
   toggleIntimate() {
-    _dbIntimate = !_dbIntimate;
+    _dbIntimate = !_dbIntimate!;
     notifyListeners();
   }
 
   // AverageDensity Data
-  bool get dbAverageDensity => _dbAverageDensity;
-  set dbAverageDensity (bool dbAverageDensity) {
+  bool? get dbAverageDensity => _dbAverageDensity;
+  set dbAverageDensity (bool? dbAverageDensity) {
     _dbAverageDensity = dbAverageDensity;
     notifyListeners();
   }
 
   toggleAverageDensity() {
-    _dbAverageDensity = !_dbAverageDensity;
+    _dbAverageDensity = !_dbAverageDensity!;
     notifyListeners();
   }
 
   // Comfy Data
-  bool get dbComfy => _dbComfy;
-  set dbComfy (bool dbComfy) {
+  bool? get dbComfy => _dbComfy;
+  set dbComfy (bool? dbComfy) {
     _dbComfy = dbComfy;
     notifyListeners();
   }
 
   toggleComfy() {
-    _dbComfy = !_dbComfy;
+    _dbComfy = !_dbComfy!;
     notifyListeners();
   }
 
   // AboveAverageDensity Data
-  bool get dbAboveAverageDensity => _dbAboveAverageDensity;
-  set dbAboveAverageDensity (bool dbAboveAverageDensity) {
+  bool? get dbAboveAverageDensity => _dbAboveAverageDensity;
+  set dbAboveAverageDensity (bool? dbAboveAverageDensity) {
     _dbAboveAverageDensity = dbAboveAverageDensity;
     notifyListeners();
   }
 
   toggleAboveAverageDensity() {
-    _dbAboveAverageDensity = !_dbAboveAverageDensity;
+    _dbAboveAverageDensity = !_dbAboveAverageDensity!;
     notifyListeners();
   }
 
   // PackedCrowds Data
-  bool get dbPackedCrowds => _dbPackedCrowds;
-  set dbPackedCrowds (bool dbPackedCrowds) {
+  bool? get dbPackedCrowds => _dbPackedCrowds;
+  set dbPackedCrowds (bool? dbPackedCrowds) {
     _dbPackedCrowds = dbPackedCrowds;
     notifyListeners();
   }
 
   togglePackedCrowds() {
-    _dbPackedCrowds = !_dbPackedCrowds;
+    _dbPackedCrowds = !_dbPackedCrowds!;
     notifyListeners();
   }
 
   // AnyDensity Data
-  bool get dbAnyDensity => _dbAnyDensity;
-  set dbAnyDensity (bool dbAnyDensity) {
+  bool? get dbAnyDensity => _dbAnyDensity;
+  set dbAnyDensity (bool? dbAnyDensity) {
     _dbAnyDensity = dbAnyDensity;
     notifyListeners();
   }
 
   toggleAnyDensity() {
-    _dbAnyDensity = !_dbAnyDensity;
+    _dbAnyDensity = !_dbAnyDensity!;
     notifyListeners();
   }
 
   // SocialDistance Data
-  bool get dbSocialDistance => _dbSocialDistance;
-  set dbSocialDistance (bool dbSocialDistance) {
+  bool? get dbSocialDistance => _dbSocialDistance;
+  set dbSocialDistance (bool? dbSocialDistance) {
     _dbSocialDistance = dbSocialDistance;
     notifyListeners();
   }
 
   toggleSocialDistance() {
-    _dbSocialDistance = !_dbSocialDistance;
+    _dbSocialDistance = !_dbSocialDistance!;
     notifyListeners();
   }
 
   // Reset Amdient density data
-  bool get dbResetAmbiDensityValue => _dbResetAmbiDensityValue;
-  set dbResetAmbiDensityValue (bool dbResetAmbiDensityValue) {
+  bool? get dbResetAmbiDensityValue => _dbResetAmbiDensityValue;
+  set dbResetAmbiDensityValue (bool? dbResetAmbiDensityValue) {
     _dbResetAmbiDensityValue = dbResetAmbiDensityValue;
     notifyListeners();
   }
 
   toggleResetAmbiDensityValue(){
-    _dbResetAmbiDensityValue = !_dbResetAmbiDensityValue;
+    _dbResetAmbiDensityValue = !_dbResetAmbiDensityValue!;
     notifyListeners();
 
   }
 
   // Reset Commute data
-  bool get dbResetCommuteValue => _dbResetCommuteValue;
-  set dbResetCommuteValue(bool dbResetCommuteValue) {
+  bool? get dbResetCommuteValue => _dbResetCommuteValue;
+  set dbResetCommuteValue(bool? dbResetCommuteValue) {
     _dbResetCommuteValue = dbResetCommuteValue;
     notifyListeners();
   }
 
   toggleResetCommuteValue(){
-    _dbResetCommuteValue = !_dbResetCommuteValue;
+    _dbResetCommuteValue = !_dbResetCommuteValue!;
     notifyListeners();
   }
 
   //Reset relationship data
-  bool get dbResetRelatValue => _dbResetRelatValue;
-  set dbResetRelatValue (bool dbResetRelatValue) {
+  bool? get dbResetRelatValue => _dbResetRelatValue;
+  set dbResetRelatValue (bool? dbResetRelatValue) {
     _dbResetRelatValue = dbResetRelatValue;
     notifyListeners();
   }
 
   toggleResetRelatValue(){
-   _dbResetRelatValue = !_dbResetRelatValue;
+   _dbResetRelatValue = !_dbResetRelatValue!;
     notifyListeners();
   }
 
   // Reset Cuisine Value data
-  bool get dbResetCuisineValue => _dbResetCuisineValue;
-  set dbResetCuisineValue (bool dbResetCuisineValue) {
+  bool? get dbResetCuisineValue => _dbResetCuisineValue;
+  set dbResetCuisineValue (bool? dbResetCuisineValue) {
   _dbResetCuisineValue = dbResetCuisineValue;
   notifyListeners();
   }
 
 
   toggleResetCuisineValue(){
-    _dbResetCuisineValue = !_dbResetCuisineValue;
+    _dbResetCuisineValue = !_dbResetCuisineValue!;
     notifyListeners();
   }
 
   // Reset Diet Value data
-  bool get  dbResetDietValue => _dbResetDietValue;
-  set dbResetDietValue (bool dbResetDietValue) {
+  bool? get  dbResetDietValue => _dbResetDietValue;
+  set dbResetDietValue (bool? dbResetDietValue) {
     _dbResetDietValue = dbResetDietValue;
     notifyListeners();
   }
 
 
   toggleResetDIetValue(){
-    _dbResetDietValue = !_dbResetDietValue;
+    _dbResetDietValue = !_dbResetDietValue!;
     notifyListeners();
   }
 
 
 // Reset LocalSpotValue
-  bool get  dbResetLocalSpotValue => _dbResetLocalSpotValue;
-  set dbResetLocalSpotValue (bool dbResetLocalSpotValue) {
+  bool? get  dbResetLocalSpotValue => _dbResetLocalSpotValue;
+  set dbResetLocalSpotValue (bool? dbResetLocalSpotValue) {
     _dbResetLocalSpotValue = dbResetLocalSpotValue;
     notifyListeners();
   }
 
 
   toggleResetLocalSpotValue(){
-    _dbResetLocalSpotValue = !_dbResetLocalSpotValue;
+    _dbResetLocalSpotValue = !_dbResetLocalSpotValue!;
     notifyListeners();
   }
 
   //Reset Healt and Covid value
-  bool get dbResetHealthCovidValue => _dbResetHealthCovidValue;
-  set dbResetHealthCovidValue (bool dbResetHealthCovidValue) {
+  bool? get dbResetHealthCovidValue => _dbResetHealthCovidValue;
+  set dbResetHealthCovidValue (bool? dbResetHealthCovidValue) {
     _dbResetHealthCovidValue = dbResetHealthCovidValue;
     notifyListeners();
   }
 
   toggleResetHealthCovidValue() {
-    _dbResetHealthCovidValue = !_dbResetHealthCovidValue;
+    _dbResetHealthCovidValue = !_dbResetHealthCovidValue!;
     notifyListeners();
   }
 
   // Reset Location and Features data
-  bool get dbResetLocationFeaturesValue => _dbResetLocationFeaturesValue;
-  set dbResetLocationFeaturesValue (bool dbResetLocationFeaturesValue) {
+  bool? get dbResetLocationFeaturesValue => _dbResetLocationFeaturesValue;
+  set dbResetLocationFeaturesValue (bool? dbResetLocationFeaturesValue) {
     _dbResetLocationFeaturesValue = dbResetLocationFeaturesValue;
     notifyListeners();
   }
 
   toggleResetLocationFeaturesValue() {
-    _dbResetLocationFeaturesValue = !_dbResetLocationFeaturesValue;
+    _dbResetLocationFeaturesValue = !_dbResetLocationFeaturesValue!;
     notifyListeners();
   }
 
-  bool get dbResetPaymentsValue => _dbResetPaymentsValue;
-  set dbResetPaymentsValue (bool dbResetPaymentsValue) {
+  bool? get dbResetPaymentsValue => _dbResetPaymentsValue;
+  set dbResetPaymentsValue (bool? dbResetPaymentsValue) {
     _dbResetPaymentsValue = dbResetPaymentsValue;
     notifyListeners();
   }
 
   toggleResetPaymentValue() {
-    _dbResetHealthCovidValue = !_dbResetPaymentsValue;
+    _dbResetHealthCovidValue = !_dbResetPaymentsValue!;
     notifyListeners();
   }
 

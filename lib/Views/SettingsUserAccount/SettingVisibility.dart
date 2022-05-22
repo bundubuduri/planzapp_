@@ -15,9 +15,9 @@ class _SettingVisibilityState extends State<SettingVisibility> {
 
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static late User loggedInUser;
   double visibilityIndex = 0;
-  var visibilityString = "";
+  String? visibilityString = "";
   bool dbVisibilityAll = false;
   bool dbVisibilityConnected = false;
   bool dbVisibilityNone = false;
@@ -67,7 +67,7 @@ class _SettingVisibilityState extends State<SettingVisibility> {
 
   setVisibility() async{
     final _auth = FirebaseAuth.instance;
-    var userEmail = _auth.currentUser.email;
+    var userEmail = _auth.currentUser!.email;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (dbVisibilityNone == true){
       DocumentReference reference =  FirebaseFirestore.instance
@@ -98,7 +98,7 @@ class _SettingVisibilityState extends State<SettingVisibility> {
   @override
   Widget build(BuildContext context) {
     final _auth = FirebaseAuth.instance;
-    var userEmail = _auth.currentUser.email;
+    var userEmail = _auth.currentUser!.email;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -120,7 +120,7 @@ class _SettingVisibilityState extends State<SettingVisibility> {
                 style: TextStyle(
                   fontSize: 20,
                   foreground: Paint()
-                    ..color = Colors.blue[700],
+                    ..color = Colors.blue[700]!,
                 ),
               )
           ),
@@ -222,7 +222,7 @@ class _SettingVisibilityState extends State<SettingVisibility> {
 
 
 class BackButtonWidget extends StatefulWidget {
-  BackButtonWidget({Key key}) : super(key: key);
+  BackButtonWidget({Key? key}) : super(key: key);
   @override
   _BackButtonWidget createState() => _BackButtonWidget();
 }

@@ -15,7 +15,7 @@ import 'package:planzapp/Views/Plans/AddPeopleScreen.dart';
 
 class CreatePlan extends StatefulWidget {
   Plan plan;
-  CreatePlan({@required this.plan});
+  CreatePlan({required this.plan});
 
   @override
   _CreatePlanState createState() => _CreatePlanState();
@@ -26,11 +26,11 @@ MY APPBAR CLASS SETS UP AN APP BAR FOR THE TOP OF THE CREATE PLAN PAGE
 IT IS LATER CALLED IN THE CREATE PLAN CLASS
 */
 class MyAppBar extends StatelessWidget {
-  Plan plan;
+  Plan? plan;
 
   MyAppBar({this.title, this.plan});
 
-  final Widget title;
+  final Widget? title;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class MyAppBar extends StatelessWidget {
             label: Text("Back"),
           ),
           Expanded(
-            child: title,
+            child: title!,
             //centerTitle: true,
           ),
           /*
@@ -75,8 +75,8 @@ class MyAppBar extends StatelessWidget {
 }
 
 class ExitSheet extends StatefulWidget {
-  Plan plan;
-  ExitSheet({@required this.plan});
+  Plan? plan;
+  ExitSheet({required this.plan});
 
   @override
   _ExitSheetState createState() => _ExitSheetState();
@@ -138,15 +138,15 @@ class _ExitSheetState extends State<ExitSheet> {
 class _CreatePlanState extends State<CreatePlan> {
   // final _auth = FirebaseAuth.instance;
 
-  PickedFile _imageFile;
+  PickedFile? _imageFile;
   final ImagePicker _picker = ImagePicker();
 
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
 
-  String planTitle;
+  String? planTitle;
   //String price;
-  String description;
+  String? description;
 
   bool showSpinner = false;
 
@@ -364,9 +364,9 @@ THE USER TO GET THERE IMAGE FROM THEIR CAMERA OR THEIR GALLERY
         child: Image(
           width: 150,
           height: 150,
-          image: _imageFile == null
+          image: (_imageFile == null
               ? AssetImage("assets/plus.png")
-              : FileImage(File(_imageFile.path)),
+              : FileImage(File(_imageFile!.path))) as ImageProvider<Object>,
         ),
       ),
       Positioned(
@@ -439,7 +439,7 @@ THE USER TO GET THERE IMAGE FROM THEIR CAMERA OR THEIR GALLERY
     );
     setState(() {
       _imageFile = pickedFile;
-      widget.plan.planImage = File(_imageFile.path);
+      widget.plan.planImage = File(_imageFile!.path);
     });
   }
 }

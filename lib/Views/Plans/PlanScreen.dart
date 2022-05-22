@@ -22,7 +22,7 @@ class PlanScreen extends StatefulWidget {
 }
 
 class _PlanScreenState extends State<PlanScreen> {
-  static User loggedInUser;
+  static User? loggedInUser;
   //final firestoreInstance = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
   final currentUser = FirebaseAuth.instance;
@@ -30,7 +30,7 @@ class _PlanScreenState extends State<PlanScreen> {
   ContainerTransitionType _transitionType = ContainerTransitionType.fade;
 
 
-  String searchKey;
+  String? searchKey;
 
   // List<String> userList;
   String query = "";
@@ -239,10 +239,10 @@ this is from the search page
             // _firestore.collection('plans').snapshots(),
             _firestore
                 .collection('Plans')
-                .where('planInternalUsers', arrayContains: loggedInUser.uid.toString())
+                .where('planInternalUsers', arrayContains: loggedInUser!.uid.toString())
                 .snapshots(),
             builder: (context, snapshot){
-              print(loggedInUser.uid.toString());
+              print(loggedInUser!.uid.toString());
               List<Widget> plansWidget = [];
               if(snapshot.hasData){
                 final content = snapshot.data.docs;
@@ -268,9 +268,9 @@ this is from the search page
         transitionType: _transitionType,
         openBuilder: (BuildContext context, VoidCallback _) {
           print("you are creating this plan: ");
-          Plan plan = new Plan(planEventPlanners: [FirebaseAuth.instance.currentUser.uid],
+          Plan plan = new Plan(planEventPlanners: [FirebaseAuth.instance.currentUser!.uid],
             planStatus: "Planning",
-            planInternalUsers: [FirebaseAuth.instance.currentUser.uid.toString()], //+ " : " + FirebaseAuth.instance.currentUser.email],
+            planInternalUsers: [FirebaseAuth.instance.currentUser!.uid.toString()], //+ " : " + FirebaseAuth.instance.currentUser.email],
           );
 
           return CreatePlan(plan: plan,);

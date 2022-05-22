@@ -50,7 +50,7 @@ class PrefCuisineScreen extends StatefulWidget {
 class _PrefCuisineScreen extends State<PrefCuisineScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -127,16 +127,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user African cuisine preference
                       AfricanCuisineController()
-                          .run(PrefModel.dbAfricanCuisine);
+                          .run(PrefModel.dbAfricanCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -158,16 +158,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user American cuisine preferences
                       AmericanCuisineController()
-                          .run(PrefModel.dbAmericanCuisine);
+                          .run(PrefModel.dbAmericanCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -190,16 +190,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Barbeque cuisine preference
                       BarbequeCuisineController()
-                          .run(PrefModel.dbBarbequeCuisine);
+                          .run(PrefModel.dbBarbequeCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -221,16 +221,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Brazilian cuisine preferences
                       BrazilianCuisineController()
-                          .run(PrefModel.dbBrazilianCuisine);
+                          .run(PrefModel.dbBrazilianCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -253,16 +253,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Caribbean cuisine preference
                       CaribbeanCuisineController()
-                          .run(PrefModel.dbCaribbeanCuisine);
+                          .run(PrefModel.dbCaribbeanCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -284,16 +284,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Chinese cuisine preferences
                       ChineseCuisineController()
-                          .run(PrefModel.dbChineseCuisine);
+                          .run(PrefModel.dbChineseCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -316,15 +316,15 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user French cuisine preference
-                      FrenchCuisineController().run(PrefModel.dbFrenchCuisine);
+                      FrenchCuisineController().run(PrefModel.dbFrenchCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -346,15 +346,15 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Greek cuisine preferences
-                      GreekCuisineController().run(PrefModel.dbGreekCuisine);
+                      GreekCuisineController().run(PrefModel.dbGreekCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -377,15 +377,15 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Indian cuisine preference
-                      IndianCuisineController().run(PrefModel.dbIndianCuisine);
+                      IndianCuisineController().run(PrefModel.dbIndianCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -407,16 +407,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Italian cuisine preferences
                       ItalianCuisineController()
-                          .run(PrefModel.dbItalianCuisine);
+                          .run(PrefModel.dbItalianCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -439,16 +439,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Japanese cuisine preference
                       JapaneseCuisineController()
-                          .run(PrefModel.dbJapaneseCuisine);
+                          .run(PrefModel.dbJapaneseCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -472,16 +472,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Mediterranean cuisine preferences
                       MediterraneanCuisineController()
-                          .run(PrefModel.dbMediterraneanCuisine);
+                          .run(PrefModel.dbMediterraneanCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -504,16 +504,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Mexican cuisine preference
                       MexicanCuisineController()
-                          .run(PrefModel.dbMexicanCuisine);
+                          .run(PrefModel.dbMexicanCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -535,15 +535,15 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Thai cuisine preferences
-                      ThaiCuisineController().run(PrefModel.dbThaiCuisine);
+                      ThaiCuisineController().run(PrefModel.dbThaiCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -566,16 +566,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user SoulFood cuisine preference
                       SoulFoodCuisineController()
-                          .run(PrefModel.dbSoulFoodCuisine);
+                          .run(PrefModel.dbSoulFoodCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -597,15 +597,15 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Brunch cuisine preferences
-                      BrunchCuisineController().run(PrefModel.dbBrunchCuisine);
+                      BrunchCuisineController().run(PrefModel.dbBrunchCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -628,14 +628,14 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
                       }
                       // save user Buffet cuisine preference
-                      BuffetCuisineController().run(PrefModel.dbBuffetCuisine);
+                      BuffetCuisineController().run(PrefModel.dbBuffetCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -657,16 +657,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Desserts cuisine preferences
                       DessertsCuisineController()
-                          .run(PrefModel.dbDessertsCuisine);
+                          .run(PrefModel.dbDessertsCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -691,16 +691,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save Sandwiches user cuisine preference
                       SandwichesCuisineController()
-                          .run(PrefModel.dbSandwichesCuisine);
+                          .run(PrefModel.dbSandwichesCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -722,16 +722,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Noodles cuisine preferences
                       NoodlesCuisineController()
-                          .run(PrefModel.dbNoodlesCuisine);
+                          .run(PrefModel.dbNoodlesCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -754,16 +754,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Seafood cuisine preference
                       SeafoodCuisineController()
-                          .run(PrefModel.dbSeafoodCuisine);
+                          .run(PrefModel.dbSeafoodCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -787,16 +787,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Vietnamese cuisine preferences
                       VietnameseCuisineController()
-                          .run(PrefModel.dbVietnameseCuisine);
+                          .run(PrefModel.dbVietnameseCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -819,16 +819,16 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                         setState(() {
                           PrefModel.dbAnyCuisine = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbResetCuisineValue = false;
                         });
-                        AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                        AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       }
                       // save user Turkish cuisine preference
                       TurkishCuisineController()
-                          .run(PrefModel.dbTurkishCuisine);
+                          .run(PrefModel.dbTurkishCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -874,49 +874,49 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                           PrefModel.dbResetCuisineValue = false;
                         });
                         AfricanCuisineController()
-                            .run(PrefModel.dbAfricanCuisine);
+                            .run(PrefModel.dbAfricanCuisine!);
                         AmericanCuisineController()
-                            .run(PrefModel.dbAmericanCuisine);
+                            .run(PrefModel.dbAmericanCuisine!);
                         BarbequeCuisineController()
-                            .run(PrefModel.dbBarbequeCuisine);
+                            .run(PrefModel.dbBarbequeCuisine!);
                         BrazilianCuisineController()
-                            .run(PrefModel.dbBrazilianCuisine);
+                            .run(PrefModel.dbBrazilianCuisine!);
                         CaribbeanCuisineController()
-                            .run(PrefModel.dbCaribbeanCuisine);
+                            .run(PrefModel.dbCaribbeanCuisine!);
                         ChineseCuisineController()
-                            .run(PrefModel.dbChineseCuisine);
+                            .run(PrefModel.dbChineseCuisine!);
                         FrenchCuisineController()
-                            .run(PrefModel.dbFrenchCuisine);
-                        GreekCuisineController().run(PrefModel.dbGreekCuisine);
+                            .run(PrefModel.dbFrenchCuisine!);
+                        GreekCuisineController().run(PrefModel.dbGreekCuisine!);
                         IndianCuisineController()
-                            .run(PrefModel.dbIndianCuisine);
+                            .run(PrefModel.dbIndianCuisine!);
                         ItalianCuisineController()
-                            .run(PrefModel.dbItalianCuisine);
+                            .run(PrefModel.dbItalianCuisine!);
                         JapaneseCuisineController()
-                            .run(PrefModel.dbJapaneseCuisine);
+                            .run(PrefModel.dbJapaneseCuisine!);
                         MediterraneanCuisineController()
-                            .run(PrefModel.dbMediterraneanCuisine);
+                            .run(PrefModel.dbMediterraneanCuisine!);
                         MexicanCuisineController()
-                            .run(PrefModel.dbMexicanCuisine);
-                        ThaiCuisineController().run(PrefModel.dbThaiCuisine);
+                            .run(PrefModel.dbMexicanCuisine!);
+                        ThaiCuisineController().run(PrefModel.dbThaiCuisine!);
                         SoulFoodCuisineController()
-                            .run(PrefModel.dbSoulFoodCuisine);
+                            .run(PrefModel.dbSoulFoodCuisine!);
                         BrunchCuisineController()
-                            .run(PrefModel.dbBrunchCuisine);
+                            .run(PrefModel.dbBrunchCuisine!);
                         BuffetCuisineController()
-                            .run(PrefModel.dbBuffetCuisine);
+                            .run(PrefModel.dbBuffetCuisine!);
                         DessertsCuisineController()
-                            .run(PrefModel.dbDessertsCuisine);
+                            .run(PrefModel.dbDessertsCuisine!);
                         SandwichesCuisineController()
-                            .run(PrefModel.dbSandwichesCuisine);
+                            .run(PrefModel.dbSandwichesCuisine!);
                         NoodlesCuisineController()
-                            .run(PrefModel.dbNoodlesCuisine);
+                            .run(PrefModel.dbNoodlesCuisine!);
                         SeafoodCuisineController()
-                            .run(PrefModel.dbSeafoodCuisine);
+                            .run(PrefModel.dbSeafoodCuisine!);
                         VietnameseCuisineController()
-                            .run(PrefModel.dbVietnameseCuisine);
+                            .run(PrefModel.dbVietnameseCuisine!);
                         TurkishCuisineController()
-                            .run(PrefModel.dbTurkishCuisine);
+                            .run(PrefModel.dbTurkishCuisine!);
                       } else {
                         setState(() {
                           PrefModel.dbAfricanCuisine = false;
@@ -945,52 +945,52 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                           PrefModel.dbResetCuisineValue = false;
                         });
                         AfricanCuisineController()
-                            .run(PrefModel.dbAfricanCuisine);
+                            .run(PrefModel.dbAfricanCuisine!);
                         AmericanCuisineController()
-                            .run(PrefModel.dbAmericanCuisine);
+                            .run(PrefModel.dbAmericanCuisine!);
                         BarbequeCuisineController()
-                            .run(PrefModel.dbBarbequeCuisine);
+                            .run(PrefModel.dbBarbequeCuisine!);
                         BrazilianCuisineController()
-                            .run(PrefModel.dbBrazilianCuisine);
+                            .run(PrefModel.dbBrazilianCuisine!);
                         CaribbeanCuisineController()
-                            .run(PrefModel.dbCaribbeanCuisine);
+                            .run(PrefModel.dbCaribbeanCuisine!);
                         ChineseCuisineController()
-                            .run(PrefModel.dbChineseCuisine);
+                            .run(PrefModel.dbChineseCuisine!);
                         FrenchCuisineController()
-                            .run(PrefModel.dbFrenchCuisine);
-                        GreekCuisineController().run(PrefModel.dbGreekCuisine);
+                            .run(PrefModel.dbFrenchCuisine!);
+                        GreekCuisineController().run(PrefModel.dbGreekCuisine!);
                         IndianCuisineController()
-                            .run(PrefModel.dbIndianCuisine);
+                            .run(PrefModel.dbIndianCuisine!);
                         ItalianCuisineController()
-                            .run(PrefModel.dbItalianCuisine);
+                            .run(PrefModel.dbItalianCuisine!);
                         JapaneseCuisineController()
-                            .run(PrefModel.dbJapaneseCuisine);
+                            .run(PrefModel.dbJapaneseCuisine!);
                         MediterraneanCuisineController()
-                            .run(PrefModel.dbMediterraneanCuisine);
+                            .run(PrefModel.dbMediterraneanCuisine!);
                         MexicanCuisineController()
-                            .run(PrefModel.dbMexicanCuisine);
-                        ThaiCuisineController().run(PrefModel.dbThaiCuisine);
+                            .run(PrefModel.dbMexicanCuisine!);
+                        ThaiCuisineController().run(PrefModel.dbThaiCuisine!);
                         SoulFoodCuisineController()
-                            .run(PrefModel.dbSoulFoodCuisine);
+                            .run(PrefModel.dbSoulFoodCuisine!);
                         BrunchCuisineController()
-                            .run(PrefModel.dbBrunchCuisine);
+                            .run(PrefModel.dbBrunchCuisine!);
                         BuffetCuisineController()
-                            .run(PrefModel.dbBuffetCuisine);
+                            .run(PrefModel.dbBuffetCuisine!);
                         DessertsCuisineController()
-                            .run(PrefModel.dbDessertsCuisine);
+                            .run(PrefModel.dbDessertsCuisine!);
                         SandwichesCuisineController()
-                            .run(PrefModel.dbSandwichesCuisine);
+                            .run(PrefModel.dbSandwichesCuisine!);
                         NoodlesCuisineController()
-                            .run(PrefModel.dbNoodlesCuisine);
+                            .run(PrefModel.dbNoodlesCuisine!);
                         SeafoodCuisineController()
-                            .run(PrefModel.dbSeafoodCuisine);
+                            .run(PrefModel.dbSeafoodCuisine!);
                         VietnameseCuisineController()
-                            .run(PrefModel.dbVietnameseCuisine);
+                            .run(PrefModel.dbVietnameseCuisine!);
                         TurkishCuisineController()
-                            .run(PrefModel.dbTurkishCuisine);
+                            .run(PrefModel.dbTurkishCuisine!);
                       }
                       // save user Any cuisine preference
-                      AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                      AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -1028,42 +1028,42 @@ class _PrefCuisineScreen extends State<PrefCuisineScreen> {
                       PrefModel.dbVietnameseCuisine = false;
                       PrefModel.dbAnyCuisine = false;
                     });
-                    AfricanCuisineController().run(PrefModel.dbAfricanCuisine);
+                    AfricanCuisineController().run(PrefModel.dbAfricanCuisine!);
                     AmericanCuisineController()
-                        .run(PrefModel.dbAmericanCuisine);
+                        .run(PrefModel.dbAmericanCuisine!);
                     BarbequeCuisineController()
-                        .run(PrefModel.dbBarbequeCuisine);
+                        .run(PrefModel.dbBarbequeCuisine!);
                     BrazilianCuisineController()
-                        .run(PrefModel.dbBrazilianCuisine);
+                        .run(PrefModel.dbBrazilianCuisine!);
                     CaribbeanCuisineController()
-                        .run(PrefModel.dbCaribbeanCuisine);
-                    ChineseCuisineController().run(PrefModel.dbChineseCuisine);
-                    FrenchCuisineController().run(PrefModel.dbFrenchCuisine);
-                    GreekCuisineController().run(PrefModel.dbGreekCuisine);
-                    IndianCuisineController().run(PrefModel.dbIndianCuisine);
-                    ItalianCuisineController().run(PrefModel.dbItalianCuisine);
+                        .run(PrefModel.dbCaribbeanCuisine!);
+                    ChineseCuisineController().run(PrefModel.dbChineseCuisine!);
+                    FrenchCuisineController().run(PrefModel.dbFrenchCuisine!);
+                    GreekCuisineController().run(PrefModel.dbGreekCuisine!);
+                    IndianCuisineController().run(PrefModel.dbIndianCuisine!);
+                    ItalianCuisineController().run(PrefModel.dbItalianCuisine!);
                     JapaneseCuisineController()
-                        .run(PrefModel.dbJapaneseCuisine);
+                        .run(PrefModel.dbJapaneseCuisine!);
                     MediterraneanCuisineController()
-                        .run(PrefModel.dbMediterraneanCuisine);
-                    MexicanCuisineController().run(PrefModel.dbMexicanCuisine);
-                    ThaiCuisineController().run(PrefModel.dbThaiCuisine);
+                        .run(PrefModel.dbMediterraneanCuisine!);
+                    MexicanCuisineController().run(PrefModel.dbMexicanCuisine!);
+                    ThaiCuisineController().run(PrefModel.dbThaiCuisine!);
                     SoulFoodCuisineController()
-                        .run(PrefModel.dbSoulFoodCuisine);
-                    BrunchCuisineController().run(PrefModel.dbBrunchCuisine);
-                    BuffetCuisineController().run(PrefModel.dbBuffetCuisine);
+                        .run(PrefModel.dbSoulFoodCuisine!);
+                    BrunchCuisineController().run(PrefModel.dbBrunchCuisine!);
+                    BuffetCuisineController().run(PrefModel.dbBuffetCuisine!);
                     DessertsCuisineController()
-                        .run(PrefModel.dbDessertsCuisine);
+                        .run(PrefModel.dbDessertsCuisine!);
                     SandwichesCuisineController()
-                        .run(PrefModel.dbSandwichesCuisine);
-                    NoodlesCuisineController().run(PrefModel.dbNoodlesCuisine);
-                    SeafoodCuisineController().run(PrefModel.dbSeafoodCuisine);
+                        .run(PrefModel.dbSandwichesCuisine!);
+                    NoodlesCuisineController().run(PrefModel.dbNoodlesCuisine!);
+                    SeafoodCuisineController().run(PrefModel.dbSeafoodCuisine!);
                     VietnameseCuisineController()
-                        .run(PrefModel.dbVietnameseCuisine);
-                    TurkishCuisineController().run(PrefModel.dbTurkishCuisine);
+                        .run(PrefModel.dbVietnameseCuisine!);
+                    TurkishCuisineController().run(PrefModel.dbTurkishCuisine!);
 
                     // save user Any cuisine preference
-                    AnyCuisineController().run(PrefModel.dbAnyCuisine);
+                    AnyCuisineController().run(PrefModel.dbAnyCuisine!);
                     // Notify user preference saved
                     UpdatingSnackbar.showMessage(context);
                   },

@@ -35,11 +35,11 @@ class _SignInScreenState extends State<SignInScreen> {
 
 
   final _auth = FirebaseAuth.instance;
-  String emailOrPhone;
-  String password;
+  late String emailOrPhone;
+  late String password;
 
-  var smsCode;
-  var _credential;
+  late var smsCode;
+  late var _credential;
 
 
   bool showSpinner = false;
@@ -67,7 +67,7 @@ class _SignInScreenState extends State<SignInScreen> {
         verificationFailed: (authException){
           print(authException.message);
         },
-        codeSent: (String verificationId, [int forceResendingToken]){
+        codeSent: (String verificationId, [int? forceResendingToken]){
           //show dialog to take input from the user
           showDialog(
               context: context,

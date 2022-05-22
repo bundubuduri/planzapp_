@@ -16,9 +16,9 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final _firestore = FirebaseFirestore.instance;
   final auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
   // it's not used. Maybe Delete it out?
-  static String messageText;
+  static String? messageText;
 
 
   // int _currentIndex = 0;
