@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:easy_contact_picker/easy_contact_picker.dart';
+//import 'package:easy_contact_picker/easy_contact_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
@@ -145,7 +145,7 @@ class _PrefRadiusScreen extends State<PrefRadiusScreen> {
                       UpdatingSnackbar.showMessage(context);
                     },
                     onChangeEnd: (double value) {
-                      FirebaseAnalytics().logEvent(name: 'RadiusDistance',parameters:{'Value':value});
+                     // FirebaseAnalytics().logEvent(name: 'RadiusDistance',parameters:{'Value':value});
                     },
                   ),
                 ),

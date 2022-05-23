@@ -90,7 +90,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (c) => Notifications()),
         Provider(create: (c) => GetUserService()),
         Provider(create: (c) => PreferenceUpdateService()),
-        Provider(create: (c) => PreferenceAnalyticsService()),
+      //  Provider(create: (c) => PreferenceAnalyticsService()),
         Provider(create: (c) => NotificationUpdateService()),
         Provider(create: (c) => GetNotificationsService()),
 

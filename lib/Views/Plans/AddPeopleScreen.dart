@@ -9,7 +9,7 @@ import 'package:planzapp/util/Plan.dart';
 import 'package:planzapp/util/universalMethods.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:easy_contact_picker/easy_contact_picker.dart';
+//import 'package:easy_contact_picker/easy_contact_picker.dart';
 import 'package:planzapp/Controllers/Utility/GetUserController.dart';
 import 'package:http/http.dart' as http;
 
@@ -261,37 +261,37 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
     return double.tryParse(s) != null;
   }
 
-  Contact contact = new Contact(fullName: "", phoneNumber: "");
-  final EasyContactPicker contactPicker = new EasyContactPicker();
-  // open phone book to select a contact
-  getContactData() async{
-    Contact contactT = await contactPicker.selectContactWithNative();
-    setState(() {
-      contact = contactT;
-    });
-
-    if (!widget.plan.planExternalUsers.contains(contact.fullName + " : " + contact.phoneNumber)) {
-      setState(() {
-        widget.plan.planExternalUsers.add(contact.fullName + " : " + contact.phoneNumber);
-      });
-
-      Fluttertoast.showToast(
-        msg: contact.fullName + " Added",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.TOP,
-        timeInSecForIosWeb: 1,
-      );
-
-    } else {
-      Fluttertoast.showToast(
-        msg: "Contact Already Added",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 1,
-      );
-    }
-
-  }
+  // Contact contact = new Contact(fullName: "", phoneNumber: "");
+  // final EasyContactPicker contactPicker = new EasyContactPicker();
+  // // open phone book to select a contact
+  // getContactData() async{
+  //   Contact contactT = await contactPicker.selectContactWithNative();
+  //   setState(() {
+  //     contact = contactT;
+  //   });
+  //
+  //   if (!widget.plan.planExternalUsers.contains(contact.fullName + " : " + contact.phoneNumber)) {
+  //     setState(() {
+  //       widget.plan.planExternalUsers.add(contact.fullName + " : " + contact.phoneNumber);
+  //     });
+  //
+  //     Fluttertoast.showToast(
+  //       msg: contact.fullName + " Added",
+  //       toastLength: Toast.LENGTH_SHORT,
+  //       gravity: ToastGravity.TOP,
+  //       timeInSecForIosWeb: 1,
+  //     );
+  //
+  //   } else {
+  //     Fluttertoast.showToast(
+  //       msg: "Contact Already Added",
+  //       toastLength: Toast.LENGTH_SHORT,
+  //       gravity: ToastGravity.BOTTOM,
+  //       timeInSecForIosWeb: 1,
+  //     );
+  //   }
+  //
+  // }
 
   // get all users from the data base, so that we can give user recommendations
   // we can change this to ger user's friend later when friend feature implemented
@@ -576,7 +576,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                 height: 60,
                 child: RaisedButton(
                   onPressed: () async {
-                    getContactData();
+                   // getContactData();
                   }
                   ,
                   color: Color(0xFF00a79B),

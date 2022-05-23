@@ -289,10 +289,19 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
                                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               ),
                             ),
-                            child: OutlineButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(3.0),
-                                  side: BorderSide(color: Colors.black)),
+                            child: OutlinedButton(
+                              style: ButtonStyle(
+                              shape: MaterialStateProperty.all<OutlinedBorder>(StadiumBorder()),
+                                  //borderRadius: BorderRadius.circular(3.0),
+                                  side: MaterialStateProperty.resolveWith<BorderSide>(
+                                      (Set<MaterialState> states){
+                                        final Color color = states.contains(MaterialState.pressed)
+                                            ?Colors.grey
+                                            :Colors.grey.shade500;
+                                        return BorderSide(color: color, width: 2);
+                                      }
+                                  ),
+                              ),
                               child: Text('View Itinerary'),
                               onPressed: () {
                                 print("tapped on a plan");
@@ -317,10 +326,10 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
                                       builder: (context) => ViewItinerary(plan: plan),
                                     ));
                               },
+                        ),
                             ),
                           ),
                         ),
-                      )
                       ],
                     ),
 
