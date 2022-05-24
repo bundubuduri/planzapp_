@@ -108,7 +108,7 @@ class _NotificationsButtonWidget extends State<NotificationsButtonWidget>{
                       child: Container(
                         child:
 
-                        IconButton(icon: widget.c.get("userViewed") ? Icon(Icons.brightness_1_rounded, size: 18,) : Icon(Icons.notifications_active_sharp, color: Colors.red,),
+                        IconButton(icon: widget.c.get("userViewed") ? Icon(Icons.brightness_1_rounded, size: 18,) : Icon(Icons.notifications_active_sharp, color: Colors.red,), onPressed: () {  },
                             ),
 
                       ),

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, unused_field, await_only_futures
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,6 +16,7 @@ import 'package:planzapp/Views/Plans/CreatePlan.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:planzapp/Views/Plans/MapSuggestionsScreen.dart';
 import 'package:planzapp/util/API Client/Client.dart';
+//import 'package:google_maps/google_maps.dart';
 
 class AddLocationScreen extends StatefulWidget {
   Plan plan;
@@ -384,48 +387,44 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
 
           Container(
               height: 83,
+              child: SearchMapPlaceWidget(
+                apiKey:
+                    "AIzaSyA1raSrtTQbDS_URBmS9d2uRVIHweC7qic", // GOOGLE MAPS API KEY
+                // The language of the autocompletion
+                language: 'en',
+                // The position used to give better recommendations. In this case we are using the user position
+                location: userLocationPref == null
+                    ? initialPosition
+                    : userLocationPref, //initialPosition,
+                radius: (_sliderValue * 1609.34).toInt(),
+                strictBounds: true,
 
-                child: SearchMapPlaceWidget(
+                // empty
+                onSelected: (Place place) async {
+                  final geolocation = await place.geolocation;
 
-            apiKey:
-                "AIzaSyA1raSrtTQbDS_URBmS9d2uRVIHweC7qic", // GOOGLE MAPS API KEY
-            // The language of the autocompletion
-            language: 'en',
-            // The position used to give better recommendations. In this case we are using the user position
-            location: userLocationPref == null
-                ? initialPosition
-                : userLocationPref, //initialPosition,
-            radius: (_sliderValue * 1609.34).toInt(),
-            strictBounds: true,
+                  // get the details for the current place
+                  results = await getPlaceDetails(place);
+                  print('Results: $results');
 
-            // empty
-            onSelected: (Place place) async {
-              final geolocation = await place.geolocation;
+                  setState(() {
+                    selectedPlace = place;
+                    showPlaceDetails = true;
+                    pinPosition = geolocation.coordinates;
+                    _markers.add(Marker(
+                        markerId: MarkerId("aloha"),
+                        position: pinPosition,
+                        icon: pinLocationIcon));
+                  });
 
-              // get the details for the current place
-              results = await getPlaceDetails(place);
-              print('Results: $results');
-
-              setState(() {
-                selectedPlace = place;
-                showPlaceDetails = true;
-                pinPosition = geolocation.coordinates;
-                _markers.add(Marker(
-                    markerId: MarkerId("aloha"),
-                    position: pinPosition,
-                    icon: pinLocationIcon));
-              });
-
-              // Will animate the GoogleMap camera, taking us to the selected position with an appropriate zoom
-              //final GoogleMapController controller = await _mapController.future;
-              mapController.animateCamera(
-                  CameraUpdate.newLatLng(geolocation.coordinates));
-              mapController.animateCamera(
-                  CameraUpdate.newLatLngBounds(geolocation.bounds, 0));
-            },
-                )
-
-          ),
+                  // Will animate the GoogleMap camera, taking us to the selected position with an appropriate zoom
+                  //final GoogleMapController controller = await _mapController.future;
+                  mapController.animateCamera(
+                      CameraUpdate.newLatLng(geolocation.coordinates));
+                  mapController.animateCamera(
+                      CameraUpdate.newLatLngBounds(geolocation.bounds, 0));
+                },
+              )),
 
           // once a place selected, we will show the detail and hide slider, for user to make decision to add this place or not
           (showPlaceDetails && selectedPlace != null
