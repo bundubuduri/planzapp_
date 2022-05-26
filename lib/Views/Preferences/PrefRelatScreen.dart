@@ -29,7 +29,7 @@ class _PrefRelatScreen extends State<PrefRelatScreen> {
 
   final _firestore =  FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -118,16 +118,16 @@ class _PrefRelatScreen extends State<PrefRelatScreen> {
                           setState(() {
                               PrefModel.dbAnyRelationship = newValue;
                           });
-                          AnyRelationshipController().run(PrefModel.dbAnyRelationship);
+                          AnyRelationshipController().run(PrefModel.dbAnyRelationship!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetRelatValue = false;
                           });
-                          AnyRelationshipController().run(PrefModel.dbAnyRelationship);
+                          AnyRelationshipController().run(PrefModel.dbAnyRelationship!);
                         }
                         // save user Single preference
-                        SingleController().run(PrefModel.dbSingle);
+                        SingleController().run(PrefModel.dbSingle!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -149,16 +149,16 @@ class _PrefRelatScreen extends State<PrefRelatScreen> {
                           setState(() {
                               PrefModel.dbAnyRelationship = newValue;
                           });
-                          AnyRelationshipController().run(PrefModel.dbAnyRelationship);
+                          AnyRelationshipController().run(PrefModel.dbAnyRelationship!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetRelatValue = false;
                           });
-                          AnyRelationshipController().run(PrefModel.dbAnyRelationship);
+                          AnyRelationshipController().run(PrefModel.dbAnyRelationship!);
                         }
                         // save user Married preferences
-                        MarriedController().run(PrefModel.dbMarried);
+                        MarriedController().run(PrefModel.dbMarried!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -185,16 +185,16 @@ class _PrefRelatScreen extends State<PrefRelatScreen> {
                           setState(() {
                               PrefModel.dbAnyRelationship = newValue;
                           });
-                          AnyRelationshipController().run(PrefModel.dbAnyRelationship);
+                          AnyRelationshipController().run(PrefModel.dbAnyRelationship!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetRelatValue = false;
                           });
-                          AnyRelationshipController().run(PrefModel.dbAnyRelationship);
+                          AnyRelationshipController().run(PrefModel.dbAnyRelationship!);
                         }
                         // save user In A Relationship preference
-                        InARelationshipController().run(PrefModel.dbInARelationship);
+                        InARelationshipController().run(PrefModel.dbInARelationship!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -219,9 +219,9 @@ class _PrefRelatScreen extends State<PrefRelatScreen> {
                               PrefModel.dbInARelationship = newValue;
                               PrefModel.dbResetRelatValue = false;
                             });
-                            SingleController().run(PrefModel.dbSingle);
-                            MarriedController().run(PrefModel.dbMarried);
-                            InARelationshipController().run(PrefModel.dbInARelationship);
+                            SingleController().run(PrefModel.dbSingle!);
+                            MarriedController().run(PrefModel.dbMarried!);
+                            InARelationshipController().run(PrefModel.dbInARelationship!);
                           }
                           else{
                             setState(() {
@@ -229,12 +229,12 @@ class _PrefRelatScreen extends State<PrefRelatScreen> {
                               PrefModel.dbMarried = false;
                               PrefModel.dbInARelationship = false;
                             });
-                            SingleController().run(PrefModel.dbSingle);
-                            MarriedController().run(PrefModel.dbMarried);
-                            InARelationshipController().run(PrefModel.dbInARelationship);
+                            SingleController().run(PrefModel.dbSingle!);
+                            MarriedController().run(PrefModel.dbMarried!);
+                            InARelationshipController().run(PrefModel.dbInARelationship!);
                           }
                           // save user In A Relationship preference
-                          AnyRelationshipController().run(PrefModel.dbAnyRelationship);
+                          AnyRelationshipController().run(PrefModel.dbAnyRelationship!);
                           // Notify user preference saved
                           UpdatingSnackbar.showMessage(context);
                         },
@@ -254,12 +254,12 @@ class _PrefRelatScreen extends State<PrefRelatScreen> {
                                 PrefModel.dbInARelationship = false;
                                 PrefModel.dbAnyRelationship = false;
                               });
-                              SingleController().run(PrefModel.dbSingle);
-                              MarriedController().run(PrefModel.dbMarried);
-                              InARelationshipController().run(PrefModel.dbInARelationship);
+                              SingleController().run(PrefModel.dbSingle!);
+                              MarriedController().run(PrefModel.dbMarried!);
+                              InARelationshipController().run(PrefModel.dbInARelationship!);
 
                             // save user In A Relationship preference
-                            AnyRelationshipController().run(PrefModel.dbAnyRelationship);
+                            AnyRelationshipController().run(PrefModel.dbAnyRelationship!);
                             // Notify user preference saved
                             UpdatingSnackbar.showMessage(context);
                         },

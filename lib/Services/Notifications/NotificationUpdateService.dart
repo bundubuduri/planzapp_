@@ -5,9 +5,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:planzapp/Controllers/Utility/GetUserController.dart';
 
 class NotificationUpdateService {
-  void updateUserViewed(String notificationId) async{
+  void updateUserViewed(String? notificationId) async{
 
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     DocumentReference reference = FirebaseFirestore.instance
         .collection("User")
         .doc(loggedInUser.uid.toString())

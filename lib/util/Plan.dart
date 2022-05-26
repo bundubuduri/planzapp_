@@ -12,7 +12,7 @@ class Plan {
   //InternalUser planInternalUsers = InternalUser("","","");
   var planExternalUsers = [];
   var planPlacesWithTime = [];
-  var planStatus = "Planning";
+  String? planStatus = "Planning";
   var planFavorite = false;
   var planFavoriteTime = "";
 

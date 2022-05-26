@@ -16,8 +16,8 @@ import 'package:http/http.dart' as http;
 
 class AddPeopleScreen extends StatefulWidget {
 
-  Plan plan;
-  AddPeopleScreen({@required this.plan});
+  Plan? plan;
+  AddPeopleScreen({required this.plan});
 
   @override
   _AddPeopleScreenState createState() => _AddPeopleScreenState();
@@ -25,7 +25,7 @@ class AddPeopleScreen extends StatefulWidget {
 
 class _AddPeopleScreenState extends State<AddPeopleScreen> {
 
-  static User loggedInUser;
+  static User? loggedInUser;
 
  // FirebaseFunctions mfunctions;
   //mfunctions = Firebase.getInstance();
@@ -60,7 +60,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
     List<Widget> list = new List<Widget>();
     for(var i = strings.length - 1; i > -1; i--){
       var temp = strings[i];
-      String temp1 = temp.split(":")[0]  +  " : " +temp.split(":")[1];
+      String? temp1 = temp.split(":")[0]  +  " : " +temp.split(":")[1];
     list.add(
     Padding(
           padding:const EdgeInsets.only(left:20.0,right:20,top:5,bottom:5),
@@ -75,8 +75,8 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                 textColor: Colors.black,
                 onPressed: () {
                   setState(() {
-                    widget.plan.planExternalUsers.remove(temp);
-                    widget.plan.planInternalUsers.remove(temp);
+                    widget.plan!.planExternalUsers.remove(temp);
+                    widget.plan!.planInternalUsers.remove(temp);
                   });
                   Fluttertoast.showToast(
                     msg: temp.split(" : ")[0] + " Deleted",
@@ -105,7 +105,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
     var users = FirebaseFirestore.instance.collection('User');
     for(var i = strings.length-1;i>0;i--){
       String userID = strings[i];
-      String userNameEmail = "";
+      String? userNameEmail = "";
       //FirebaseFirestore.instance.collection('User').where('user_id', isEqualTo: temp).get().then(
         //(DocumentSnapshot doc) =>
           //temp = doc.data()['user_name'];
@@ -137,7 +137,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                           child:Center(
                             child:ClipRRect(
                               borderRadius:BorderRadius.circular(15),
-                              child:Image.network(url.data,
+                              child:Image.network(url.data!,
                                 fit:BoxFit.cover,
                               ),
                             ),),
@@ -150,7 +150,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                 ),
               ),
 
-              Text(userNameEmail,
+              Text(userNameEmail!,
                 textAlign:TextAlign.start,
               ),
               SizedBox(width:50,),
@@ -160,8 +160,8 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                 textColor:Colors.black,
                 onPressed:(){
                   setState((){
-                    widget.plan.planExternalUsers.remove(userID);
-                    widget.plan.planInternalUsers.remove(userID);
+                    widget.plan!.planExternalUsers.remove(userID);
+                    widget.plan!.planInternalUsers.remove(userID);
                   });
                   /*Fluttertoast.showToast(
                     msg:temp.split(":")[0]+ "Deleted",
@@ -195,7 +195,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
       filteredUsers.clear();
       for(var i = allUsers.length - 1; i > -1; i--){
          if (allUsers[i].toString().contains(enteredString)) {
-           if (!widget.plan.planInternalUsers.contains(allUsers[i].toString())) {
+           if (!widget.plan!.planInternalUsers.contains(allUsers[i].toString())) {
              filteredUsers.add(allUsers[i].toString());
            }
          }
@@ -220,7 +220,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                   textColor: Colors.blueAccent,
                   onPressed: () {
                     setState(() {
-                      widget.plan.planInternalUsers.add(dbInternalUserList);
+                      widget.plan!.planInternalUsers.add(dbInternalUserList);
                       //print(internalUser.userId);
                       //print(internalUser.userEmail);
                       //widget.plan.planInternalUser.toMap(userId, userName, userEmail);
@@ -249,7 +249,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
   bool validateEmail(String value) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regex = new RegExp(pattern);
+    RegExp regex = new RegExp(pattern as String);
     return (!regex.hasMatch(value)) ? false : true;
   }
 
@@ -305,9 +305,9 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
     for (int i = 0; i < allUsers.length; i ++) {
       DocumentSnapshot<Map<String, dynamic>> variable = await FirebaseFirestore.instance.collection('User').doc(allUsers[i]).get();
 
-      var tempUserName = variable.data()['planzID'];
-      var tempUserId = variable.data()['user_id'];
-      var tempEmail = variable.data()['email'];
+      var tempUserName = variable.data()!['planzID'];
+      var tempUserId = variable.data()!['user_id'];
+      var tempEmail = variable.data()!['email'];
       allUsers[i] = tempUserName + ' : ' + tempEmail + ' : ' + tempUserId;
 
     }
@@ -422,7 +422,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
 
 
           listPreMatchedUsers(internalContact),
-   imageDisplay(widget.plan.planInternalUsers),
+   imageDisplay(widget.plan!.planInternalUsers),
 
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -506,13 +506,13 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                     onPressed: () async {
 
                       print("you are creating this plan: ");
-                      print(widget.plan.show());
+                      print(widget.plan!.show());
 
 
                       if (externalUserName != "" && externalEmailOrPhone != "") {
                         if (validateEmail(externalEmailOrPhone) || isNumeric(externalEmailOrPhone)) {
 
-                          if (widget.plan.planExternalUsers.contains(externalUser)) {
+                          if (widget.plan!.planExternalUsers.contains(externalUser)) {
                             Fluttertoast.showToast(
                               msg: "Friend Already Added",
                               toastLength: Toast.LENGTH_SHORT,
@@ -521,7 +521,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                             );
                           } else {
                             setState(() {
-                              widget.plan.planExternalUsers.add(externalUser);
+                              widget.plan!.planExternalUsers.add(externalUser);
                             });
                             externalUserNameTextFieldController.clear();
                             externalUserEmailTextFieldController.clear();
@@ -592,7 +592,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
             ),
           ),
 
-            listSelectedUsers(widget.plan.planExternalUsers),
+            listSelectedUsers(widget.plan!.planExternalUsers),
 
 
             Padding(
@@ -603,9 +603,9 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                   height: 60,
                   child: RaisedButton(
                     onPressed: () async {
-                      if (widget.plan.cameFromViewItineraryPage) {
+                      if (widget.plan!.cameFromViewItineraryPage) {
                         Navigator.pop(context);
-                        print(widget.plan.show());
+                        print(widget.plan!.show());
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -622,7 +622,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                         );
                       }
 
-                      if (widget.plan.cameFromViewItineraryPage) {
+                      if (widget.plan!.cameFromViewItineraryPage) {
                         Fluttertoast.showToast(
                           msg: "People Data Updated",
                           toastLength: Toast.LENGTH_SHORT,
@@ -635,7 +635,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                     },
                     color: Color(0xFF00a79B),
                     child: Text(
-                      widget.plan.cameFromViewItineraryPage ? 'Update' : 'NEXT',
+                      widget.plan!.cameFromViewItineraryPage ? 'Update' : 'NEXT',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -676,7 +676,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
                                 child: Text("Yes"),
                                 onPressed: () {
 
-                                    UniversalMethods.savePlanDataToDatabase(widget.plan);
+                                    UniversalMethods.savePlanDataToDatabase(widget.plan!);
 
                                   Navigator.pop(context, true);
 

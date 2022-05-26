@@ -431,7 +431,7 @@ class PreferenceAnalyticsService{
 
 
   void analyticsRadiusLocation(Place place) async {
-   final geolocation = await place.geolocation;
+   final geolocation = await (place.geolocation as FutureOr<Geolocation>);
    FirebaseAnalytics.instance.logEvent(name: 'RadiusLocationLatLong',parameters:{'Value':geolocation.coordinates.toString()});
    FirebaseAnalytics.instance.logEvent(name: 'RadiusLocationDescription',parameters:{'Value':place.description});
   }

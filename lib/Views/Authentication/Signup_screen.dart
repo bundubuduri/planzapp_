@@ -25,16 +25,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final _auth = FirebaseAuth.instance;
 
-  String planzID;
-  String email;
-  String password;
-  String phone;
-  String firstName;
-  String lastName;
-  String location;
-  String dob;
+  String? planzID;
+  String? email;
+  String? password;
+  String? phone;
+  String? firstName;
+  String? lastName;
+  String? location;
+  String? dob;
   //String profilePicture;
-  Image profilePicture;
+  Image? profilePicture;
 
   bool showSpinner = false;
   bool planzIDinUse = true;
@@ -42,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   // File imageFile;
   // final imagePicker = ImagePicker();
 
-  PickedFile _imageFile;
+  PickedFile? _imageFile;
   final ImagePicker _picker = ImagePicker();
 
 
@@ -70,7 +70,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   //DateTime dob = DateTime.now();
 
   //checking if planzID is in use or not
-  Future<void> checkDuplicatePlanzID(String nameTocheck) async {
+  Future<void> checkDuplicatePlanzID(String? nameTocheck) async {
     QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection('User')
         .where('planzID', isEqualTo: nameTocheck)
         .get();
@@ -85,7 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
+    final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime(1900, 8),
@@ -93,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (picked != null)
       setState(() {
         dob = picked.toString().substring(0, 10);
-        dobTextFieldController.text = dob;
+        dobTextFieldController.text = dob!;
       });
   }
 
@@ -115,9 +115,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Image(
                   width: 150,
                   height: 150,
-                  image: _imageFile == null
+                  image: (_imageFile == null
                       ? AssetImage("assets/plus.png")
-                      : FileImage(File(_imageFile.path)),
+                      : FileImage(File(_imageFile!.path))) as ImageProvider<Object>,
                 ) ,
               ),
               Positioned(
@@ -496,15 +496,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         //     gravity: ToastGravity.TOP,
                         //     timeInSecForIosWeb: 1
                         // );
-                      } else if(password.length<8){
+                      } else if(password!.length<8){
                         AlertPopup.showMessage(context, "The password must be of length at least 8", 1500);
-                      } else if(!password.contains(new RegExp(r'[a-z+ | A-Z+ ]'))){
+                      } else if(!password!.contains(new RegExp(r'[a-z+ | A-Z+ ]'))){
                         AlertPopup.showMessage(context, "The password must contain at least 1 lower or upper letter", 1500);
-                      } else if(!password.contains(new RegExp(r'[!@#\$%^&*.+]'))){
+                      } else if(!password!.contains(new RegExp(r'[!@#\$%^&*.+]'))){
                         AlertPopup.showMessage(context, "Password must contain a special character: !,@,#,\$,%,^,&,.,*,+", 1500);
-                      } else if(!password.contains(new RegExp(r'[0-9+]'))){
+                      } else if(!password!.contains(new RegExp(r'[0-9+]'))){
                         AlertPopup.showMessage(context, "Password must contain at least one number", 1500);
-                      } else if(password.toLowerCase().contains(planzID.toLowerCase()) || password.toLowerCase().contains(firstName.toLowerCase()) || password.toLowerCase().contains(lastName.toLowerCase())){
+                      } else if(password!.toLowerCase().contains(planzID!.toLowerCase()) || password!.toLowerCase().contains(firstName!.toLowerCase()) || password!.toLowerCase().contains(lastName!.toLowerCase())){
                         AlertPopup.showMessage(context, "Password must exclude : username, first name, or last name", 1500);
                       } else if(planzIDinUse){
                         AlertPopup.showMessage(context, "Username(planzID) is already in use", 1500);
@@ -518,7 +518,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         try {
 
 
-                          var newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                          var newUser = await _auth.createUserWithEmailAndPassword(email: email!, password: password!);
                           
                           // FirebaseAuth.instance.currentUser.updatePhoneNumber(phoneCredential);
 
@@ -529,10 +529,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                             // save user profile
                             DocumentReference reference = FirebaseFirestore.instance
-                                .doc("User/" + _auth.currentUser.uid.toString());
+                                .doc("User/" + _auth.currentUser!.uid.toString());
 
                             reference.set({
-                              'user_id': _auth.currentUser.uid,
+                              'user_id': _auth.currentUser!.uid,
                               'email' : email,
                               'planzID' : planzID,
                               'friends': [],
@@ -550,7 +550,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               UploadTask _uploadTask;
                               String filePath = 'profile_images/$email.png';
                               setState(() {
-                                _uploadTask = _storage.ref().child(filePath).putFile(File(_imageFile.path));
+                                _uploadTask = _storage.ref().child(filePath).putFile(File(_imageFile!.path));
                               });
                             }
 
@@ -564,7 +564,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             // Create user's Friends document in database
                             reference.collection("Friends").doc("Friends")
                             .set({
-                                'user_id': _auth.currentUser.uid
+                                'user_id': _auth.currentUser!.uid
                             });
                             // Create user's Notifications document in database
                             reference.collection("Notifications").doc("Welcome")
@@ -646,7 +646,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 class BackButtonWidget extends StatelessWidget {
   const BackButtonWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

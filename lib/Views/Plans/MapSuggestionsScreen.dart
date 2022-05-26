@@ -20,8 +20,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 // Shows places to eat nearby
 class MapSuggestionsScreen extends StatefulWidget {
   //final String keyword;
-  Plan plan;
-  MapSuggestionsScreen({@required this.plan});
+  Plan? plan;
+  MapSuggestionsScreen({required this.plan});
 
   @override
   State<StatefulWidget> createState() {
@@ -39,11 +39,11 @@ class _MapSuggestionsScreen extends State<MapSuggestionsScreen>{
   "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
 
   List<Marker> markers = <Marker>[];
-  Error error;
+  Error? error;
   bool isSearching = true;
-  String keyword;
+  String? keyword;
 
-  GoogleMapController mapController;
+  GoogleMapController? mapController;
   
 
   CameraPosition cameraPosition = CameraPosition(
@@ -51,14 +51,14 @@ class _MapSuggestionsScreen extends State<MapSuggestionsScreen>{
     zoom: 16,);
 
   var userLocationPrefString;
-  var userLocationPref;
+  late var userLocationPref;
   var initialPosition = LatLng(21.648611, -157.925556);
 
   void getUserLocationPref() async {
-    DocumentSnapshot<Map<String, dynamic>> variable = await FirebaseFirestore.instance.collection('User').doc(FirebaseAuth.instance.currentUser.email).collection('Preferences').doc('Preferences').get();
-    userLocationPrefString = variable.data()['RadiusLocationLatLong'];
+    DocumentSnapshot<Map<String, dynamic>> variable = await FirebaseFirestore.instance.collection('User').doc(FirebaseAuth.instance.currentUser!.email).collection('Preferences').doc('Preferences').get();
+    userLocationPrefString = variable.data()!['RadiusLocationLatLong'];
     //initialPosition = userLocationPref;
-    var userLocationPrefDescriptionString = variable.data()['RadiusLocationDescription'];
+    var userLocationPrefDescriptionString = variable.data()!['RadiusLocationDescription'];
 
     print("hi");
     // if we user location pref is not set
@@ -114,7 +114,7 @@ class _MapSuggestionsScreen extends State<MapSuggestionsScreen>{
 
   // This function calls the firebase function that gets the plan's internal users' preferences
   Future fetchPreferences() async{
-    Uri url = Uri.parse('https://us-central1-planzapp-2c02d.cloudfunctions.net/groupPreferences?text=' + widget.plan.planInternalUsers.toString());
+    Uri url = Uri.parse('https://us-central1-planzapp-2c02d.cloudfunctions.net/groupPreferences?text=' + widget.plan!.planInternalUsers.toString());
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
@@ -168,7 +168,7 @@ class _MapSuggestionsScreen extends State<MapSuggestionsScreen>{
           print('success');
           setState(() {
               if(mapController != null) {
-                mapController.animateCamera(CameraUpdate.newLatLng(userLocationPref));
+                mapController!.animateCamera(CameraUpdate.newLatLng(userLocationPref));
               }
           });
       });

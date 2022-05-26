@@ -68,7 +68,7 @@ class _MyProfileState extends State<MyProfile> {
                                       width: 5,
                                     ),
                                     image: DecorationImage(
-                                      image: NetworkImage(url.data),
+                                      image: NetworkImage(url.data!),
                                       fit: BoxFit.cover,
                                     )),
                               );
@@ -110,11 +110,11 @@ class _MyProfileState extends State<MyProfile> {
                           onPressed: () {
                             Plan plan = new Plan(
                               planEventPlanners: [
-                                FirebaseAuth.instance.currentUser.uid
+                                FirebaseAuth.instance.currentUser!.uid
                               ],
                               planStatus: "Planning",
                               planInternalUsers: [
-                                FirebaseAuth.instance.currentUser.email
+                                FirebaseAuth.instance.currentUser!.email
                                     .toString()
                               ], //+ " : " + FirebaseAuth.instance.currentUser.email],
                             );
@@ -137,9 +137,9 @@ class _MyProfileState extends State<MyProfile> {
                               if (profileDoc.data !=
                                   null) /* if (profileDoc.data[displayContent[2]] != null && profileDoc.data[displayContent[1]] != null)*/ {
                                 return Text(
-                                    profileDoc.data[displayContent[2]] +
+                                    profileDoc.data![displayContent[2]] +
                                         " " +
-                                        profileDoc.data[displayContent[1]],
+                                        profileDoc.data![displayContent[1]],
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold));
                               }
@@ -155,7 +155,7 @@ class _MyProfileState extends State<MyProfile> {
                             builder: (context,
                                 AsyncSnapshot<DocumentSnapshot> profileDoc) {
                               if (profileDoc.data != null) {
-                                return Text(profileDoc.data[displayContent[6]],
+                                return Text(profileDoc.data![displayContent[6]],
                                     style: TextStyle(
                                       fontSize: 12,
                                     ));
@@ -177,7 +177,7 @@ class _MyProfileState extends State<MyProfile> {
                               if (profileDoc.data !=
                                   null) /*(profileDoc.data[displayContent[0]] != null)*/ {
                                 return Text(
-                                    "@" + profileDoc.data[displayContent[0]],
+                                    "@" + profileDoc.data![displayContent[0]],
                                     style: TextStyle(
                                       fontSize: 12,
                                     ));
@@ -255,7 +255,7 @@ class _MyProfileState extends State<MyProfile> {
                       List<Widget> plansWidget = [];
 
                       if (snapshot.hasData) {
-                        final allPlans = snapshot.data.docs;
+                        final allPlans = snapshot.data!.docs;
                         numOfPlansCreated = allPlans.length;
                         numOfUpcomingPlans = 0;
                         for (var c in allPlans) {

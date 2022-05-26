@@ -31,7 +31,7 @@ class PreferencesScreen extends StatefulWidget {
 class _PreferencesScreen extends State<PreferencesScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -50,19 +50,19 @@ class _PreferencesScreen extends State<PreferencesScreen> {
   @override
   Widget build(BuildContext context) {
     var PrefModel =  Provider.of<PreferencesModel>(context);
-    String budgetPreferences = PrefModel.budgetPreferences;
-    String multiplePlansPreferences = PrefModel.multiplePlansPreferences;
-    String commutePreferences = PrefModel.commutePreferences;
-    String cuisinePreferences = PrefModel.cuisinePreferences;
-    String healthCovidPreferences = PrefModel.healthCovidPreferences;
-    String dietPreferences = PrefModel.dietPreferences;
-    String generalFeaturesPreferences = PrefModel.generalFeaturesPreferences;
-    String localSpotPreferences = PrefModel.localSpotPreferences;
-    String locationFeaturesPreferences = PrefModel.locationFeaturesPreferences;
-    String paymentPreferences = PrefModel.paymentPreferences;
-    String relationshipPreferences = PrefModel.relationshipPreferences;
-    String radiusPreferences = PrefModel.radiusPreferences;
-    String ambianceDensityPreferences = PrefModel.ambianceDensityPreferences;
+    String? budgetPreferences = PrefModel.budgetPreferences;
+    String? multiplePlansPreferences = PrefModel.multiplePlansPreferences;
+    String? commutePreferences = PrefModel.commutePreferences;
+    String? cuisinePreferences = PrefModel.cuisinePreferences;
+    String? healthCovidPreferences = PrefModel.healthCovidPreferences;
+    String? dietPreferences = PrefModel.dietPreferences;
+    String? generalFeaturesPreferences = PrefModel.generalFeaturesPreferences;
+    String? localSpotPreferences = PrefModel.localSpotPreferences;
+    String? locationFeaturesPreferences = PrefModel.locationFeaturesPreferences;
+    String? paymentPreferences = PrefModel.paymentPreferences;
+    String? relationshipPreferences = PrefModel.relationshipPreferences;
+    String? radiusPreferences = PrefModel.radiusPreferences;
+    String? ambianceDensityPreferences = PrefModel.ambianceDensityPreferences;
 
     return Scaffold(
       appBar: AppBar(

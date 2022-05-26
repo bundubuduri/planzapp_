@@ -15,7 +15,7 @@ class PeopleUpdateService{
 
 }
 void addFriendData() async {
-  User loggedInUser = await GetUserController().run();
+  User? loggedInUser = await GetUserController().run();
 
   // code below needs to be converted to adding friend
 
@@ -44,7 +44,7 @@ void addFriendData() async {
 
 }
 void removeFriendData() async {
-  User loggedInUser = await GetUserController().run();
+  User? loggedInUser = await GetUserController().run();
 
   // code below needs to be converted to removing friend
 

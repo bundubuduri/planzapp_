@@ -7,7 +7,7 @@ import 'package:planzapp/Services/Home/GetSideProfileImageService.dart';
 import 'package:planzapp/Services/Home/UserSideProfStreamBuilderService.dart';
 import 'package:provider/provider.dart';
 
-BuildContext _mainContext;
+late BuildContext _mainContext;
 // The controller will use this access the Provided models and services
 void init(BuildContext c) => _mainContext = c;
 

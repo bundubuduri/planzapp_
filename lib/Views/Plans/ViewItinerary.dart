@@ -15,8 +15,8 @@ import 'package:maps_launcher/maps_launcher.dart';
 
 class ViewItinerary extends StatefulWidget {
 
-  Plan plan;
-  ViewItinerary({@required this.plan});
+  Plan? plan;
+  ViewItinerary({required this.plan});
 
   @override
   _ViewItineraryState createState() => _ViewItineraryState();
@@ -42,7 +42,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
 
     for(var i = strings.length - 1; i > -1; i--){
       String userID = strings[i];
-      String userNameEmail = "";
+      String? userNameEmail = "";
       for(var i = allUsers.length - 1; i > -1; i--){
         if (allUsers[i].toString().contains(userID)) {
           userNameEmail = allUsers[i].split(" : ")[0];// + " : " + allUsers[i].split(" : ")[1];
@@ -54,7 +54,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(userNameEmail),
+              Text(userNameEmail!),
             ],
           ),
         ),
@@ -95,7 +95,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                         GestureDetector(
                             onTap: (){
 
-                              print(widget.plan.show());
+                              print(widget.plan!.show());
 
                               print("place clicked");
                               print(placeName + placeAddress);
@@ -201,9 +201,9 @@ class _ViewItineraryState extends State<ViewItinerary> {
     for (int i = 0; i < allUsers.length; i ++) {
       DocumentSnapshot<Map<String, dynamic>> variable = await FirebaseFirestore.instance.collection('User').doc(allUsers[i]).get();
 
-      var tempUserName = variable.data()['planzID'];
-      var tempUserId = variable.data()['user_id'];
-      var tempEmail = variable.data()['email'];
+      var tempUserName = variable.data()!['planzID'];
+      var tempUserId = variable.data()!['user_id'];
+      var tempEmail = variable.data()!['email'];
       allUsers[i] = tempUserName + ' : ' + tempEmail + ' : ' + tempUserId;
 
     }
@@ -216,8 +216,8 @@ class _ViewItineraryState extends State<ViewItinerary> {
 
   @override
   Widget build(BuildContext context) {
-    descriptionTextFieldController.text = widget.plan.planDescription;
-    priceTextFieldController.text = widget.plan.planPrice;
+    descriptionTextFieldController.text = widget.plan!.planDescription;
+    priceTextFieldController.text = widget.plan!.planPrice;
 
    /* if (launch) {
       // get all users from the data base once when this page is created
@@ -239,18 +239,18 @@ class _ViewItineraryState extends State<ViewItinerary> {
                 style: TextStyle(
                   fontSize: 20,
                   foreground: Paint()
-                    ..color = Colors.teal[600],
+                    ..color = Colors.teal[600]!,
                 ),
               )
           ),
 
-          IconButton(icon: widget.plan.planFavorite ? Icon(Icons.star) : Icon(Icons.star_border),
+          IconButton(icon: widget.plan!.planFavorite ? Icon(Icons.star) : Icon(Icons.star_border),
               onPressed: () {
                 print("favorite plan");
                 setState(() {
-                  widget.plan.planFavorite = !widget.plan.planFavorite;
+                  widget.plan!.planFavorite = !widget.plan!.planFavorite;
                 });
-                widget.plan.planFavoriteTime = DateTime.now().toString();
+                widget.plan!.planFavoriteTime = DateTime.now().toString();
               }),
 
           Padding(
@@ -260,14 +260,14 @@ class _ViewItineraryState extends State<ViewItinerary> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    widget.plan.planTitle == null ? " " :
-                    widget.plan.planTitle,
+                    widget.plan!.planTitle == null ? " " :
+                    widget.plan!.planTitle,
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: 20,
                       foreground: Paint()
-                        ..color = Colors.teal[600],
+                        ..color = Colors.teal[600]!,
                     ),
                   ),
                 ],
@@ -278,14 +278,14 @@ class _ViewItineraryState extends State<ViewItinerary> {
           Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                widget.plan.planPlacesWithTime.length == 0 ? " " :
-                "plan starts at " + widget.plan.planPlacesWithTime[0].split("&")[0] + " on " + widget.plan.planPlacesWithTime[0].split("&")[1],
+                widget.plan!.planPlacesWithTime.length == 0 ? " " :
+                "plan starts at " + widget.plan!.planPlacesWithTime[0].split("&")[0] + " on " + widget.plan!.planPlacesWithTime[0].split("&")[1],
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 15,
                   foreground: Paint()
-                    ..color = Colors.teal[600],
+                    ..color = Colors.teal[600]!,
                 ),
               )
           ),
@@ -304,7 +304,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       descriptionEditing ? IconButton(icon: Icon(Icons.check),
@@ -338,7 +338,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                     enabled: descriptionEditing,
                     textAlign: TextAlign.center,
                     onChanged: (value) {
-                      widget.plan.planDescription = value;
+                      widget.plan!.planDescription = value;
                     },
                     decoration: InputDecoration(hintText: " ",
                       border: descriptionEditing ?
@@ -368,7 +368,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       priceEditing ? IconButton(icon: Icon(Icons.check),
@@ -399,7 +399,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                     enabled: priceEditing,
                     textAlign: TextAlign.center,
                     onChanged: (value) {
-                      widget.plan.planPrice = value;
+                      widget.plan!.planPrice = value;
                     },
                     decoration: InputDecoration(hintText: " ",
                       border: priceEditing ?
@@ -423,13 +423,13 @@ class _ViewItineraryState extends State<ViewItinerary> {
                   Row(
                     children: [
                       Text(
-                        "People: " + widget.plan.planInternalUsers.length.toString(),
+                        "People: " + widget.plan!.planInternalUsers.length.toString(),
                         textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       // if user want to edit people data, redirect them to people page
@@ -443,11 +443,11 @@ class _ViewItineraryState extends State<ViewItinerary> {
                                   builder: (context) => AddPeopleScreen(plan: widget.plan),
                                 )
                             );
-                            widget.plan.cameFromViewItineraryPage = true;
+                            widget.plan!.cameFromViewItineraryPage = true;
                       }),
                     ],
                   ),
-                  listUsers(widget.plan.planInternalUsers)
+                  listUsers(widget.plan!.planInternalUsers)
                 ],
               )
           ),
@@ -460,19 +460,19 @@ class _ViewItineraryState extends State<ViewItinerary> {
                   Row(
                     children: [
                       Text(
-                        "Invited: " + widget.plan.planExternalUsers.length.toString() ,
+                        "Invited: " + widget.plan!.planExternalUsers.length.toString() ,
                         textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       // if user want to edit people data, redirect them to people page
                       IconButton(icon: Icon(Icons.edit),
                           onPressed: () {
-                            widget.plan.cameFromViewItineraryPage = true;
+                            widget.plan!.cameFromViewItineraryPage = true;
                             Navigator.pop(context);
                             Navigator.push(
                                 context,
@@ -484,7 +484,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                       }),
                     ],
                   ),
-                  listUsers(widget.plan.planExternalUsers)
+                  listUsers(widget.plan!.planExternalUsers)
                 ],
               )
           ),
@@ -497,19 +497,19 @@ class _ViewItineraryState extends State<ViewItinerary> {
                   Row(
                     children: [
                       Text(
-                        "Places: " +  widget.plan.planPlacesWithTime.length.toString() + " locations" ,
+                        "Places: " +  widget.plan!.planPlacesWithTime.length.toString() + " locations" ,
                         textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                       // if user want to edit location data, redirect them to location page
                       IconButton(icon: Icon(Icons.edit),
                           onPressed: () async {
-                            widget.plan.cameFromViewItineraryPage = true;
+                            widget.plan!.cameFromViewItineraryPage = true;
                             Navigator.pop(context);
                             // Navigator.pushNamed(context, 'AddLocation');
                             Navigator.push(
@@ -521,7 +521,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                           }),
                     ],
                   ),
-                  listPlaces(widget.plan.planPlacesWithTime)
+                  listPlaces(widget.plan!.planPlacesWithTime)
                 ],
               )
           ),
@@ -535,19 +535,19 @@ class _ViewItineraryState extends State<ViewItinerary> {
                   Row(
                     children: [
                       Text(
-                        widget.plan.planTitle == null ? "Timeline: " :
-                        widget.plan.planTitle + " Timeline: ",
+                        widget.plan!.planTitle == null ? "Timeline: " :
+                        widget.plan!.planTitle + " Timeline: ",
                         textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 17,
                           foreground: Paint()
-                            ..color = Colors.teal[600],
+                            ..color = Colors.teal[600]!,
                         ),
                       ),
                     ],
                   ),
-                  listPlacesDetails(widget.plan.planPlacesWithTime)
+                  listPlacesDetails(widget.plan!.planPlacesWithTime)
                 ],
               )
           ),
@@ -560,7 +560,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                 children: <Widget>[
                   DropdownButton<String>(
                     // value: dropdownValue,
-                    value: widget.plan.planStatus,
+                    value: widget.plan!.planStatus,
                     icon: Icon(Icons.arrow_drop_down),
                     iconSize: 24,
                     elevation: 16,
@@ -569,10 +569,10 @@ class _ViewItineraryState extends State<ViewItinerary> {
                       height: 2,
                       color: Colors.deepPurpleAccent,
                     ),
-                    onChanged: (String newValue) {
+                    onChanged: (String? newValue) {
                       setState(() {
                         // dropdownValue = newValue;
-                        widget.plan.planStatus = newValue;
+                        widget.plan!.planStatus = newValue;
                       });
                     },
                     items: <String>['Planning', 'Not Started', 'Canceled', 'Archived', 'Postponed']
@@ -587,7 +587,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
               ),
           ),
 
-          widget.plan.planId == "" ? SizedBox(width: 10,) :
+          widget.plan!.planId == "" ? SizedBox(width: 10,) :
 
           Padding(
             padding: const EdgeInsets.all(20.0),
@@ -598,7 +598,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                 child: RaisedButton(
                   onPressed: () {
 
-                    UniversalMethods.deletePlan(widget.plan.planId);
+                    UniversalMethods.deletePlan(widget.plan!.planId);
 
 
                     Navigator.pop(context, true);
@@ -625,7 +625,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
                 height: 60,
                 child: RaisedButton(
                   onPressed: () {
-                    UniversalMethods.savePlanDataToDatabase(widget.plan);
+                    UniversalMethods.savePlanDataToDatabase(widget.plan!);
                     Navigator.pop(context, true);
                   },
                   color: Color(0xFF00a79B),
@@ -649,7 +649,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
 
 class BackButtonWidget extends StatelessWidget {
   const BackButtonWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -11,7 +11,7 @@ class UserProfStreamBuilderService {
   Stream<QuerySnapshot> getUserProfStreamBuilder() {
     return _firestore
         .collection('Plans')
-        .where('internalUsers', arrayContains: FirebaseAuth.instance.currentUser.email)
+        .where('internalUsers', arrayContains: FirebaseAuth.instance.currentUser!.email)
         .snapshots();
 }
 }

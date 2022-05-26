@@ -14,9 +14,9 @@ class PlanButtonWidget extends StatefulWidget {
   // AddPlan(this.title, this.description, this.price, this.c, this.favorite);
   PlanButtonWidget(this.c, this.favorite);
 
-  String author;
-  DocumentSnapshot c;
-  bool favorite;
+  String? author;
+  DocumentSnapshot? c;
+  bool? favorite;
 
   @override
   _PlanButtonWidgetState createState() => _PlanButtonWidgetState();
@@ -25,7 +25,7 @@ class PlanButtonWidget extends StatefulWidget {
 // class _PlanScreenState extends State<PlanScreen>
 class _PlanButtonWidgetState extends State<PlanButtonWidget> {
 
-  var dbFavoritePlans = [];
+  List<dynamic>? dbFavoritePlans = [];
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
   }
 
   void getFavoritePlans() async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     try {
       Stream reference = FirebaseFirestore.instance
           .collection('User')
@@ -56,10 +56,10 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
   Widget build(BuildContext context) {
 
     // Creates clickable, dismissible plan button
-    DocumentSnapshot c =  widget.c;
-    if (dbFavoritePlans.contains(c.get('planId'))){widget.favorite = true;}
+    DocumentSnapshot c =  widget.c!;
+    if (dbFavoritePlans!.contains(c.get('planId'))){widget.favorite = true;}
     return Dismissible(
-      key: Key(widget.c.get("planTitle")),
+      key: Key(widget.c!.get("planTitle")),
       direction: DismissDirection.endToStart,
 
       child:
@@ -136,7 +136,7 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
                                 // width: 270,
                                 child: Text(
                                   // 'NAME OF THE PLAN MAKE IT LOOOOOOOOOONG',
-                                  widget.c.get("planTitle"),
+                                  widget.c!.get("planTitle"),
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -153,14 +153,14 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
                               style: TextStyle(fontSize: 16),
                             ),*/
                               child: Text(
-                                widget.c.get('planPlacesWithTime').length == 0 ? " " :
-                                widget.c.get('planPlacesWithTime')[0].split("&")[0] + " @ " + widget.c.get('planPlacesWithTime')[0].split("&")[1],
+                                widget.c!.get('planPlacesWithTime').length == 0 ? " " :
+                                widget.c!.get('planPlacesWithTime')[0].split("&")[0] + " @ " + widget.c!.get('planPlacesWithTime')[0].split("&")[1],
                                 textAlign: TextAlign.right,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   fontSize: 15,
                                   foreground: Paint()
-                                    ..color = Colors.green[700],
+                                    ..color = Colors.green[700]!,
                                 ),
                               )
                           ),
@@ -170,30 +170,30 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
                           child: Container(
                             child:
 
-                            IconButton(icon: widget.favorite ? Icon(Icons.star) : Icon(Icons.star_border),
+                            IconButton(icon: widget.favorite! ? Icon(Icons.star) : Icon(Icons.star_border),
                                 onPressed: () {
                                   print("favorite plan star");
                                   setState(() {
-                                    widget.favorite = !widget.favorite;
+                                    widget.favorite = !widget.favorite!;
 
                                   String favoriteTime = DateTime.now().toString();
-                                  if (widget.favorite) {
+                                  if (widget.favorite!) {
                                     DocumentReference reference = FirebaseFirestore.instance
                                         .collection("User")
-                                        .doc(FirebaseAuth.instance.currentUser.uid.toString())
+                                        .doc(FirebaseAuth.instance.currentUser!.uid.toString())
                                     ;
                                     reference.update({
-                                      'favoritePlans' : FieldValue.arrayUnion([widget.c.get('planId')]),
+                                      'favoritePlans' : FieldValue.arrayUnion([widget.c!.get('planId')]),
                                     });
 
                                   } else {
                                     favoriteTime = "not a favorite plan";
                                     DocumentReference reference = FirebaseFirestore.instance
                                         .collection("User")
-                                        .doc(FirebaseAuth.instance.currentUser.uid.toString())
+                                        .doc(FirebaseAuth.instance.currentUser!.uid.toString())
                                     ;
                                     reference.update({
-                                      'favoritePlans' : FieldValue.arrayRemove([widget.c.get('planId')]),
+                                      'favoritePlans' : FieldValue.arrayRemove([widget.c!.get('planId')]),
                                     });
                                   }
                                   });
@@ -227,7 +227,7 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
                                     //     ' make sure there is a limit on line, and ellipsis,'
                                     //     'LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOo'
                                     //     'oooooooooooooooooooooooooooooooooooo',
-                                    widget.c.get("planDescription"),
+                                    widget.c!.get("planDescription"),
                                     maxLines: 4,
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -243,32 +243,32 @@ class _PlanButtonWidgetState extends State<PlanButtonWidget> {
                       Expanded(
                       flex: 1,
                             child: IconButton(
-                                icon: widget.favorite
+                                icon: widget.favorite!
                                     ? Icon(Icons.favorite, color: Colors.red,)
                                     : Icon(Icons.favorite_border),
                                 onPressed: () {
                                   print("favorite plan heart");
                                   setState(() {
-                                    widget.favorite = !widget.favorite;
+                                    widget.favorite = !widget.favorite!;
 
                                     String favoriteTime = DateTime.now().toString();
-                                    if (widget.favorite) {
+                                    if (widget.favorite!) {
                                       DocumentReference reference = FirebaseFirestore.instance
                                           .collection("User")
-                                          .doc(FirebaseAuth.instance.currentUser.uid.toString())
+                                          .doc(FirebaseAuth.instance.currentUser!.uid.toString())
                                       ;
                                       reference.update({
-                                        'favoritePlans' : FieldValue.arrayUnion([widget.c.get('planId')]),
+                                        'favoritePlans' : FieldValue.arrayUnion([widget.c!.get('planId')]),
                                       });
 
                                     } else {
                                       favoriteTime = "not a favorite plan";
                                       DocumentReference reference = FirebaseFirestore.instance
                                           .collection("User")
-                                          .doc(FirebaseAuth.instance.currentUser.uid.toString())
+                                          .doc(FirebaseAuth.instance.currentUser!.uid.toString())
                                       ;
                                       reference.update({
-                                        'favoritePlans' : FieldValue.arrayRemove([widget.c.get('planId')]),
+                                        'favoritePlans' : FieldValue.arrayRemove([widget.c!.get('planId')]),
                                       });
                                     }
                                   });

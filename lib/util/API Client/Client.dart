@@ -36,7 +36,7 @@ class Spot extends Endpoint {
 
     Location coordinates = await places
         .searchByText(place)
-        .then((value) => value.results[0].geometry.location);
+        .then((value) => value.results[0].geometry!.location);
 
     // add to the list of recently seen places
     recentPlaces.add(place);
@@ -56,16 +56,16 @@ class Spot extends Endpoint {
     Future<PlacesSearchResponse> p =
         places.searchByText('${coordinates["lat"]},${coordinates["lng"]}');
 
-    var address = p.then((value) => value.results[0].formattedAddress);
+    var address = p.then((value) => value.results[0].formattedAddress!);
     return address;
   }
 
-  Future<Map> search(
+  Future<Map?> search(
       {dynamic location,
       num radius = 10,
       num limit = 25,
-      String query,
-      String category,
+      String? query,
+      String? category,
       bool verbose = false}) async {
     // handles for if no location is provided at all
     if (location == null && initialLocation == null) {
@@ -79,12 +79,12 @@ class Spot extends Endpoint {
     bool validCategory = await isCategoryId(category);
 
     // handles for the category options either returns a categoryid, null, or throws an error
-    String cat = validCategory ? category : await _handleCategory(category);
+    String? cat = validCategory ? category : await _handleCategory(category);
 
     // use the coordinates to do a search
     var results = await searchEndpoint(coordinates,
-        radius: radius,
-        limit: limit,
+        radius: radius as int?,
+        limit: limit as int?,
         query: query,
         category: cat,
         verbose: verbose);
@@ -92,12 +92,12 @@ class Spot extends Endpoint {
     return results;
   }
 
-  Future<Map> recommend(
+  Future<Map?> recommend(
       {dynamic location,
-      num radius,
-      String query,
-      int limit,
-      String category,
+      num? radius,
+      String? query,
+      int? limit,
+      String? category,
       bool verbose = false}) async {
     // handles for if no location is provided at all
     if (location == null && initialLocation == null) {
@@ -110,7 +110,7 @@ class Spot extends Endpoint {
 
     // handles for the category options either returns a categoryid, null, or throws an error
     bool validCategory = await isCategoryId(category);
-    String cat = validCategory ? category : await _handleCategory(category);
+    String? cat = validCategory ? category : await _handleCategory(category);
     // call the endpoint
     var results = await recommendEndpoint(coordinates,
         radius: radius,
@@ -122,7 +122,7 @@ class Spot extends Endpoint {
     return results;
   }
 
-  Future<Map> similar({var coordinates, var venueId}) async {
+  Future<Map?> similar({var coordinates, var venueId}) async {
     // returns venues similar to the place
     // the parameter place can either be a venueID, place coordinates, or a place string
     var results = await similarEndpoint(coordinates: coordinates, id: venueId);
@@ -132,7 +132,7 @@ class Spot extends Endpoint {
   Future reviews(
       {var coordinates,
       var venueId,
-      int limit,
+      int? limit,
       bool filter: true,
       bool verbose: false}) async {
     var results = await reviewsEndpoint(
@@ -160,12 +160,12 @@ class Spot extends Endpoint {
     return results;
   }
 
-  Future<Map> details({var coordinates, var venueId, bool filter}) async {
+  Future<Map?> details({var coordinates, var venueId, bool? filter}) async {
     var results = await detailsEndpoint(coordinates: coordinates, id: venueId);
     if (filter == true) {
       // will hold the categories the venue falls under
       List cats = [];
-      results['response']['venue']['categories']
+      results!['response']['venue']['categories']
           .forEach((category) => cats.add(category['name']));
 
       var tips =
@@ -204,18 +204,18 @@ class Spot extends Endpoint {
     return newAttributes;
   }
 
-  Future<Map> nextVenues({var coordinates, var venueId}) async {
+  Future<Map?> nextVenues({var coordinates, var venueId}) async {
     var results =
         await nextVenuesEndpoint(coordinates: coordinates, id: venueId);
     return results;
   }
 
-  Future<Map> trending(
+  Future<Map?> trending(
       {dynamic location,
-      int radius,
-      String query,
-      int limit,
-      String category,
+      int? radius,
+      String? query,
+      int? limit,
+      String? category,
       bool verbose = false}) async {
     // handles for if no location is provided at all
     if (location == null && initialLocation == null) {
@@ -230,7 +230,7 @@ class Spot extends Endpoint {
     bool validCategory = await isCategoryId(category);
 
     // handles for the category options either returns a categoryid, null, or throws an error
-    String cat = validCategory ? category : await _handleCategory(category);
+    String? cat = validCategory ? category : await _handleCategory(category);
 
     var results = await trendingEndpoint(coordinates,
         radius: radius,
@@ -299,7 +299,7 @@ class Spot extends Endpoint {
     }
   }
 
-  Future<String> _handleCategory(String category) async {
+  Future<String?> _handleCategory(String? category) async {
     // handles for if the category provided is a category string and not an actual category id
 
     if (category == null) {
@@ -356,7 +356,7 @@ class Endpoint {
   final String client_id = "FCZBGPFF4JMLSZZPCOMYN3MZMKS1UX0LOMZ4TM2RJ1PFYLFZ";
   final String key = "AFD5WN0QCRVP4SS4BLBJH33XRKB2KTIS3Q1QXJXTU0W1WHYV";
   // holds the default parameters needed for every query
-  Map<String, String> baseParams;
+  Map<String, String?>? baseParams;
 
   // the base URL for all requests
   final String baseURL = "api.foursquare.com";
@@ -395,11 +395,11 @@ class Endpoint {
   // ignore: unused_element
   String _metersToMiles(num value) => (value / 1609.34).toString();
 
-  Future<Map> searchEndpoint(dynamic coordinates,
-      {int radius,
-      String query,
-      int limit,
-      String category,
+  Future<Map?> searchEndpoint(dynamic coordinates,
+      {int? radius,
+      String? query,
+      int? limit,
+      String? category,
       bool verbose = false}) async {
     // param options
     // coordinates -> latitude and longitude as a string
@@ -411,7 +411,7 @@ class Endpoint {
     final String _searchEndpoint = "/v2/venues/search";
 
     // set the parameters for the request from the base parameters
-    var searchParams = baseParams;
+    var searchParams = baseParams!;
     searchParams['categoryId'] = category;
     searchParams['ll'] = _convertCoordinates(coordinates);
     searchParams['radius'] =
@@ -437,12 +437,12 @@ class Endpoint {
     return body;
   }
 
-  Future<Map> recommendEndpoint(dynamic coordinates,
-      {String section,
-      num radius,
-      String query,
-      int limit,
-      String category,
+  Future<Map?> recommendEndpoint(dynamic coordinates,
+      {String? section,
+      num? radius,
+      String? query,
+      int? limit,
+      String? category,
       bool verbose = false}) async {
     // param options
     // coordinates -> latitude and longitude as a string
@@ -458,7 +458,7 @@ class Endpoint {
 
     // verbose to view extra output
     final String _exploreEndpoint = "/v2/venues/explore";
-    var recParams = baseParams;
+    var recParams = baseParams!;
     recParams['categoryId'] = category;
     recParams['ll'] = _convertCoordinates(coordinates);
     recParams['radius'] =
@@ -479,9 +479,9 @@ class Endpoint {
     return body;
   }
 
-  Future<Map> similarEndpoint({var coordinates, var id, verbose: false}) async {
+  Future<Map?> similarEndpoint({var coordinates, var id, verbose: false}) async {
     // returns venues that are similar to the current one
-    String venue_id = await _handleLocation(coordinates: coordinates, id: id);
+    String? venue_id = await _handleLocation(coordinates: coordinates, id: id);
 
     // build the url
     final String _similarEndpoint = "/v2/venues/${venue_id}/similar";
@@ -495,8 +495,8 @@ class Endpoint {
     return body;
   }
 
-  Future<Map> detailsEndpoint({var coordinates, var id, verbose: false}) async {
-    String venue_id = await _handleLocation(coordinates: coordinates, id: id);
+  Future<Map?> detailsEndpoint({var coordinates, var id, verbose: false}) async {
+    String? venue_id = await _handleLocation(coordinates: coordinates, id: id);
 
     // build the url
     final String _detailsEndpoint = "/v2/venues/$venue_id";
@@ -507,12 +507,12 @@ class Endpoint {
     }
 
     var response = await requests.get(url);
-    Map body = json.decode(response.body);
+    Map? body = json.decode(response.body);
     return body;
   }
 
   Future nextVenuesEndpoint({var coordinates, var id, verbose: false}) async {
-    String venue_id = await _handleLocation(coordinates: coordinates, id: id);
+    String? venue_id = await _handleLocation(coordinates: coordinates, id: id);
 
     final String _nextEndpoint = "/v2/venues/$venue_id/nextvenues";
     var url = Uri.https(baseURL, _nextEndpoint, baseParams);
@@ -527,15 +527,15 @@ class Endpoint {
   }
 
   Future reviewsEndpoint(
-      {var coordinates, var id, int limit, bool verbose: false}) async {
-    String venue_id = await _handleLocation(coordinates: coordinates, id: id);
+      {var coordinates, var id, int? limit, bool verbose: false}) async {
+    String? venue_id = await _handleLocation(coordinates: coordinates, id: id);
 
-    Map tipsParams = baseParams;
+    Map tipsParams = baseParams!;
     tipsParams['limit'] = limit == null ? '20' : limit.toString();
     tipsParams['sort'] = 'recent';
 
     final String _tipsEndpoint = "/v2/venues/$venue_id/tips";
-    var url = Uri.https(baseURL, _tipsEndpoint, tipsParams);
+    var url = Uri.https(baseURL, _tipsEndpoint, tipsParams as Map<String, dynamic>?);
 
     if (verbose) {
       print("Endpoint: Tips \nFull URL: $url \nParameters: ${tipsParams}\n");
@@ -546,12 +546,12 @@ class Endpoint {
     return body;
   }
 
-  Future<String> _handleLocation({var coordinates, var id}) async {
-    String venue_id;
+  Future<String?> _handleLocation({var coordinates, var id}) async {
+    String? venue_id;
 
     // if the user provided
     if (coordinates != null) {
-      venue_id = await _getVenueID(coordinates);
+      venue_id = await (_getVenueID(coordinates) as FutureOr<String?>);
     } else if (id != null) {
       venue_id = id;
     } else {
@@ -563,7 +563,7 @@ class Endpoint {
 
   Future _getVenueID(var coordinates) async {
     // input coordinates and get the venue ID
-    Map results = await searchEndpoint(coordinates, limit: 1);
+    Map results = await (searchEndpoint(coordinates, limit: 1) as FutureOr<Map<dynamic, dynamic>>);
     var vID = results['response']['venues'][0]['id'];
     return vID;
   }
@@ -596,22 +596,22 @@ class Endpoint {
     return coordString;
   }
 
-  Future<Map> categories_() async {
+  Future<Map?> categories_() async {
     String categoryEndpoint = "/v2/venues/categories";
     var url = Uri.https(baseURL, categoryEndpoint, baseParams);
     var response = await requests.get(url);
-    Map body = json.decode(response.body);
+    Map? body = json.decode(response.body);
     return body;
   }
 
-  Future<Map> trendingEndpoint(dynamic coordinates,
-      {int radius,
-      String query,
-      int limit,
-      String category,
+  Future<Map?> trendingEndpoint(dynamic coordinates,
+      {int? radius,
+      String? query,
+      int? limit,
+      String? category,
       bool verbose = false}) async {
     final _trendEndpoint = "/v2/venues/trending";
-    var trendParams = baseParams;
+    var trendParams = baseParams!;
     trendParams['categoryid'] = category;
     trendParams['radius'] =
         radius == null ? _milesToMeters(5) : radius.toString();
@@ -630,7 +630,7 @@ class Endpoint {
       print('category: ${trendParams['categoryid']} \n');
     }
     var response = await requests.get(url);
-    Map body = json.decode(response.body);
+    Map? body = json.decode(response.body);
     return body;
   }
 
@@ -711,7 +711,7 @@ class Endpoint {
     return {'value': message, 'similar': almost, 'status': 'key not found'};
   }
 
-  Future<bool> isCategoryId(String categoryId) async {
+  Future<bool> isCategoryId(String? categoryId) async {
     // returns true or false which tells you if a string is a valid category or not
     var valid = await validCategories;
     return valid.contains(categoryId) ? true : false;

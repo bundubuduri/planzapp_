@@ -18,10 +18,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
 
   final _auth = FirebaseAuth.instance;
-  Timer timer;
-  User user;
+  Timer? timer;
+  User? user;
 
-  String email;
+  late String email;
 
   Future sendResetPasswordEmail(String e) async{
     Uri url = Uri.parse('https://us-central1-planzapp-2c02d.cloudfunctions.net/sendResetMail?dest=' + e);
@@ -130,7 +130,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
 class BackButtonWidget extends StatelessWidget {
   const BackButtonWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

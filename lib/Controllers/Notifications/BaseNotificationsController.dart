@@ -5,7 +5,7 @@ import 'package:planzapp/Services/Notifications/GetNotificationsService.dart';
 import 'package:planzapp/Services/Utility/GetUserService.dart';
 import 'package:provider/provider.dart';
 
-BuildContext _mainContext;
+late BuildContext _mainContext;
 // The controllers will use this to access the Provided models and services.
 void init(BuildContext c) => _mainContext = c;
 

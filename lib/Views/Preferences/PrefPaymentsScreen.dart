@@ -35,7 +35,7 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
 
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -125,16 +125,16 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                           setState(() {
                               PrefModel.dbAnyPayment = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetPaymentsValue = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         // save user Cash preference
-                        CashController().run(PrefModel.dbCash);
+                        CashController().run(PrefModel.dbCash!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -156,16 +156,16 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                           setState(() {
                               PrefModel.dbAnyPayment = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetPaymentsValue = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         // save user Credit/Debit preferences
-                        CreditDebitController().run(PrefModel.dbCreditDebit);
+                        CreditDebitController().run(PrefModel.dbCreditDebit!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -192,16 +192,16 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                           setState(() {
                               PrefModel.dbAnyPayment = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetPaymentsValue = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         // save user Apple Pay preference
-                        ApplePayController().run(PrefModel.dbApplePay);
+                        ApplePayController().run(PrefModel.dbApplePay!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -223,16 +223,16 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                           setState(() {
                               PrefModel.dbAnyPayment = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetPaymentsValue = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         // save user Google Pay preference
-                        GooglePayController().run(PrefModel.dbGooglePay);
+                        GooglePayController().run(PrefModel.dbGooglePay!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -260,16 +260,16 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                           setState(() {
                               PrefModel.dbAnyPayment = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetPaymentsValue = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         // save user PayPal preference
-                        PayPalController().run(PrefModel.dbPayPal);
+                        PayPalController().run(PrefModel.dbPayPal!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -291,16 +291,16 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                           setState(() {
                               PrefModel.dbAnyPayment = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetPaymentsValue = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         // save user CashApp preferences
-                        CashAppController().run(PrefModel.dbCashApp);
+                        CashAppController().run(PrefModel.dbCashApp!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -327,16 +327,16 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                           setState(() {
                               PrefModel.dbAnyPayment = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetPaymentsValue = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         // save user Venmo preference
-                        VenmoController().run(PrefModel.dbVenmo);
+                        VenmoController().run(PrefModel.dbVenmo!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -358,16 +358,16 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                           setState(() {
                               PrefModel.dbAnyPayment = newValue;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         else{
                           setState(() {
                             PrefModel.dbResetPaymentsValue = false;
                           });
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         }
                         // save user Cryptocurrency preference
-                        CryptocurrencyController().run(PrefModel.dbCryptocurrency);
+                        CryptocurrencyController().run(PrefModel.dbCryptocurrency!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -402,14 +402,14 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                               PrefModel.dbCryptocurrency = newValue;
 
                           });
-                          CashController().run(PrefModel.dbCash);
-                          CreditDebitController().run(PrefModel.dbCreditDebit);
-                          ApplePayController().run(PrefModel.dbApplePay);
-                          GooglePayController().run(PrefModel.dbGooglePay);
-                          PayPalController().run(PrefModel.dbPayPal);
-                          CashAppController().run(PrefModel.dbCashApp);
-                          VenmoController().run(PrefModel.dbVenmo);
-                          CryptocurrencyController().run(PrefModel.dbCryptocurrency);
+                          CashController().run(PrefModel.dbCash!);
+                          CreditDebitController().run(PrefModel.dbCreditDebit!);
+                          ApplePayController().run(PrefModel.dbApplePay!);
+                          GooglePayController().run(PrefModel.dbGooglePay!);
+                          PayPalController().run(PrefModel.dbPayPal!);
+                          CashAppController().run(PrefModel.dbCashApp!);
+                          VenmoController().run(PrefModel.dbVenmo!);
+                          CryptocurrencyController().run(PrefModel.dbCryptocurrency!);
                         }
                         else{
                           setState(() {
@@ -423,17 +423,17 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                             PrefModel.dbCryptocurrency = false;
 
                           });
-                          CashController().run(PrefModel.dbCash);
-                          CreditDebitController().run(PrefModel.dbCreditDebit);
-                          ApplePayController().run(PrefModel.dbApplePay);
-                          GooglePayController().run(PrefModel.dbGooglePay);
-                          PayPalController().run(PrefModel.dbPayPal);
-                          CashAppController().run(PrefModel.dbCashApp);
-                          VenmoController().run(PrefModel.dbVenmo);
-                          CryptocurrencyController().run(PrefModel.dbCryptocurrency);
+                          CashController().run(PrefModel.dbCash!);
+                          CreditDebitController().run(PrefModel.dbCreditDebit!);
+                          ApplePayController().run(PrefModel.dbApplePay!);
+                          GooglePayController().run(PrefModel.dbGooglePay!);
+                          PayPalController().run(PrefModel.dbPayPal!);
+                          CashAppController().run(PrefModel.dbCashApp!);
+                          VenmoController().run(PrefModel.dbVenmo!);
+                          CryptocurrencyController().run(PrefModel.dbCryptocurrency!);
                         }
                         // save user AnyPayment preference
-                        AnyPaymentController().run(PrefModel.dbAnyPayment);
+                        AnyPaymentController().run(PrefModel.dbAnyPayment!);
                         // Notify user preference saved
                         UpdatingSnackbar.showMessage(context);
                       },
@@ -456,17 +456,17 @@ class _PrefPaymentsScreen extends State<PrefPaymentsScreen> {
                               PrefModel.dbCryptocurrency = false;
                               PrefModel.dbAnyPayment = false;
                             });
-                            CashController().run(PrefModel.dbCash);
-                            CreditDebitController().run(PrefModel.dbCreditDebit);
-                            ApplePayController().run(PrefModel.dbApplePay);
-                            GooglePayController().run(PrefModel.dbGooglePay);
-                            PayPalController().run(PrefModel.dbPayPal);
-                            CashAppController().run(PrefModel.dbCashApp);
-                            VenmoController().run(PrefModel.dbVenmo);
-                            CryptocurrencyController().run(PrefModel.dbCryptocurrency);
+                            CashController().run(PrefModel.dbCash!);
+                            CreditDebitController().run(PrefModel.dbCreditDebit!);
+                            ApplePayController().run(PrefModel.dbApplePay!);
+                            GooglePayController().run(PrefModel.dbGooglePay!);
+                            PayPalController().run(PrefModel.dbPayPal!);
+                            CashAppController().run(PrefModel.dbCashApp!);
+                            VenmoController().run(PrefModel.dbVenmo!);
+                            CryptocurrencyController().run(PrefModel.dbCryptocurrency!);
 
                           // save user AnyPayment preference
-                          AnyPaymentController().run(PrefModel.dbAnyPayment);
+                          AnyPaymentController().run(PrefModel.dbAnyPayment!);
                           // Notify user preference saved
                           UpdatingSnackbar.showMessage(context);
                         },

@@ -2,7 +2,7 @@ import 'package:planzapp/Controllers/Notifications/BaseNotificationsController.d
 
 class NotificationUpdateController extends BaseNotificationsController {
 
-  void run(String notificationId) async {
+  void run(String? notificationId) async {
     notificationUpdateService.updateUserViewed(notificationId);
   }
 

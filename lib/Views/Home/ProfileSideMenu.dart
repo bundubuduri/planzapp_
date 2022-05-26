@@ -9,16 +9,16 @@ import 'package:planzapp/Views/SettingsUserAccount/Settings_Screen.dart';
 import 'package:planzapp/Controllers/Home/GetSideProfileImageController.dart';
 
 class ProfileSideMenu extends StatefulWidget {
-  final FirebaseAuth auth;
+  final FirebaseAuth? auth;
 
-  const ProfileSideMenu({Key key, this.auth}) : super(key: key);
+  const ProfileSideMenu({Key? key, this.auth}) : super(key: key);
 
   @override
   _ProfileSideMenuState createState() => _ProfileSideMenuState();
 }
 
 class _ProfileSideMenuState extends State<ProfileSideMenu> {
-  String userEmail = FirebaseAuth.instance.currentUser.email;
+  String? userEmail = FirebaseAuth.instance.currentUser!.email;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class _ProfileSideMenuState extends State<ProfileSideMenu> {
 
   final _firestore = FirebaseFirestore.instance;
   final currentUser = FirebaseAuth.instance;
-  var name = "";
+  String? name = "";
 
   void getSideData() async {
     QuerySnapshot snapshot =
@@ -37,7 +37,7 @@ class _ProfileSideMenuState extends State<ProfileSideMenu> {
     snapshot.docs.forEach(
       (element) {
         // print("element: " + element.get('user_name'));
-        if (element.get('user_id') == currentUser.currentUser.uid) {
+        if (element.get('user_id') == currentUser.currentUser!.uid) {
           // profileName = element.get('user_name');
           name = element.get('user_name');
         }
@@ -74,14 +74,14 @@ class _ProfileSideMenuState extends State<ProfileSideMenu> {
 
   @override
   Widget build(BuildContext context) {
-    String email = currentUser.currentUser.email;
+    String email = currentUser.currentUser!.email!;
     // getUserName();
 
     return Drawer(
       child: new ListView(
         children: <Widget>[
           new UserAccountsDrawerHeader(
-            accountName: new Text(name),
+            accountName: new Text(name!),
             accountEmail: Text(email),
             currentAccountPicture: FutureBuilder(
               future: GetSideProfileImageController().run(),
@@ -93,7 +93,7 @@ class _ProfileSideMenuState extends State<ProfileSideMenu> {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                          image: NetworkImage(url.data),
+                          image: NetworkImage(url.data!),
                           fit: BoxFit.cover,
                         )),
                   );
@@ -174,7 +174,7 @@ class _ProfileSideMenuState extends State<ProfileSideMenu> {
             title: Text("Logout"),
             onTap: () {
               // print("loggin out");
-              widget.auth.signOut();
+              widget.auth!.signOut();
               // Navigator.pushNamed(context, 'SignIn');
               // Navigator.of(context).pushReplacementNamed('Signin');
               // Navigator.pop(context);

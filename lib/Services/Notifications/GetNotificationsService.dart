@@ -12,7 +12,7 @@ class GetNotificationsService {
   Stream<QuerySnapshot> getNotifications() {
 return _firestore
     .collection("User")
-    .doc(_auth.currentUser.uid.toString())
+    .doc(_auth.currentUser!.uid.toString())
     .collection("Notifications")
     .snapshots();
   }

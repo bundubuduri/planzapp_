@@ -32,7 +32,7 @@ class PrefAmbiDensiScreen extends StatefulWidget {
 class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -117,15 +117,15 @@ class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
                         setState(() {
                           PrefModel.dbAnyDensity = false;
                         });
-                        AnyDensityController().run(PrefModel.dbAnyDensity);
+                        AnyDensityController().run(PrefModel.dbAnyDensity!);
                       } else if (PrefModel.dbIntimate == true) {
                         setState(() {
                           PrefModel.dbResetAmbiDensityValue = false;
                         });
-                        AnyDensityController().run(PrefModel.dbAnyDensity);
+                        AnyDensityController().run(PrefModel.dbAnyDensity!);
                       }
                       // save user intimate setting preference
-                      IntimateController().run(PrefModel.dbIntimate);
+                      IntimateController().run(PrefModel.dbIntimate!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -155,16 +155,16 @@ class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
                           PrefModel.dbAnyDensity = false;
                         });
 
-                        AnyDensityController().run(PrefModel.dbAnyDensity);
+                        AnyDensityController().run(PrefModel.dbAnyDensity!);
                       } else if (PrefModel.dbAverageDensity == true) {
                         setState(() {
                           PrefModel.dbResetAmbiDensityValue = false;
                         });
-                        AnyDensityController().run(PrefModel.dbAnyDensity);
+                        AnyDensityController().run(PrefModel.dbAnyDensity!);
                       }
                       // save user average density preferences
                       AverageDensityController()
-                          .run(PrefModel.dbAverageDensity);
+                          .run(PrefModel.dbAverageDensity!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -197,15 +197,15 @@ class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
                             setState(() {
                               PrefModel.dbAnyDensity = false;
                             });
-                            AnyDensityController().run(PrefModel.dbAnyDensity);
+                            AnyDensityController().run(PrefModel.dbAnyDensity!);
                           } else if (PrefModel.dbComfy = true) {
                             setState(() {
                               PrefModel.dbResetAmbiDensityValue = false;
                             });
-                            AnyDensityController().run(PrefModel.dbAnyDensity);
+                            AnyDensityController().run(PrefModel.dbAnyDensity!);
                           }
                           // save user comfy preferences
-                          ComfyController().run(PrefModel.dbComfy);
+                          ComfyController().run(PrefModel.dbComfy!);
                           // Notify user preference saved
                           UpdatingSnackbar.showMessage(context);
                         },
@@ -236,7 +236,7 @@ class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
                             setState(() {
                               PrefModel.dbAnyDensity = false;
                             });
-                            AnyDensityController().run(PrefModel.dbAnyDensity);
+                            AnyDensityController().run(PrefModel.dbAnyDensity!);
                           } else if (PrefModel.dbAboveAverageDensity == true) {
                             setState(() {
                               PrefModel.dbResetAmbiDensityValue = false;
@@ -245,7 +245,7 @@ class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
                           }
                           // save user above average density preference
                           AboveAverageDensityController()
-                              .run(PrefModel.dbAboveAverageDensity);
+                              .run(PrefModel.dbAboveAverageDensity!);
                           // Notify user preference saved
                           UpdatingSnackbar.showMessage(context);
                         },
@@ -276,15 +276,15 @@ class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
                         setState(() {
                           PrefModel.dbAnyDensity = false;
                         });
-                        AnyDensityController().run(PrefModel.dbAnyDensity);
+                        AnyDensityController().run(PrefModel.dbAnyDensity!);
                       } else if (PrefModel.dbPackedCrowds = true) {
                         setState(() {
                           PrefModel.dbResetAmbiDensityValue = false;
                         });
-                        AnyDensityController().run(PrefModel.dbAnyDensity);
+                        AnyDensityController().run(PrefModel.dbAnyDensity!);
                       }
                       // save user packed crowds preferences
-                      PackedCrowdsController().run(PrefModel.dbPackedCrowds);
+                      PackedCrowdsController().run(PrefModel.dbPackedCrowds!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -312,16 +312,16 @@ class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
                         setState(() {
                           PrefModel.dbAnyDensity = false;
                         });
-                        AnyDensityController().run(PrefModel.dbAnyDensity);
+                        AnyDensityController().run(PrefModel.dbAnyDensity!);
                       } else if (PrefModel.dbSocialDistance == true) {
                         setState(() {
                           PrefModel.dbResetAmbiDensityValue = false;
                         });
-                        AnyDensityController().run(PrefModel.dbAnyDensity);
+                        AnyDensityController().run(PrefModel.dbAnyDensity!);
                       }
                       // save user social distancing preferences
                       SocialDistanceController()
-                          .run(PrefModel.dbSocialDistance);
+                          .run(PrefModel.dbSocialDistance!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -371,16 +371,16 @@ class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
                         });
                       }
                       // save user any density preferences
-                      AnyDensityController().run(PrefModel.dbAnyDensity);
+                      AnyDensityController().run(PrefModel.dbAnyDensity!);
                       SocialDistanceController()
-                          .run(PrefModel.dbSocialDistance);
-                      IntimateController().run(PrefModel.dbIntimate);
+                          .run(PrefModel.dbSocialDistance!);
+                      IntimateController().run(PrefModel.dbIntimate!);
                       AverageDensityController()
-                          .run(PrefModel.dbAverageDensity);
-                      ComfyController().run(PrefModel.dbComfy);
+                          .run(PrefModel.dbAverageDensity!);
+                      ComfyController().run(PrefModel.dbComfy!);
                       AboveAverageDensityController()
-                          .run(PrefModel.dbAboveAverageDensity);
-                      PackedCrowdsController().run(PrefModel.dbPackedCrowds);
+                          .run(PrefModel.dbAboveAverageDensity!);
+                      PackedCrowdsController().run(PrefModel.dbPackedCrowds!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -405,19 +405,19 @@ class _PrefAmbiDensiScreen extends State<PrefAmbiDensiScreen> {
                         PrefModel.dbSocialDistance = false;
                         PrefModel.dbAnyDensity = false;
                       });
-                      AnyDensityController().run(PrefModel.dbAnyDensity);
+                      AnyDensityController().run(PrefModel.dbAnyDensity!);
 
                       // save user social distancing preferences
-                      AnyDensityController().run(PrefModel.dbAnyDensity);
+                      AnyDensityController().run(PrefModel.dbAnyDensity!);
                       SocialDistanceController()
-                          .run(PrefModel.dbSocialDistance);
-                      IntimateController().run(PrefModel.dbIntimate);
+                          .run(PrefModel.dbSocialDistance!);
+                      IntimateController().run(PrefModel.dbIntimate!);
                       AverageDensityController()
-                          .run(PrefModel.dbAverageDensity);
-                      ComfyController().run(PrefModel.dbComfy);
+                          .run(PrefModel.dbAverageDensity!);
+                      ComfyController().run(PrefModel.dbComfy!);
                       AboveAverageDensityController()
-                          .run(PrefModel.dbAboveAverageDensity);
-                      PackedCrowdsController().run(PrefModel.dbPackedCrowds);
+                          .run(PrefModel.dbAboveAverageDensity!);
+                      PackedCrowdsController().run(PrefModel.dbPackedCrowds!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },

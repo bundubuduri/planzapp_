@@ -12,11 +12,11 @@ import 'package:planzapp/Controllers/People/RemoveFriendDataController.dart';
 import 'package:planzapp/Controllers/Utility/GetUserController.dart';
 
 final _firestore = FirebaseFirestore.instance;
-User loggedInUser;
+User? loggedInUser;
 final currentUser = FirebaseAuth.instance;
-String profileID;
+String? profileID;
 
-String profileName;
+String? profileName;
 
 class PeopleProfile extends StatefulWidget {
   @override
@@ -46,7 +46,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
     // setState(() {});
   }
 
-  void addFriendData(String id, String email, String pID, String pNAME) async {
+  void addFriendData(String? id, String email, String? pID, String? pNAME) async {
     //await AddDataController().run();
 
     //code below goes to PeopleUpdateSerivce
@@ -77,7 +77,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
 
   }
 
-  void removeFriendData(String id, String email, String pID, String pNAME) async {
+  void removeFriendData(String? id, String email, String? pID, String? pNAME) async {
     //await RemoveDataController().run();
 
     // CollectionReference friendsRef =
@@ -135,7 +135,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
 
   @override
   Widget build(BuildContext context) {
-    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
+    final Map arguments = ModalRoute.of(context)!.settings.arguments as Map;
     profileID = arguments['profileID'];
     profileName = arguments['profileNAME'];
 
@@ -151,7 +151,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
       backgroundColor: Colors.grey,
       appBar: AppBar(
         leading: null,
-        title: Text(profileName + "'s profile"),
+        title: Text(profileName! + "'s profile"),
         backgroundColor: Colors.teal[400],
       ),
       body: SafeArea(
@@ -180,7 +180,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                       Padding(
                         padding: EdgeInsets.only(left: 38),
                         child: Text(
-                          profileName,
+                          profileName!,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 28,
@@ -212,7 +212,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                   message
                     ..from = Address('litian@planzapp.app', 'Friend request')
                     ..recipients.add('guillaume.tuahivaatetonohiti@gmail.com')
-                    ..subject = 'Help Request from ${_auth.currentUser.email} on Your planzApp'
+                    ..subject = 'Help Request from ${_auth.currentUser!.email} on Your planzApp'
                     ..html = "<p>Time: ${DateTime.now()}</p>\n<p>Topic: Friend request</p>\n<p>Content: this person wants to add you as a friend</p>\n";
 
                 try {
@@ -254,7 +254,7 @@ class _PeopleProfileState extends State<PeopleProfile> {
                 // print(loggedInUser.email.toString());
 
 
-                addFriendData(profileID, loggedInUser.email.toString(), profileID, profileName);
+                addFriendData(profileID, loggedInUser!.email.toString(), profileID, profileName);
 
 
               },
@@ -263,8 +263,8 @@ class _PeopleProfileState extends State<PeopleProfile> {
               child: Text("remove friend"),
               onPressed: () async {
                 // print("ADDING FRIENDS HERE");
-                print(loggedInUser.email.toString());
-                removeFriendData(profileID, loggedInUser.email.toString(), profileID, profileName);
+                print(loggedInUser!.email.toString());
+                removeFriendData(profileID, loggedInUser!.email.toString(), profileID, profileName);
               },
             )
           ],

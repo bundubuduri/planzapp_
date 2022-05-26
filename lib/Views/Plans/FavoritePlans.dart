@@ -22,10 +22,10 @@ class _FavoritePlansState extends State<FavoritePlans> {
   final firestoreInstance =FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
   final _firestore =FirebaseFirestore.instance;
-  var dbFavoritePlans = [];
+  List<dynamic>? dbFavoritePlans = [];
   Stream userDoc =FirebaseFirestore.instance
       .collection('User')
-      .doc(FirebaseAuth.instance.currentUser.uid)
+      .doc(FirebaseAuth.instance.currentUser!.uid)
       .snapshots();
 
   @override
@@ -37,7 +37,7 @@ class _FavoritePlansState extends State<FavoritePlans> {
   }
 
   void getFavoritePlans() async {
-    User loggedInUser = await GetUserController().run();
+    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
     try {
       Stream reference = FirebaseFirestore.instance
           .collection('User')
@@ -89,7 +89,7 @@ class _FavoritePlansState extends State<FavoritePlans> {
           ),
           Column(
             children: [
-              for (var plan1 in dbFavoritePlans)
+              for (var plan1 in dbFavoritePlans!)
                 StreamBuilder<DocumentSnapshot>(
                     stream: _firestore.collection('Plans').doc(plan1)
                         .snapshots(),
@@ -97,7 +97,7 @@ class _FavoritePlansState extends State<FavoritePlans> {
                       List<Widget> plansWidget = [];
                       final content1 = snapshot.data;
                       if (snapshot.hasData) {
-                        final content1 = snapshot.data;
+                        final content1 = snapshot.data!;
 
                         // for (var c in content1){
                         final contentToDisplay = PlanButtonWidget(

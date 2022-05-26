@@ -11,8 +11,8 @@ class ChatListScreen extends StatefulWidget {
 }
 
 class _ChatListScreenState extends State<ChatListScreen> {
-  String currentUserId;
-  String initials;
+  String? currentUserId;
+  String? initials;
 
   final _auth = FirebaseAuth.instance;
 
@@ -21,7 +21,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
     // TODO: implement initState
     super.initState();
 
-    currentUserId = _auth.currentUser.uid;
+    currentUserId = _auth.currentUser!.uid;
   }
 
 
@@ -45,7 +45,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
 }
 
 class ChatListContainer extends StatefulWidget {
-  final String currentUserId;
+  final String? currentUserId;
 
   ChatListContainer(this.currentUserId);
 
@@ -71,23 +71,23 @@ class _ChatListContainerState extends State<ChatListContainer> {
             stream: _firestore.collection('messages').orderBy('time_stamp').snapshots(),
             builder: (context, snapshot){
               List<Widget> chats = [];
-              List<String> ids = [];
+              List<String?> ids = [];
               if(snapshot.hasData){
 
-                final content = snapshot.data.docs;
+                final content = snapshot.data!.docs;
 
                 for(var c in content){
 
                   final username = c.get('name_receiver');
                   final previewMessage = c.get('message');
 
-                  String contactIDSender = c.get('sender_id');
-                  String contactIDReceiver = c.get('receiver_id');
+                  String? contactIDSender = c.get('sender_id');
+                  String? contactIDReceiver = c.get('receiver_id');
 
 
                     if (!(ids.contains(contactIDReceiver))) {
-                      if ((currentUser.currentUser.uid == contactIDReceiver) ||
-                          (currentUser.currentUser.uid == contactIDSender)) {
+                      if ((currentUser.currentUser!.uid == contactIDReceiver) ||
+                          (currentUser.currentUser!.uid == contactIDSender)) {
                         ids.add(contactIDReceiver);
 
 

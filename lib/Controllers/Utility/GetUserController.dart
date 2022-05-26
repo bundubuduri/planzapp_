@@ -5,8 +5,8 @@ import 'package:planzapp/Services/Utility/GetUserService.dart';
 
 class GetUserController extends BasePreferencesController {
 
-  Future<User> run() async {
-    User userAuthSuccess = await getUserService.getCurrentUser();
+  Future<User?> run() async {
+    User? userAuthSuccess = await getUserService.getCurrentUser();
 
     // Return the result to whoever called us, in case they care
     return userAuthSuccess;

@@ -28,7 +28,7 @@ class PrefLocalSpotScreen extends StatefulWidget {
 class _PrefLocalSpotScreen extends State<PrefLocalSpotScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -110,16 +110,16 @@ class _PrefLocalSpotScreen extends State<PrefLocalSpotScreen> {
                         setState(() {
                           PrefModel.dbAllLocalSpot = false;
                         });
-                        AnyLocalSpotController().run(PrefModel.dbAllLocalSpot);
+                        AnyLocalSpotController().run(PrefModel.dbAllLocalSpot!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocalSpotValue = false;
                         });
-                        AnyLocalSpotController().run(PrefModel.dbAllLocalSpot);
+                        AnyLocalSpotController().run(PrefModel.dbAllLocalSpot!);
                       }
                       // save user Locally Sourced setting preference
                       LocallySourcedController()
-                          .run(PrefModel.dbLocallySourced);
+                          .run(PrefModel.dbLocallySourced!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -148,15 +148,15 @@ class _PrefLocalSpotScreen extends State<PrefLocalSpotScreen> {
                         setState(() {
                           PrefModel.dbAllLocalSpot = false;
                         });
-                        AnyLocalSpotController().run(PrefModel.dbAllLocalSpot);
+                        AnyLocalSpotController().run(PrefModel.dbAllLocalSpot!);
                       } else {
                         setState(() {
                           PrefModel.dbResetLocalSpotValue = false;
                         });
-                        AnyLocalSpotController().run(PrefModel.dbAllLocalSpot);
+                        AnyLocalSpotController().run(PrefModel.dbAllLocalSpot!);
                       }
                       // save user Locally Owned preferences
-                      LocallyOwnedController().run(PrefModel.dbLocallyOwned);
+                      LocallyOwnedController().run(PrefModel.dbLocallyOwned!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -188,20 +188,20 @@ class _PrefLocalSpotScreen extends State<PrefLocalSpotScreen> {
                           PrefModel.dbLocallySourced = true;
                           PrefModel.dbResetLocalSpotValue = false;
                         });
-                        LocallyOwnedController().run(PrefModel.dbAllLocalSpot);
+                        LocallyOwnedController().run(PrefModel.dbAllLocalSpot!);
                         LocallySourcedController()
-                            .run(PrefModel.dbAllLocalSpot);
+                            .run(PrefModel.dbAllLocalSpot!);
                       } else {
                         setState(() {
                           PrefModel.dbLocallyOwned = false;
                           PrefModel.dbLocallySourced = false;
                         });
-                        LocallyOwnedController().run(PrefModel.dbAllLocalSpot);
+                        LocallyOwnedController().run(PrefModel.dbAllLocalSpot!);
                         LocallySourcedController()
-                            .run(PrefModel.dbAllLocalSpot);
+                            .run(PrefModel.dbAllLocalSpot!);
                       }
                       // save user AnyLocalSpot preferences
-                      AnyLocalSpotController().run(PrefModel.dbAllLocalSpot);
+                      AnyLocalSpotController().run(PrefModel.dbAllLocalSpot!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -221,11 +221,11 @@ class _PrefLocalSpotScreen extends State<PrefLocalSpotScreen> {
                         PrefModel.dbLocallySourced = false;
                         PrefModel.dbAllLocalSpot = false;
                       });
-                      LocallyOwnedController().run(PrefModel.dbAllLocalSpot);
-                      LocallySourcedController().run(PrefModel.dbAllLocalSpot);
+                      LocallyOwnedController().run(PrefModel.dbAllLocalSpot!);
+                      LocallySourcedController().run(PrefModel.dbAllLocalSpot!);
 
                       // save user AnyLocalSpot preferences
-                      AnyLocalSpotController().run(PrefModel.dbAllLocalSpot);
+                      AnyLocalSpotController().run(PrefModel.dbAllLocalSpot!);
                       // Notify user preference saved
                       UpdatingSnackbar.showMessage(context);
                     },

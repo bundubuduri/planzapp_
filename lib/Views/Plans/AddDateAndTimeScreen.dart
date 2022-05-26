@@ -7,8 +7,8 @@ import 'package:planzapp/util/universalMethods.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class AddDateAndTimeScreen extends StatefulWidget {
-  Plan plan;
-  AddDateAndTimeScreen({@required this.plan});
+  Plan? plan;
+  AddDateAndTimeScreen({required this.plan});
 
   @override
   _AddDateAndTimeScreenState createState() => _AddDateAndTimeScreenState();
@@ -28,7 +28,7 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
 
         //format place display
         String placeName = strings[i].split("&")[2].split("|")[0].split(",")[0];
-        String placeInfo = strings[i].split("&")[2];
+        String? placeInfo = strings[i].split("&")[2];
 
         date = strings[i].split("&")[0];
         time = strings[i].split("&")[1];
@@ -59,17 +59,17 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                               side: BorderSide(color: Colors.black26)),
                           child: Text(date),
                           onPressed: () async {
-                            var result = await showDatePicker(
+                            var result = await (showDatePicker(
                                 context: context,
                                 initialDate: DateTime.now(),
                                 firstDate: DateTime(DateTime.now().year),
-                                lastDate: DateTime(3000));
+                                lastDate: DateTime(3000)) as FutureOr<DateTime>);
                             setState(() {
                               date = '$result'.substring(0, 10);
                               weekday = '${result.weekday}';
-                              widget.plan.planPlacesWithTime[i] =
+                              widget.plan!.planPlacesWithTime[i] =
                                   date + " & " + time + "&" + placeInfo;
-                              widget.plan.planPlacesWithTime.sort();
+                              widget.plan!.planPlacesWithTime.sort();
                             });
                             print(date);
                             print('${result.weekday}');
@@ -87,13 +87,13 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                               side: BorderSide(color: Colors.black26)),
                           child: Text(time),
                           onPressed: () async {
-                            TimeOfDay timePicked = await showTimePicker(
+                            TimeOfDay? timePicked = await showTimePicker(
                                 context: context, initialTime: TimeOfDay.now());
                             setState(() {
-                              time = timePicked.format(context);
-                              widget.plan.planPlacesWithTime[i] =
+                              time = timePicked!.format(context);
+                              widget.plan!.planPlacesWithTime[i] =
                                   date + " & " + time + "&" + placeInfo;
-                              widget.plan.planPlacesWithTime.sort();
+                              widget.plan!.planPlacesWithTime.sort();
                             });
                             //print(time);
                           },
@@ -159,8 +159,8 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                 children: [
                   Text(
                     "Places for this plan: " +
-                        (widget.plan.planPlacesWithTime != null
-                            ? widget.plan.planPlacesWithTime.length.toString()
+                        (widget.plan!.planPlacesWithTime != null
+                            ? widget.plan!.planPlacesWithTime.length.toString()
                             : '') +
                         " locations",
                     textAlign: TextAlign.left,
@@ -168,10 +168,10 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 15,
-                      foreground: Paint()..color = Colors.green[700],
+                      foreground: Paint()..color = Colors.green[700]!,
                     ),
                   ),
-                  listPlacesToAddTime(widget.plan.planPlacesWithTime),
+                  listPlacesToAddTime(widget.plan!.planPlacesWithTime),
                 ],
               )),
           Padding(
@@ -193,7 +193,7 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
 
                     // print(widget.plan.show());
 
-                    if (widget.plan.cameFromViewItineraryPage) {
+                    if (widget.plan!.cameFromViewItineraryPage) {
                       Fluttertoast.showToast(
                         msg: "Time Data Updated",
                         toastLength: Toast.LENGTH_SHORT,
@@ -204,7 +204,7 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                   },
                   color: Color(0xFF00a79B),
                   child: Text(
-                    widget.plan.cameFromViewItineraryPage ? 'Update' : 'NEXT',
+                    widget.plan!.cameFromViewItineraryPage ? 'Update' : 'NEXT',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -245,7 +245,7 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                                     child: Text("Yes"),
                                     onPressed: () {
                                       UniversalMethods.savePlanDataToDatabase(
-                                          widget.plan);
+                                          widget.plan!);
                                       Navigator.pop(context, true);
                                     },
                                   ),

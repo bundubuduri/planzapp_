@@ -72,7 +72,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final SharedPreferences prefs;
+  final SharedPreferences? prefs;
   MyApp({this.prefs});
 
   // Widget _defaultHome;

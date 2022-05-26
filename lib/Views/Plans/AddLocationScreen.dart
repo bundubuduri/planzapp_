@@ -20,8 +20,8 @@ import 'package:planzapp/util/API Client/Client.dart';
 //import 'package:google_maps/google_maps.dart';
 
 class AddLocationScreen extends StatefulWidget {
-  Plan plan;
-  AddLocationScreen({@required this.plan});
+  Plan? plan;
+  AddLocationScreen({required this.plan});
 
   @override
   _AddLocationScreenState createState() => _AddLocationScreenState();
@@ -33,7 +33,7 @@ var showPlaceDetails = false;
 class _AddLocationScreenState extends State<AddLocationScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static late User loggedInUser;
   String _dbPreferences = "";
   TextEditingController textEditingControllerPrice =
       new TextEditingController();
@@ -41,7 +41,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
   // initialize a spot object
   Spot spot = new Spot.noLocation();
 
-  var minRadius = 100.0;
+  double? minRadius = 100.0;
 
   @override
   void initState() {
@@ -73,11 +73,11 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
     setState(() {});
   }
 
-  Future<Map> getPlaceDetails(Place location) async {
+  Future<Map?> getPlaceDetails(Place location) async {
     // this function will take in the location that the user selected and get the details of the location
     var results;
     // get the coordinates
-    var c = await location.geolocation;
+    var c = await (location.geolocation as FutureOr<Geolocation>);
     // create coordinate map
     var coordinates = {
       'lat': c.coordinates.latitude,
@@ -99,13 +99,13 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
   Future fetchPreferences() async {
     Uri url = Uri.parse(
         'https://us-central1-planzapp-2c02d.cloudfunctions.net/groupPreferences?text=' +
-            FirebaseAuth.instance.currentUser.email.toString() +
+            FirebaseAuth.instance.currentUser!.email.toString() +
             " " +
-            widget.plan.planInternalUsers.toString());
+            widget.plan!.planInternalUsers.toString());
     final response = await http.get(url);
-    print(FirebaseAuth.instance.currentUser.email.toString() +
+    print(FirebaseAuth.instance.currentUser!.email.toString() +
         " " +
-        widget.plan.planInternalUsers.toString());
+        widget.plan!.planInternalUsers.toString());
     if (response.statusCode == 200) {
       return response;
     } else {
@@ -115,14 +115,14 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
     }
   }
 
-  GoogleMapController mapController;
+  GoogleMapController? mapController;
 
   CameraPosition cameraPosition = CameraPosition(
     target: LatLng(21.648611, -157.925556),
     zoom: 14,
   );
 
-  Place selectedPlace;
+  Place? selectedPlace;
   var userLocationPrefString;
   var userLocationPref;
   var initialPosition = LatLng(21.648611, -157.925556);
@@ -131,9 +131,9 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
   var results;
 
   double _sliderValue = 20.0;
-  BitmapDescriptor pinLocationIcon;
+  late BitmapDescriptor pinLocationIcon;
   Set<Marker> _markers = {};
-  LatLng pinPosition = LatLng(21.648611, -157.925556);
+  LatLng? pinPosition = LatLng(21.648611, -157.925556);
 
   void setCustomMapPin() async {
     pinLocationIcon = await BitmapDescriptor.fromAssetImage(
@@ -173,7 +173,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                   textColor: Colors.black,
                   onPressed: () {
                     setState(() {
-                      widget.plan.planPlacesWithTime.remove(place);
+                      widget.plan!.planPlacesWithTime.remove(place);
                     });
                     Fluttertoast.showToast(
                       msg: placeName + " Deleted",
@@ -200,14 +200,14 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
     DocumentSnapshot<Map<String, dynamic>> variable = await FirebaseFirestore
         .instance
         .collection('User')
-        .doc(FirebaseAuth.instance.currentUser.uid)
+        .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection('Preferences')
         .doc('Preferences')
         .get();
-    userLocationPrefString = variable.data()["RadiusLocationLatLong"];
+    userLocationPrefString = variable.data()!["RadiusLocationLatLong"];
     //initialPosition = userLocationPref;
     var userLocationPrefDescriptionString =
-        variable.data()['RadiusLocationDescription'];
+        variable.data()!['RadiusLocationDescription'];
 
     print("hi");
     // if we user location pref is not set
@@ -261,7 +261,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
           .collection('Preferences')
           .doc('Preferences')
           .get();
-      radius = variable.data()['RadiusDistance'];
+      radius = variable.data()!['RadiusDistance'];
       print("got radius");
       print(radius);
       if (radius < minRadius) {
@@ -272,9 +272,9 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    getMinRadiusPreferences(widget.plan.planInternalUsers);
+    getMinRadiusPreferences(widget.plan!.planInternalUsers);
 
-    textEditingControllerPrice.text = widget.plan.planPrice;
+    textEditingControllerPrice.text = widget.plan!.planPrice;
 
     if (userLocationPrefString == null) {
       Future.delayed(
@@ -284,7 +284,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
         print('success');
         setState(() {
           if (mapController != null) {
-            mapController
+            mapController!
                 .animateCamera(CameraUpdate.newLatLng(userLocationPref));
           }
         });
@@ -375,7 +375,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
               controller: textEditingControllerPrice,
               textAlign: TextAlign.center,
               onChanged: (value) {
-                widget.plan.planPrice = value;
+                widget.plan!.planPrice = value;
               },
               decoration:
                   InputDecoration(hintText: 'Estimated Price for this Plan'),
@@ -402,7 +402,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
 
                 // empty
                 onSelected: (Place place) async {
-                  final geolocation = await place.geolocation;
+                  final geolocation = await (place.geolocation as FutureOr<Geolocation>);
 
                   // get the details for the current place
                   results = await getPlaceDetails(place);
@@ -414,15 +414,15 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                     pinPosition = geolocation.coordinates;
                     _markers.add(Marker(
                         markerId: MarkerId("aloha"),
-                        position: pinPosition,
+                        position: pinPosition!,
                         icon: pinLocationIcon));
                   });
 
                   // Will animate the GoogleMap camera, taking us to the selected position with an appropriate zoom
                   //final GoogleMapController controller = await _mapController.future;
-                  mapController.animateCamera(
+                  mapController!.animateCamera(
                       CameraUpdate.newLatLng(geolocation.coordinates));
-                  mapController.animateCamera(
+                  mapController!.animateCamera(
                       CameraUpdate.newLatLngBounds(geolocation.bounds, 0));
                 },
               )),
@@ -434,7 +434,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                   child: Column(
                     children: [
                       Text(
-                        selectedPlace.description.split(",")[0],
+                        selectedPlace!.description!.split(",")[0],
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -459,10 +459,10 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                             onPressed: () {
                               setState(() {
                                 var typesString =
-                                    selectedPlace.types.join(", ");
-                                widget.plan.planPlacesWithTime.add(
+                                    selectedPlace!.types!.join(", ");
+                                widget.plan!.planPlacesWithTime.add(
                                     "Date & Time & " +
-                                        selectedPlace.description +
+                                        selectedPlace!.description! +
                                         " | " +
                                         typesString);
                                 showPlaceDetails = false;
@@ -503,7 +503,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                     // print("minRadius");
                     // print(minRadius);
 
-                    if (value > minRadius) {
+                    if (value > minRadius!) {
                       print("radius too large");
                       Fluttertoast.showToast(
                         msg: "Radius exceed people preference",
@@ -551,8 +551,8 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                 ),
               )),
 
-          (widget.plan.planPlacesWithTime.length != 0
-              ? listLocations(widget.plan.planPlacesWithTime)
+          (widget.plan!.planPlacesWithTime.length != 0
+              ? listLocations(widget.plan!.planPlacesWithTime)
               : SizedBox(
                   height: 10,
                 )),
@@ -565,17 +565,17 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                 height: 60,
                 child: RaisedButton(
                   onPressed: () async {
-                    print(widget.plan.show());
+                    print(widget.plan!.show());
 
-                    if (widget.plan.planPrice == null ||
-                        widget.plan.planPrice == "") {
+                    if (widget.plan!.planPrice == null ||
+                        widget.plan!.planPrice == "") {
                       Fluttertoast.showToast(
                         msg: "Please add price for this plan",
                         toastLength: Toast.LENGTH_SHORT,
                         gravity: ToastGravity.BOTTOM,
                         timeInSecForIosWeb: 1,
                       );
-                    } else if (widget.plan.planPlacesWithTime.length == 0) {
+                    } else if (widget.plan!.planPlacesWithTime.length == 0) {
                       Fluttertoast.showToast(
                         msg: "Please add location(s) for this plan",
                         toastLength: Toast.LENGTH_SHORT,
@@ -583,7 +583,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                         timeInSecForIosWeb: 1,
                       );
                     } else {
-                      if (widget.plan.cameFromViewItineraryPage) {
+                      if (widget.plan!.cameFromViewItineraryPage) {
                         Fluttertoast.showToast(
                           msg: "Location Updated",
                           toastLength: Toast.LENGTH_SHORT,
@@ -602,7 +602,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                   },
                   color: Color(0xFF00a79B),
                   child: Text(
-                    widget.plan.cameFromViewItineraryPage ? 'Update' : 'NEXT',
+                    widget.plan!.cameFromViewItineraryPage ? 'Update' : 'NEXT',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -643,7 +643,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
                                     child: Text("Yes"),
                                     onPressed: () {
                                       UniversalMethods.savePlanDataToDatabase(
-                                          widget.plan);
+                                          widget.plan!);
                                       Navigator.pop(context, true);
                                     },
                                   ),

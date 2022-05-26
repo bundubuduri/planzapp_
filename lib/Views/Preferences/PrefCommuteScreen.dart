@@ -33,7 +33,7 @@ class PrefCommuteScreen extends StatefulWidget {
 class _PrefCommuteScreen extends State<PrefCommuteScreen> {
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  static User loggedInUser;
+  static User? loggedInUser;
 
   @override
   void initState() {
@@ -109,16 +109,16 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                       if (PrefModel.dbRideShare == false) {
                         setState(() {
                           PrefModel.dbAnyCommute = false;
-                          AnyCommuteController().run(PrefModel.dbAnyCommute);
+                          AnyCommuteController().run(PrefModel.dbAnyCommute!);
                         });
                       } else {
                         setState(() {
                           PrefModel.dbResetCommuteValue = false;
-                          AnyCommuteController().run(PrefModel.dbAnyCommute);
+                          AnyCommuteController().run(PrefModel.dbAnyCommute!);
                         });
                       }
                       // save user ride share preferences
-                      RideShareController().run(PrefModel.dbRideShare);
+                      RideShareController().run(PrefModel.dbRideShare!);
                       // Shows user "preference saved"
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -139,7 +139,7 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                       if (PrefModel.dbDrive == false) {
                         setState(() {
                           PrefModel.dbAnyCommute = false;
-                          AnyCommuteController().run(PrefModel.dbAnyCommute);
+                          AnyCommuteController().run(PrefModel.dbAnyCommute!);
                         });
                       } else {
                         setState(() {
@@ -147,7 +147,7 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                         });
                       }
                       // save user driving preferences
-                      DriveController().run(PrefModel.dbDrive);
+                      DriveController().run(PrefModel.dbDrive!);
                       // Shows user "preference saved"
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -172,17 +172,17 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                             setState(() {
                               PrefModel.dbAnyCommute = false;
                               AnyCommuteController()
-                                  .run(PrefModel.dbAnyCommute);
+                                  .run(PrefModel.dbAnyCommute!);
                             });
                           } else {
                             setState(() {
                               PrefModel.dbResetCommuteValue = false;
                               AnyCommuteController()
-                                  .run(PrefModel.dbAnyCommute);
+                                  .run(PrefModel.dbAnyCommute!);
                             });
                           }
                           // save user flight preferences
-                          FlightController().run(PrefModel.dbFlight);
+                          FlightController().run(PrefModel.dbFlight!);
                           // Shows user "preference saved"
                           UpdatingSnackbar.showMessage(context);
                         },
@@ -204,17 +204,17 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                             setState(() {
                               PrefModel.dbAnyCommute = false;
                               AnyCommuteController()
-                                  .run(PrefModel.dbAnyCommute);
+                                  .run(PrefModel.dbAnyCommute!);
                             });
                           } else {
                             setState(() {
                               PrefModel.dbResetCommuteValue = false;
                               AnyCommuteController()
-                                  .run(PrefModel.dbAnyCommute);
+                                  .run(PrefModel.dbAnyCommute!);
                             });
                           }
                           // save user train preferences
-                          TrainController().run(PrefModel.dbTrain);
+                          TrainController().run(PrefModel.dbTrain!);
                           // Shows user "preference saved"
                           UpdatingSnackbar.showMessage(context);
                         },
@@ -235,17 +235,17 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                       if (PrefModel.dbPublicBusMetro == false) {
                         setState(() {
                           PrefModel.dbAnyCommute = false;
-                          AnyCommuteController().run(PrefModel.dbAnyCommute);
+                          AnyCommuteController().run(PrefModel.dbAnyCommute!);
                         });
                       } else {
                         setState(() {
                           PrefModel.dbResetCommuteValue = false;
-                          AnyCommuteController().run(PrefModel.dbAnyCommute);
+                          AnyCommuteController().run(PrefModel.dbAnyCommute!);
                         });
                       }
                       // save user public transportation preferences
                       PublicBusMetroController()
-                          .run(PrefModel.dbPublicBusMetro);
+                          .run(PrefModel.dbPublicBusMetro!);
                       // Shows user "preference saved"
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -264,16 +264,16 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                       if (PrefModel.dbWalk == false) {
                         setState(() {
                           PrefModel.dbAnyCommute = false;
-                          AnyCommuteController().run(PrefModel.dbAnyCommute);
+                          AnyCommuteController().run(PrefModel.dbAnyCommute!);
                         });
                       } else {
                         setState(() {
                           PrefModel.dbResetCommuteValue = false;
-                          AnyCommuteController().run(PrefModel.dbAnyCommute);
+                          AnyCommuteController().run(PrefModel.dbAnyCommute!);
                         });
                       }
                       // save user walking preferences
-                      WalkController().run(PrefModel.dbWalk);
+                      WalkController().run(PrefModel.dbWalk!);
                       // Shows user "preference saved"
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -301,13 +301,13 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                           PrefModel.dbWalk = newValue;
                           PrefModel.dbResetCommuteValue = false;
                         });
-                        RideShareController().run(PrefModel.dbRideShare);
-                        FlightController().run(PrefModel.dbFlight);
-                        TrainController().run(PrefModel.dbTrain);
+                        RideShareController().run(PrefModel.dbRideShare!);
+                        FlightController().run(PrefModel.dbFlight!);
+                        TrainController().run(PrefModel.dbTrain!);
                         PublicBusMetroController()
-                            .run(PrefModel.dbPublicBusMetro);
-                        WalkController().run(PrefModel.dbWalk);
-                        DriveController().run(PrefModel.dbDrive);
+                            .run(PrefModel.dbPublicBusMetro!);
+                        WalkController().run(PrefModel.dbWalk!);
+                        DriveController().run(PrefModel.dbDrive!);
                       } else {
                         setState(() {
                           PrefModel.dbRideShare = false;
@@ -318,16 +318,16 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                           PrefModel.dbWalk = false;
                           PrefModel.dbResetCommuteValue = false;
                         });
-                        RideShareController().run(PrefModel.dbRideShare);
-                        FlightController().run(PrefModel.dbFlight);
-                        TrainController().run(PrefModel.dbTrain);
+                        RideShareController().run(PrefModel.dbRideShare!);
+                        FlightController().run(PrefModel.dbFlight!);
+                        TrainController().run(PrefModel.dbTrain!);
                         PublicBusMetroController()
-                            .run(PrefModel.dbPublicBusMetro);
-                        WalkController().run(PrefModel.dbWalk);
-                        DriveController().run(PrefModel.dbDrive);
+                            .run(PrefModel.dbPublicBusMetro!);
+                        WalkController().run(PrefModel.dbWalk!);
+                        DriveController().run(PrefModel.dbDrive!);
                       }
                       // save user Any Commute preferences
-                      AnyCommuteController().run(PrefModel.dbAnyCommute);
+                      AnyCommuteController().run(PrefModel.dbAnyCommute!);
                       // Shows user "preference saved"
                       UpdatingSnackbar.showMessage(context);
                     },
@@ -347,14 +347,14 @@ class _PrefCommuteScreen extends State<PrefCommuteScreen> {
                       PrefModel.dbWalk = false;
                       PrefModel.dbAnyCommute = false;
                     });
-                    RideShareController().run(PrefModel.dbRideShare);
-                    FlightController().run(PrefModel.dbFlight);
-                    TrainController().run(PrefModel.dbTrain);
-                    PublicBusMetroController().run(PrefModel.dbPublicBusMetro);
-                    WalkController().run(PrefModel.dbWalk);
-                    DriveController().run(PrefModel.dbDrive);
+                    RideShareController().run(PrefModel.dbRideShare!);
+                    FlightController().run(PrefModel.dbFlight!);
+                    TrainController().run(PrefModel.dbTrain!);
+                    PublicBusMetroController().run(PrefModel.dbPublicBusMetro!);
+                    WalkController().run(PrefModel.dbWalk!);
+                    DriveController().run(PrefModel.dbDrive!);
 
-                    AnyCommuteController().run(PrefModel.dbAnyCommute);
+                    AnyCommuteController().run(PrefModel.dbAnyCommute!);
                     // Shows user "preference saved"
                     UpdatingSnackbar.showMessage(context);
                   },
