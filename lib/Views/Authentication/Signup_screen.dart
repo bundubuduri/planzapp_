@@ -10,7 +10,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:planzapp/util/universalMethods.dart';
-import 'package:search_map_place/search_map_place.dart';
+//import 'package:search_map_place/search_map_place.dart';
+import 'package:search_map_place_updated/search_map_place_updated.dart';
 
 
 class SignUpScreen extends StatefulWidget {

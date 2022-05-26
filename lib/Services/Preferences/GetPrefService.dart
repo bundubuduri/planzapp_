@@ -4,10 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:search_map_place/search_map_place.dart';
+//import 'package:search_map_place/search_map_place.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:planzapp/Views/Plans/MapSuggestionsScreen.dart';
 import 'package:planzapp/Controllers/Utility/GetUserController.dart';
+import 'package:search_map_place_updated/search_map_place_updated.dart';
 
 class GetPreferencesService{
 

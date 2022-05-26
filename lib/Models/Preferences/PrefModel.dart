@@ -1,7 +1,8 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:search_map_place/search_map_place.dart';
+//import 'package:search_map_place/search_map_place.dart';
+import 'package:search_map_place_updated/search_map_place_updated.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:planzapp/Views/Plans/MapSuggestionsScreen.dart';

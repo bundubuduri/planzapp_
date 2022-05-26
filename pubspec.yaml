@@ -41,8 +41,8 @@ dependencies:
   google_maps_flutter_web: ^0.3.0+2
   flutter_typeahead: ^4.0.0
   flutter_google_places: ^0.3.0
-  search_map_place:
-    git: https://github.com/joshuaplanzapp/search_map_place
+ # search_map_place:
+  #  git: https://github.com/joshuaplanzapp/search_map_place
   google_maps_place_picker: ^2.0.0-nullsafety.3
   tuple: ^2.0.0
   google_maps_webservice: ^0.0.18
@@ -69,6 +69,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_maps: ^6.1.0
+  search_map_place_updated: ^0.0.4
 dependency_overrides:
   args: ^2.1.0
   http: ^0.13.0
