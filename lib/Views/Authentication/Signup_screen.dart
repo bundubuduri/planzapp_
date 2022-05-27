@@ -191,11 +191,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void takePhoto(ImageSource source) async {
-    final pickedFile = await _picker.getImage(
+    final pickedFile = await _picker.pickImage(
       source: source,
     );
     setState(() {
-      _imageFile = pickedFile;
+      _imageFile = pickedFile as PickedFile?;
     });
   }
 

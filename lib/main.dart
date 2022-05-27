@@ -157,7 +157,7 @@ class MyApp extends StatelessWidget {
         'PeopleProfile' : (context) => PeopleProfile(),
         'MyProfile' : (context) => MyProfile(),
         "Friends" : (context)  => Friends(),
-        "Notifications" : (context) => NotificationScreen(),
+       // "Notifications" : (context) => NotificationScreen(),
       },
       // home: _decideMainPage();,
     );

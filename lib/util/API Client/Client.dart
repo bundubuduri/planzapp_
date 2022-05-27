@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dotenv/dotenv.dart' show load, env;
 import 'package:google_maps_webservice/geocoding.dart';
 import 'package:google_maps_webservice/places.dart';
@@ -551,7 +553,7 @@ class Endpoint {
 
     // if the user provided
     if (coordinates != null) {
-      venue_id = await (_getVenueID(coordinates) as FutureOr<String?>);
+      venue_id = await (_getVenueID(coordinates) as Future<String?>);
     } else if (id != null) {
       venue_id = id;
     } else {
@@ -563,7 +565,7 @@ class Endpoint {
 
   Future _getVenueID(var coordinates) async {
     // input coordinates and get the venue ID
-    Map results = await (searchEndpoint(coordinates, limit: 1) as FutureOr<Map<dynamic, dynamic>>);
+    Map results = await (searchEndpoint(coordinates, limit: 1) as Future<Map<dynamic, dynamic>>);
     var vID = results['response']['venues'][0]['id'];
     return vID;
   }

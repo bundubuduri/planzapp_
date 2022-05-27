@@ -6,6 +6,6 @@ import 'package:planzapp/Controllers/UserProfile/BaseUserProfileController.dart'
 class FriendStreamBuilderController extends BaseUserProfileController{
 
   Stream<QuerySnapshot> run() {
-     return friendStreamBuilderService.getFriendStreamBuilder();
+    return friendStreamBuilderService.getFriendStreamBuilder();
   }
 }
