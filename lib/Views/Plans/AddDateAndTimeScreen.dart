@@ -19,7 +19,7 @@ var launch = true;
 class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
   // list place name with date and time cells so that user can set time for each location
   Widget listPlacesToAddTime(List<dynamic> strings) {
-    List<Widget> list = new List<Widget>();
+    List<Widget> list = <Widget>[];
     if (strings != null) {
       for (var i = strings.length - 1; i > -1; i--) {
         var date;
@@ -63,7 +63,7 @@ class _AddDateAndTimeScreenState extends State<AddDateAndTimeScreen> {
                                 context: context,
                                 initialDate: DateTime.now(),
                                 firstDate: DateTime(DateTime.now().year),
-                                lastDate: DateTime(3000)) as FutureOr<DateTime>);
+                                lastDate: DateTime(3000)) as Future<DateTime>);
                             setState(() {
                               date = '$result'.substring(0, 10);
                               weekday = '${result.weekday}';

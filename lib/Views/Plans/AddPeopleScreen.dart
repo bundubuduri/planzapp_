@@ -46,7 +46,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
   String externalUser = "";
   final externalUserNameTextFieldController = TextEditingController();
   final externalUserEmailTextFieldController = TextEditingController();
-  var allUsers = List<dynamic>();
+  var allUsers = <dynamic>[];
   String externalEmailOrPhone = "";
   String internalContact = "";
   String email = "";
@@ -57,7 +57,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
   // widget to be used to list all selected users, parameter is selected users list
   Widget listSelectedUsers(List<dynamic> strings)
   {
-    List<Widget> list = new List<Widget>();
+    List<Widget> list = <Widget>[];
     for(var i = strings.length - 1; i > -1; i--){
       var temp = strings[i];
       String? temp1 = temp.split(":")[0]  +  " : " +temp.split(":")[1];
@@ -101,7 +101,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
 
    Widget imageDisplay (List<dynamic>strings)
   {
-    List<Widget>list= new List<Widget>();
+    List<Widget>list= <Widget>[];
     var users = FirebaseFirestore.instance.collection('User');
     for(var i = strings.length-1;i>0;i--){
       String userID = strings[i];
@@ -189,7 +189,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
   // widget to list prematched users, parameter is search term - what has user typed in
   Widget listPreMatchedUsers(String enteredString)
   {
-    List<dynamic> filteredUsers = new List<dynamic>();
+    List<dynamic> filteredUsers = <dynamic>[];
     setState(() {
       filteredUsers.add(enteredString);
       filteredUsers.clear();
@@ -202,7 +202,7 @@ class _AddPeopleScreenState extends State<AddPeopleScreen> {
       }
     });
 
-    List<Widget> list = new List<Widget>();
+    List<Widget> list = <Widget>[];
     if (enteredString != "") {
       for(var i = filteredUsers.length - 1; i > -1; i--){
         //list.add(new Text(strings[i]));

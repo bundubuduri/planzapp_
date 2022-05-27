@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable, unused_field, await_only_futures
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -141,7 +143,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
   }
 
   Widget listLocations(List<dynamic> places) {
-    List<Widget> list = new List<Widget>();
+    List<Widget> list = <Widget>[];
 
     if (places != null) {
       for (var i = places.length - 1; i > -1; i--) {

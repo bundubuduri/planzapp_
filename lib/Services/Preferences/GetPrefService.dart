@@ -14,7 +14,7 @@ class GetPreferencesService{
 
   //Future<User> loggedInUser = GetUserController().run();
   Future<void> getPreferences() async {
-    User loggedInUser = await (GetUserController().run() as FutureOr<User>);
+    User loggedInUser = await (GetUserController().run() as Future<User>);
     final _firestore = FirebaseFirestore.instance;
     final _auth = FirebaseAuth.instance;
     // db is short for database

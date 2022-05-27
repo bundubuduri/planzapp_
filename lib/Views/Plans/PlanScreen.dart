@@ -1,4 +1,3 @@
-
 //import 'dart:html';
 import 'dart:ui';
 
@@ -14,9 +13,7 @@ import 'package:planzapp/util/universalVariables.dart';
 import 'CreatePlan.dart';
 import 'package:planzapp/Controllers/Utility/GetUserController.dart';
 
-
 class PlanScreen extends StatefulWidget {
-
   @override
   _PlanScreenState createState() => _PlanScreenState();
 }
@@ -29,16 +26,14 @@ class _PlanScreenState extends State<PlanScreen> {
   final _firestore = FirebaseFirestore.instance;
   ContainerTransitionType _transitionType = ContainerTransitionType.fade;
 
-
   String? searchKey;
 
   // List<String> userList;
   String query = "";
   TextEditingController searchController = TextEditingController();
 
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
     getCurrentUser();
   }
@@ -47,8 +42,6 @@ class _PlanScreenState extends State<PlanScreen> {
     loggedInUser = await GetUserController().run();
     setState(() {});
   }
-
-
 
   //Data stream getting queries from the plans collection in firebase.
   // void dataStream() async{
@@ -59,13 +52,9 @@ class _PlanScreenState extends State<PlanScreen> {
   //   }
   // }
 
-
-
   @override
   Widget build(BuildContext context) {
-
-
-return Scaffold(
+    return Scaffold(
       backgroundColor: Colors.grey[200],
       body: ListView(
         children: <Widget>[
@@ -94,38 +83,37 @@ return Scaffold(
             ),
           ),
 */
-        //search bar
+          //search bar
           Container(
               padding: const EdgeInsets.all(16.0),
               margin: new EdgeInsets.symmetric(horizontal: 20.0),
-              child : new TextField(
+              child: new TextField(
                 controller: searchController,
                 onChanged: (value) {
                   setState(() {
                     query = value;
                   });
                 },
-            decoration: new InputDecoration(
-              suffixIcon: IconButton(
-                icon: Icon(Icons.close, color: Colors.grey[400]),
-                onPressed: () {
-                  query = "";
-                  WidgetsBinding.instance
-                      .addPostFrameCallback((_) => searchController.clear());
-                },
-              ),
-                border: new OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(
-                    const Radius.circular(20.0),
-                  ),
-                ),
-                filled: true,
-                hintStyle: new TextStyle(color: Colors.grey[800]),
-                hintText: "Search Plans...",
-                fillColor: Colors.white70),
+                decoration: new InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.close, color: Colors.grey[400]),
+                      onPressed: () {
+                        query = "";
+                        WidgetsBinding.instance.addPostFrameCallback(
+                            (_) => searchController.clear());
+                      },
+                    ),
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(20.0),
+                      ),
+                    ),
+                    filled: true,
+                    hintStyle: new TextStyle(color: Colors.grey[800]),
+                    hintText: "Search Plans...",
+                    fillColor: Colors.white70),
                 // myIcon is a 48px-wide widget.
-              )
-          ),
+              )),
           /*
           Padding(
             padding: EdgeInsets.only(left: 20, right: 20),
@@ -236,30 +224,30 @@ this is from the search page
           // create plan buttons from plans that contain the current user
           StreamBuilder(
             stream:
-            // _firestore.collection('plans').snapshots(),
-            _firestore
-                .collection('Plans')
-                .where('planInternalUsers', arrayContains: loggedInUser!.uid.toString())
-                .snapshots(),
-            builder: (context, snapshot){
+                // _firestore.collection('plans').snapshots(),
+                _firestore
+                    .collection('Plans')
+                    .where('planInternalUsers',
+                        arrayContains: loggedInUser!.uid.toString())
+                    .snapshots(),
+            builder: (context, snapshot) {
               print(loggedInUser!.uid.toString());
               List<Widget> plansWidget = [];
-              if(snapshot.hasData){
-                final content = snapshot.data.docs;
+              if (snapshot.hasData) {
+                final content = (snapshot.data! as QuerySnapshot).docs;
 
-                for(var c in content){
-                  final contentToDisplay = PlanButtonWidget(c, c.get('planFavorite'));
+                for (var c in content) {
+                  final contentToDisplay =
+                      PlanButtonWidget(c, c.get('planFavorite'));
                   // Add button to list
-                    plansWidget.add(contentToDisplay);
+                  plansWidget.add(contentToDisplay);
                 }
-
               }
               return Column(
                 children: plansWidget,
               );
             },
           ),
-
         ],
       ),
 
@@ -268,12 +256,17 @@ this is from the search page
         transitionType: _transitionType,
         openBuilder: (BuildContext context, VoidCallback _) {
           print("you are creating this plan: ");
-          Plan plan = new Plan(planEventPlanners: [FirebaseAuth.instance.currentUser!.uid],
+          Plan plan = new Plan(
+            planEventPlanners: [FirebaseAuth.instance.currentUser!.uid],
             planStatus: "Planning",
-            planInternalUsers: [FirebaseAuth.instance.currentUser!.uid.toString()], //+ " : " + FirebaseAuth.instance.currentUser.email],
+            planInternalUsers: [
+              FirebaseAuth.instance.currentUser!.uid.toString()
+            ], //+ " : " + FirebaseAuth.instance.currentUser.email],
           );
 
-          return CreatePlan(plan: plan,);
+          return CreatePlan(
+            plan: plan,
+          );
         },
         closedElevation: 3.0,
         closedShape: const RoundedRectangleBorder(

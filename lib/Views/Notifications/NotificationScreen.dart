@@ -27,7 +27,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
               builder: (context, snapshot){
                 List<Widget> notificationsWidget = [];
                 if(snapshot.hasData){
-                  final content = snapshot.data.docs;
+                  final content = (snapshot.data! as QuerySnapshot).docs;
 
                   for (var c in content){
 

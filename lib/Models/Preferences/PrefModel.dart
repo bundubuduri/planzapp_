@@ -177,159 +177,159 @@ class PreferencesModel extends ChangeNotifier {
   void setup() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    _dbBudget = prefs.getDouble('Budget') ?? 0.0;
-  _dbAboveBudgetPercent = prefs.getDouble('AboveBudgetPercent') ?? 0.0;
-_dbBelowBudgetPercent = prefs.getDouble('BelowBudgetPercent') ?? 0.0;
-_dbNotifyPriceInc = prefs.getBool('NotifyPriceIncrease') ?? false;
-_dbNotifyPriceDec = prefs.getBool('NotifyPriceDecrease') ?? false;
-_dbStickToBudget = prefs.getBool('StickToBudget') ?? false;
-_dbOutOfBudget = prefs.getBool('OutOfBudget') ?? false;
-    _dbEnableAboveBudget = prefs.getBool('EnableAboveBudget') ?? false;
-_dbEnableBelowBudget = prefs.getBool('EnableBelowBudget') ?? false;
-_budgetPreferences = prefs.getString('budgetPreferences') ?? '';
+var _dbBudget = prefs.getDouble('Budget') ?? 0.0;
+var  _dbAboveBudgetPercent = prefs.getDouble('AboveBudgetPercent') ?? 0.0;
+var _dbBelowBudgetPercent = prefs.getDouble('BelowBudgetPercent') ?? 0.0;
+var _dbNotifyPriceInc = prefs.getBool('NotifyPriceIncrease') ?? false;
+var _dbNotifyPriceDec = prefs.getBool('NotifyPriceDecrease') ?? false;
+var _dbStickToBudget = prefs.getBool('StickToBudget') ?? false;
+var _dbOutOfBudget = prefs.getBool('OutOfBudget') ?? false;
+var _dbEnableAboveBudget = prefs.getBool('EnableAboveBudget') ?? false;
+var _dbEnableBelowBudget = prefs.getBool('EnableBelowBudget') ?? false;
+var _budgetPreferences = prefs.getString('budgetPreferences') ?? '';
 
   // multiple itineraries values
-  _dbMultiplePlans = prefs.getBool('') ?? false;
-  _multiplePlansPreferences = prefs.getString('multiplePlansPreferences') ?? '';
+var  _dbMultiplePlans = prefs.getBool('') ?? false;
+var  _multiplePlansPreferences = prefs.getString('multiplePlansPreferences') ?? '';
 
   // commute values
-  _dbRideShare = prefs.getBool('RideShare') ?? false;
-_dbDrive = prefs.getBool('Drive') ?? false;
-_dbFlight = prefs.getBool('Flight') ?? false;
-_dbTrain = prefs.getBool('Train') ?? false;
-_dbPublicBusMetro = prefs.getBool('PublicBusMetro') ?? false;
-_dbWalk = prefs.getBool('Walk') ?? false;
-_dbAnyCommute = prefs.getBool('AnyCommute') ?? false;
-_dbResetCommuteValue =  prefs.getBool('ResetCommute') ?? false;
-_commutePreferences = prefs.getString('commutePreferences') ?? '';
+var _dbRideShare = prefs.getBool('RideShare') ?? false;
+var _dbDrive = prefs.getBool('Drive') ?? false;
+var _dbFlight = prefs.getBool('Flight') ?? false;
+var _dbTrain = prefs.getBool('Train') ?? false;
+var _dbPublicBusMetro = prefs.getBool('PublicBusMetro') ?? false;
+var _dbWalk = prefs.getBool('Walk') ?? false;
+var _dbAnyCommute = prefs.getBool('AnyCommute') ?? false;
+var _dbResetCommuteValue =  prefs.getBool('ResetCommute') ?? false;
+var _commutePreferences = prefs.getString('commutePreferences') ?? '';
 
   // cuisine values
-  _dbAfricanCuisine = prefs.getBool('AfricanCuisine') ?? false;
-_dbAmericanCuisine = prefs.getBool('AmericanCuisine') ?? false;
-_dbBarbequeCuisine = prefs.getBool('BarbequeCuisine') ?? false;
-_dbBrazilianCuisine = prefs.getBool('BrazilianCuisine') ?? false;
-_dbCaribbeanCuisine = prefs.getBool('CaribbeanCuisine') ?? false;
-_dbChineseCuisine = prefs.getBool('ChineseCuisine') ?? false;
-_dbFrenchCuisine = prefs.getBool('FrenchCuisine') ?? false;
-_dbGreekCuisine = prefs.getBool('GreekCuisine') ?? false;
-_dbIndianCuisine = prefs.getBool('IndianCuisine') ?? false;
-_dbItalianCuisine = prefs.getBool('ItalianCuisine') ?? false;
-_dbJapaneseCuisine = prefs.getBool('JapaneseCuisine') ?? false;
-_dbMediterraneanCuisine = prefs.getBool('MediterraneanCuisine') ?? false;
-_dbMexicanCuisine = prefs.getBool('MexicanCuisine') ?? false;
-_dbThaiCuisine = prefs.getBool('ThaiCuisine') ?? false;
-_dbSoulFoodCuisine = prefs.getBool('SoulFoodCuisine') ?? false;
-_dbBrunchCuisine = prefs.getBool('BrunchCuisine') ?? false;
-_dbBuffetCuisine = prefs.getBool('BuffetCuisine') ?? false;
-_dbDessertsCuisine = prefs.getBool('DessertsCuisine') ?? false;
-_dbSandwichesCuisine = prefs.getBool('SandwichesCuisine') ?? false;
-_dbNoodlesCuisine = prefs.getBool('NoodlesCuisine') ?? false;
-_dbSeafoodCuisine = prefs.getBool('SeafoodCuisine') ?? false;
-_dbVietnameseCuisine = prefs.getBool('VietnameseCuisine') ?? false;
-_dbTurkishCuisine = prefs.getBool('TurkishCuisine') ?? false;
-_dbAnyCuisine = prefs.getBool('AnyCuisine') ?? false;
-_dbResetCuisineValue =prefs.getBool('Reset') ?? false;
-_cuisinePreferences = prefs.getString('cuisinePreferences') ?? '';
+var _dbAfricanCuisine = prefs.getBool('AfricanCuisine') ?? false;
+var _dbAmericanCuisine = prefs.getBool('AmericanCuisine') ?? false;
+var _dbBarbequeCuisine = prefs.getBool('BarbequeCuisine') ?? false;
+var _dbBrazilianCuisine = prefs.getBool('BrazilianCuisine') ?? false;
+var _dbCaribbeanCuisine = prefs.getBool('CaribbeanCuisine') ?? false;
+var _dbChineseCuisine = prefs.getBool('ChineseCuisine') ?? false;
+var _dbFrenchCuisine = prefs.getBool('FrenchCuisine') ?? false;
+var _dbGreekCuisine = prefs.getBool('GreekCuisine') ?? false;
+var _dbIndianCuisine = prefs.getBool('IndianCuisine') ?? false;
+var _dbItalianCuisine = prefs.getBool('ItalianCuisine') ?? false;
+var _dbJapaneseCuisine = prefs.getBool('JapaneseCuisine') ?? false;
+var _dbMediterraneanCuisine = prefs.getBool('MediterraneanCuisine') ?? false;
+var _dbMexicanCuisine = prefs.getBool('MexicanCuisine') ?? false;
+var _dbThaiCuisine = prefs.getBool('ThaiCuisine') ?? false;
+var _dbSoulFoodCuisine = prefs.getBool('SoulFoodCuisine') ?? false;
+var _dbBrunchCuisine = prefs.getBool('BrunchCuisine') ?? false;
+var _dbBuffetCuisine = prefs.getBool('BuffetCuisine') ?? false;
+var _dbDessertsCuisine = prefs.getBool('DessertsCuisine') ?? false;
+var _dbSandwichesCuisine = prefs.getBool('SandwichesCuisine') ?? false;
+var _dbNoodlesCuisine = prefs.getBool('NoodlesCuisine') ?? false;
+var _dbSeafoodCuisine = prefs.getBool('SeafoodCuisine') ?? false;
+var _dbVietnameseCuisine = prefs.getBool('VietnameseCuisine') ?? false;
+var _dbTurkishCuisine = prefs.getBool('TurkishCuisine') ?? false;
+var _dbAnyCuisine = prefs.getBool('AnyCuisine') ?? false;
+var _dbResetCuisineValue =prefs.getBool('Reset') ?? false;
+var _cuisinePreferences = prefs.getString('cuisinePreferences') ?? '';
 
   // health and covid values
-  _dbNoContactPay = prefs.getBool('NoContactPay') ?? false;
-_dbNoContactDelivery = prefs.getBool('NoContactDelivery') ?? false;
-_dbStaffMasks = prefs.getBool('StaffMasks') ?? false;
-_dbMasksReq = prefs.getBool('MasksReq') ?? false;
-_dbStaffGloves = prefs.getBool('StaffGloves') ?? false;
-_dbLimitCap = prefs.getBool('LimitCap') ?? false;
-_dbSaniBetwCust = prefs.getBool('SaniBetwCust') ?? false;
-_dbHandSaniGiven = prefs.getBool('HandSaniGiven') ?? false;
-_dbAnyHealthCovid = prefs.getBool('AnyHealthCovid') ?? false;
-_dbResetHealthCovidValue = prefs.getBool('Reset') ?? false;
-_healthCovidPreferences = prefs.getString('healthCovidPreferences') ?? '';
+var _dbNoContactPay = prefs.getBool('NoContactPay') ?? false;
+var _dbNoContactDelivery = prefs.getBool('NoContactDelivery') ?? false;
+var _dbStaffMasks = prefs.getBool('StaffMasks') ?? false;
+var _dbMasksReq = prefs.getBool('MasksReq') ?? false;
+var _dbStaffGloves = prefs.getBool('StaffGloves') ?? false;
+var _dbLimitCap = prefs.getBool('LimitCap') ?? false;
+var _dbSaniBetwCust = prefs.getBool('SaniBetwCust') ?? false;
+var _dbHandSaniGiven = prefs.getBool('HandSaniGiven') ?? false;
+var _dbAnyHealthCovid = prefs.getBool('AnyHealthCovid') ?? false;
+var _dbResetHealthCovidValue = prefs.getBool('Reset') ?? false;
+var _healthCovidPreferences = prefs.getString('healthCovidPreferences') ?? '';
 
   // diet values
-_dbDiabeticDiet = prefs.getBool('DiabeticDiet') ?? false;
-_dbFreshDiet = prefs.getBool('FreshDiet') ?? false;
-_dbHalalDiet = prefs.getBool('HalalDiet') ?? false;
-_dbHealthyNotVegetDiet = prefs.getBool('HealthyNotVegetDiet') ?? false;
-_dbKosherDiet = prefs.getBool('KosherDiet') ?? false;
-_dbPescatarianDiet = prefs.getBool('PescatarianDiet') ?? false;
-_dbVeganDiet = prefs.getBool('VeganDiet') ?? false;
-_dbVegetarianDiet = prefs.getBool('VegetarianDiet') ?? false;
-_dbAnyDiet = prefs.getBool('AnyDiet') ?? false;
-_dbResetDietValue = prefs.getBool('Reset') ?? false;
-_dietPreferences = prefs.getString('dietPreferences') ?? '';
+var _dbDiabeticDiet = prefs.getBool('DiabeticDiet') ?? false;
+var _dbFreshDiet = prefs.getBool('FreshDiet') ?? false;
+var _dbHalalDiet = prefs.getBool('HalalDiet') ?? false;
+var _dbHealthyNotVegetDiet = prefs.getBool('HealthyNotVegetDiet') ?? false;
+var _dbKosherDiet = prefs.getBool('KosherDiet') ?? false;
+var _dbPescatarianDiet = prefs.getBool('PescatarianDiet') ?? false;
+var _dbVeganDiet = prefs.getBool('VeganDiet') ?? false;
+var _dbVegetarianDiet = prefs.getBool('VegetarianDiet') ?? false;
+var _dbAnyDiet = prefs.getBool('AnyDiet') ?? false;
+var _dbResetDietValue = prefs.getBool('Reset') ?? false;
+var _dietPreferences = prefs.getString('dietPreferences') ?? '';
 
   // general values
-  _dbMatchDiet = prefs.getBool('MatchDiet') ?? false;
-  _dbMatchDensity = prefs.getBool('MatchDensity') ?? false;
-  _dbMatchCuisine = prefs.getBool('MatchCuisine') ?? false;
-  _dbGoodForCouples = prefs.getBool('GoodForCouples') ?? false;
-  _dbMatchPayment = prefs.getBool('MatchPayment') ?? false;
-  _dbReqRSVP = prefs.getBool('ReqRSVP') ?? false;
-  _dbGroups5Plus = prefs.getBool('Groups5Plus') ?? false;
-  _dbMatchBudget = prefs.getBool('MatchBudget') ?? false;
-  _dbWaitTime = prefs.getDouble('WaitTime') ?? 0.0;
-  _generalFeaturesPreferences = prefs.getString('generalFeaturesPreferences') ?? '';
+  var _dbMatchDiet = prefs.getBool('MatchDiet') ?? false;
+  var _dbMatchDensity = prefs.getBool('MatchDensity') ?? false;
+  var _dbMatchCuisine = prefs.getBool('MatchCuisine') ?? false;
+  var _dbGoodForCouples = prefs.getBool('GoodForCouples') ?? false;
+  var _dbMatchPayment = prefs.getBool('MatchPayment') ?? false;
+  var _dbReqRSVP = prefs.getBool('ReqRSVP') ?? false;
+  var _dbGroups5Plus = prefs.getBool('Groups5Plus') ?? false;
+  var _dbMatchBudget = prefs.getBool('MatchBudget') ?? false;
+  var _dbWaitTime = prefs.getDouble('WaitTime') ?? 0.0;
+  var _generalFeaturesPreferences = prefs.getString('generalFeaturesPreferences') ?? '';
 
   // local spot values
-  _dbLocallyOwned = prefs.getBool('LocallyOwned') ?? false;
-  _dbLocallySourced = prefs.getBool('LocallySourced') ?? false;
-  _dbAllLocalSpot = prefs.getBool('AnyLocalSpot') ?? false;
-  _dbResetLocalSpotValue = prefs.getBool('Reset') ?? false;
-  _localSpotPreferences = prefs.getString('localSpotPreferences') ?? '';
+var _dbLocallyOwned = prefs.getBool('LocallyOwned') ?? false;
+var _dbLocallySourced = prefs.getBool('LocallySourced') ?? false;
+var  _dbAllLocalSpot = prefs.getBool('AnyLocalSpot') ?? false;
+var  _dbResetLocalSpotValue = prefs.getBool('Reset') ?? false;
+var  _localSpotPreferences = prefs.getString('localSpotPreferences') ?? '';
 
   // location features values
-  _dbSpecials = prefs.getBool('Specials') ?? false;
-  _dbOutdoorSeating = prefs.getBool('OutdoorSeating') ?? false;
-  _dbRooftop = prefs.getBool('Rooftop') ?? false;
-  _dbCoverCharge = prefs.getBool('CoverCharge') ?? false;
-  _dbNoCoverCharge = prefs.getBool('NoCoverCharge') ?? false;
-  _dbParking = prefs.getBool('Parking') ?? false;
-  _dbLiveMusic = prefs.getBool('LiveMusic') ?? false;
-  _dbGames = prefs.getBool('Games') ?? false;
-  _dbCasual = prefs.getBool('Casual') ?? false;
-  _dbAccessibility = prefs.getBool('Accessibility') ?? false;
-  _dbCovid19Compliant = prefs.getBool('Covid19Compliant') ?? false;
-  _dbAnyLocalFeatures = prefs.getBool('AnyLocalFeatures') ?? false;
-  _dbResetLocationFeaturesValue = prefs.getBool('Reset') ?? false;
-  _locationFeaturesPreferences = prefs.getString('locationFeaturesPreferences') ?? '';
+var  _dbSpecials = prefs.getBool('Specials') ?? false;
+var  _dbOutdoorSeating = prefs.getBool('OutdoorSeating') ?? false;
+var  _dbRooftop = prefs.getBool('Rooftop') ?? false;
+var  _dbCoverCharge = prefs.getBool('CoverCharge') ?? false;
+var  _dbNoCoverCharge = prefs.getBool('NoCoverCharge') ?? false;
+var  _dbParking = prefs.getBool('Parking') ?? false;
+var  _dbLiveMusic = prefs.getBool('LiveMusic') ?? false;
+var  _dbGames = prefs.getBool('Games') ?? false;
+var  _dbCasual = prefs.getBool('Casual') ?? false;
+var  _dbAccessibility = prefs.getBool('Accessibility') ?? false;
+var  _dbCovid19Compliant = prefs.getBool('Covid19Compliant') ?? false;
+var  _dbAnyLocalFeatures = prefs.getBool('AnyLocalFeatures') ?? false;
+var  _dbResetLocationFeaturesValue = prefs.getBool('Reset') ?? false;
+var  _locationFeaturesPreferences = prefs.getString('locationFeaturesPreferences') ?? '';
 
   // payment values
-  _dbCash = prefs.getBool('Cash') ?? false;
-  _dbCreditDebit = prefs.getBool('CreditDebit') ?? false;
-  _dbApplePay = prefs.getBool('ApplePay') ?? false;
-  _dbGooglePay = prefs.getBool('GooglePay') ?? false;
-  _dbPayPal = prefs.getBool('PayPal') ?? false;
-  _dbCashApp = prefs.getBool('CashApp') ?? false;
-  _dbVenmo = prefs.getBool('Venmo') ?? false;
-  _dbCryptocurrency = prefs.getBool('Cryptocurrency') ?? false;
-  _dbAnyPayment = prefs.getBool('AnyPayment') ?? false;
-  _dbResetPaymentsValue = prefs.getBool('Reset') ?? false;
-  _paymentPreferences = prefs.getString('paymentPreferences') ?? '';
+var  _dbCash = prefs.getBool('Cash') ?? false;
+var  _dbCreditDebit = prefs.getBool('CreditDebit') ?? false;
+var  _dbApplePay = prefs.getBool('ApplePay') ?? false;
+var  _dbGooglePay = prefs.getBool('GooglePay') ?? false;
+var  _dbPayPal = prefs.getBool('PayPal') ?? false;
+var  _dbCashApp = prefs.getBool('CashApp') ?? false;
+var  _dbVenmo = prefs.getBool('Venmo') ?? false;
+var  _dbCryptocurrency = prefs.getBool('Cryptocurrency') ?? false;
+var  _dbAnyPayment = prefs.getBool('AnyPayment') ?? false;
+var  _dbResetPaymentsValue = prefs.getBool('Reset') ?? false;
+var  _paymentPreferences = prefs.getString('paymentPreferences') ?? '';
 
   // relationship values
-  _dbSingle = prefs.getBool('Single') ?? false;
-  _dbMarried = prefs.getBool('Married') ?? false;
-  _dbInARelationship = prefs.getBool('InARelationship') ?? false;
-  _dbAnyRelationship = prefs.getBool('AnyRelationship') ?? false;
-  _dbResetRelatValue = prefs.getBool('ResetRelationship') ?? false;
-  _relationshipPreferences = prefs.getString('Preferences') ?? '';
+var  _dbSingle = prefs.getBool('Single') ?? false;
+var  _dbMarried = prefs.getBool('Married') ?? false;
+var  _dbInARelationship = prefs.getBool('InARelationship') ?? false;
+var  _dbAnyRelationship = prefs.getBool('AnyRelationship') ?? false;
+var  _dbResetRelatValue = prefs.getBool('ResetRelationship') ?? false;
+var  _relationshipPreferences = prefs.getString('Preferences') ?? '';
 
   // radius values
-  _dbRadiusDistance = prefs.getDouble('RadiusDistance') ?? 0.0;
+var _dbRadiusDistance = prefs.getDouble('RadiusDistance') ?? 0.0;
   Place? _dbRadiusLocationDescription;
   Place _dbRadiusLatLong;
-  _radiusPreferences = prefs.getString('radiusPreferences') ?? '';
+var _radiusPreferences = prefs.getString('radiusPreferences') ?? '';
 
 
   // ambience and density values
-  _dbIntimate = prefs.getBool('Intimate') ?? false;
-  _dbAverageDensity = prefs.getBool('AverageDensity') ?? false;
-  _dbComfy = prefs.getBool('Comfy') ?? false;
-  _dbAboveAverageDensity = prefs.getBool('AboveAverageDensity') ?? false;
-  _dbPackedCrowds = prefs.getBool('PackedCrowds') ?? false;
-  _dbSocialDistance = prefs.getBool('SocialDistance') ?? false;
-  _dbAnyDensity = prefs.getBool('AnyDensity') ?? false;
-  _dbResetAmbiDensityValue = prefs.getBool('ResetDensity') ?? false;
-  _ambianceDensityPreferences = prefs.getString('ambianceDensityPreferences') ?? '';
+var  _dbIntimate = prefs.getBool('Intimate') ?? false;
+var  _dbAverageDensity = prefs.getBool('AverageDensity') ?? false;
+var  _dbComfy = prefs.getBool('Comfy') ?? false;
+var  _dbAboveAverageDensity = prefs.getBool('AboveAverageDensity') ?? false;
+var  _dbPackedCrowds = prefs.getBool('PackedCrowds') ?? false;
+var  _dbSocialDistance = prefs.getBool('SocialDistance') ?? false;
+var  _dbAnyDensity = prefs.getBool('AnyDensity') ?? false;
+var  _dbResetAmbiDensityValue = prefs.getBool('ResetDensity') ?? false;
+var  _ambianceDensityPreferences = prefs.getString('ambianceDensityPreferences') ?? '';
 
 
     _budgetPreferences = '';
@@ -354,7 +354,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbNotifyPriceDec == true) {
       _budgetPreferences += 'Notify me of price decreases in plans ';
     }
-    prefs.setString('budgetPreferences', _budgetPreferences!);
+    prefs.setString('budgetPreferences', _budgetPreferences);
 
     _commutePreferences = '';
     if (_dbRideShare == true) {
@@ -378,9 +378,9 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyCommute == true) {
       _commutePreferences = 'All';
     }
-    prefs.setString('commutePreferences', _commutePreferences!);
+    prefs.setString('commutePreferences', _commutePreferences);
 
-    _cuisinePreferences = '';
+  _cuisinePreferences = '';
     if (_dbAfricanCuisine == true) {
       _cuisinePreferences += 'African, ';
     }
@@ -453,7 +453,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyCuisine == true) {
       _cuisinePreferences = 'All';
     }
-    prefs.setString('cuisinePreferences', _cuisinePreferences!);
+    prefs.setString('cuisinePreferences', _cuisinePreferences);
 
     _healthCovidPreferences = '';
     if (_dbNoContactPay == true) {
@@ -483,7 +483,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyHealthCovid == true) {
       _healthCovidPreferences = 'All';
     }
-    prefs.setString('healthCovidPreferences', _healthCovidPreferences!);
+    prefs.setString('healthCovidPreferences', _healthCovidPreferences);
 
     _dietPreferences = '';
     if (_dbDiabeticDiet == true) {
@@ -513,7 +513,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyDiet == true) {
       _dietPreferences = 'All';
     }
-    prefs.setString('dietPreferences', _dietPreferences!);
+    prefs.setString('dietPreferences', _dietPreferences);
 
 
     _generalFeaturesPreferences = '';
@@ -523,7 +523,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbMatchDensity == true) {
       _generalFeaturesPreferences += 'Match my density and _ambiance, ';
     }
-    if (_dbMatchCuisine == true) {
+    if  (_dbMatchCuisine == true) {
       _generalFeaturesPreferences += 'Match my Cuisine, ';
     }
     if (_dbMatchDiet == true) {
@@ -547,7 +547,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbWaitTime != null) {
       _generalFeaturesPreferences += 'Wait time: $_dbWaitTime minutes ';
     }
-    prefs.setString('generalFeaturesPreferences', _generalFeaturesPreferences!);
+    prefs.setString('generalFeaturesPreferences', _generalFeaturesPreferences);
 
     _localSpotPreferences = '';
     if (_dbLocallySourced == true) {
@@ -559,7 +559,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAllLocalSpot == true) {
       _localSpotPreferences = 'All';
     }
-    prefs.setString('localSpotPreferences', _localSpotPreferences!);
+    prefs.setString('localSpotPreferences', _localSpotPreferences);
     
     _locationFeaturesPreferences = '';
     if (_dbSpecials == true) {
@@ -601,7 +601,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbResetLocationFeaturesValue == true){
       _dbResetLocationFeaturesValue == 'All';
     }
-    prefs.setString('locationFeaturesPreferences', _locationFeaturesPreferences!);
+    prefs.setString('locationFeaturesPreferences', _locationFeaturesPreferences);
     
     _paymentPreferences = '';
     if (_dbCash == true) {
@@ -631,7 +631,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyPayment == true) {
       _paymentPreferences = 'All';
     }
-    prefs.setString('paymentPreferences', _paymentPreferences!);
+    prefs.setString('paymentPreferences', _paymentPreferences);
 
     _relationshipPreferences = '';
     if (_dbSingle == true) {
@@ -647,7 +647,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
       _relationshipPreferences = 'All';
     }
 
-    prefs.setString('relationshipPreferences', _relationshipPreferences!);
+    prefs.setString('relationshipPreferences', _relationshipPreferences);
 
     _radiusPreferences = '';
     if (_dbRadiusDistance != null) {
@@ -656,7 +656,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbRadiusLocationDescription != null) {
       _radiusPreferences += '$_dbRadiusLocationDescription ';
     }
-    prefs.setString('radiusPreferences', _radiusPreferences!);
+    prefs.setString('radiusPreferences', _radiusPreferences);
 
     _ambianceDensityPreferences = '';
     if (_dbIntimate == true) {
@@ -680,7 +680,7 @@ _dietPreferences = prefs.getString('dietPreferences') ?? '';
     if (_dbAnyDensity == true) {
       _ambianceDensityPreferences = 'All';
     }
-    prefs.setString('ambianceDensityPreferences', _ambianceDensityPreferences!);
+    prefs.setString('ambianceDensityPreferences', _ambianceDensityPreferences);
 
     multiplePlansPreferences = '';
     if (_dbMultiplePlans == true) {
