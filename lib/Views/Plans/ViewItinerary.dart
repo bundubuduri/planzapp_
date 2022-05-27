@@ -28,7 +28,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
   var descriptionEditing = false;
   final priceTextFieldController = TextEditingController();
   var priceEditing = false;
-  var allUsers = List<dynamic>();
+  var allUsers = <dynamic>[];
 
   @override
   void initState(){
@@ -38,7 +38,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
 
   Widget listUsers(List<dynamic> strings)
   {
-    List<Widget> list = new List<Widget>();
+    List<Widget> list = <Widget>[];
 
     for(var i = strings.length - 1; i > -1; i--){
       String userID = strings[i];
@@ -65,7 +65,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
 
   Widget listPlaces(List<dynamic> strings)
   {
-    List<Widget> list = new List<Widget>();
+    List<Widget> list = <Widget>[];
 
     for(var i = strings.length - 1; i > -1; i--){
       String placeName = strings[i].split("&")[2].split(",")[0];
@@ -135,7 +135,7 @@ class _ViewItineraryState extends State<ViewItinerary> {
 
   Widget listPlacesDetails(List<dynamic> strings)
   {
-    List<Widget> list = new List<Widget>();
+    List<Widget> list = <Widget>[];
 
     for(var i = strings.length - 1; i > -1; i--){
       String placeName = strings[i].split("&")[2].split(",")[0];
